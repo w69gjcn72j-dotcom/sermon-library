@@ -1,0 +1,14 @@
+{
+  "name": "指向耶稣的七颗星星",
+  "short_name": "七颗星星",
+  "start_url": "seven-stars-cn.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#101838",
+  "theme_color": "#101838",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
