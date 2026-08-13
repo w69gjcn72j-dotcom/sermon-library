@@ -1,7 +1,7 @@
 {
   "name": "Seek & Find — Sermon Library",
   "short_name": "Seek & Find",
-  "start_url": "./index.html",
+  "start_url": "./library.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0e1a2b",
