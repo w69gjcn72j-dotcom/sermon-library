@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Daily Devotions — St Paul's Anglican Kogarah</title>
+<link rel="apple-touch-icon" sizes="180x180" href="dd-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="dd-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="dd-icon-512.png">
+<link rel="manifest" href="daily-devotions.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Daily Devotions">
+<meta name="application-name" content="Daily Devotions">
+<meta name="theme-color" content="#0e1a2b">
+<meta name="description" content="Daily Bible devotions following Sunday's sermon at St Paul's Anglican Church Kogarah.">
+<meta property="og:title" content="Daily Devotions — St Paul's Anglican Kogarah">
+<meta property="og:description" content="Six days of Bible reading, reflection and prayer, following Sunday's sermon.">
+<meta property="og:image" content="dd-icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --night: #0e1a2b; --night-soft: #142339; --night-card: #1a2c47;
+    --brass: #d4a253; --brass-soft: #b08539; --cream: #f5ead4; --cream-dim: #c9bfa8;
+    --sage: #88a899; --rose: #d97a6c;
+    --line: rgba(212,162,83,0.18); --line-strong: rgba(212,162,83,0.42);
+    --shell: min(760px, 100%);
+  }
+  html { font-size: 18px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    background: var(--night); color: var(--cream);
+    min-height: 100vh; line-height: 1.65; overflow-x: hidden; position: relative;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(245,234,212,0.45), transparent),
+      radial-gradient(1px 1px at 78% 9%, rgba(245,234,212,0.35), transparent),
+      radial-gradient(1.5px 1.5px at 42% 32%, rgba(212,162,83,0.5), transparent),
+      radial-gradient(1px 1px at 89% 64%, rgba(245,234,212,0.4), transparent),
+      radial-gradient(1px 1px at 23% 73%, rgba(245,234,212,0.35), transparent),
+      radial-gradient(1.5px 1.5px at 60% 88%, rgba(212,162,83,0.45), transparent),
+      radial-gradient(1px 1px at 33% 51%, rgba(245,234,212,0.28), transparent),
+      radial-gradient(1px 1px at 95% 36%, rgba(245,234,212,0.35), transparent);
+  }
+  body::after {
+    content: ''; position: fixed; top: -220px; left: 50%; transform: translateX(-50%);
+    width: 820px; height: 520px; z-index: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(212,162,83,0.13), transparent 65%);
+  }
+  .shell { position: relative; z-index: 1; width: var(--shell); margin: 0 auto; padding: 0 1.25rem; }
+
+  /* ---- top bar ---- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(14,26,43,0.86); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top);
+  }
+  .topbar-in {
+    width: var(--shell); margin: 0 auto; padding: 0.7rem 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .brandmark { display: flex; align-items: center; gap: 0.55rem; margin-right: auto; min-width: 0; }
+  .brandmark svg { width: 26px; height: 26px; flex: none; }
+  .brandmark b {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 0.98rem;
+    letter-spacing: 0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  select.week {
+    font: inherit; font-size: 0.82rem; color: var(--cream);
+    background: var(--night-card); border: 1px solid var(--line-strong);
+    border-radius: 999px; padding: 0.35rem 0.7rem; max-width: 42vw;
+  }
+  .btn {
+    font: inherit; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--night); background: var(--brass); border: 0;
+    border-radius: 999px; padding: 0.4rem 0.95rem; cursor: pointer; white-space: nowrap;
+    transition: background 0.18s, transform 0.18s;
+  }
+  .btn:hover { background: #e5b76b; }
+  .btn:active { transform: scale(0.96); }
+  .btn.ghost { background: transparent; color: var(--brass); border: 1px solid var(--line-strong); }
+  .btn.ghost:hover { background: rgba(212,162,83,0.1); }
+  .btn[disabled] { opacity: 0.3; pointer-events: none; }
+
+  /* ---- hero ---- */
+  header.hero { padding: 2.6rem 0 1.8rem; text-align: center; }
+  .eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--brass); margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  }
+  .eyebrow::before, .eyebrow::after { content: ''; height: 1px; width: 32px; background: var(--brass-soft); opacity: 0.6; }
+  header.hero h1 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(2rem, 7vw, 3rem); line-height: 1.12; letter-spacing: -0.01em;
+  }
+  .hero-sub { margin-top: 0.55rem; color: var(--brass); font-size: 1.02rem; letter-spacing: 0.02em; }
+  .hero-dates { margin-top: 0.2rem; color: var(--cream-dim); font-size: 0.88rem; }
+  .bigidea {
+    margin: 1.6rem auto 0; max-width: 620px; text-align: left;
+    background: var(--night-soft); border: 1px solid var(--line);
+    border-radius: 14px; padding: 1.05rem 1.2rem;
+    font-family: 'Fraunces', Georgia, serif; font-size: 1.02rem; line-height: 1.55;
+  }
+  .bigidea b { color: var(--brass); font-weight: 600; }
+  details.howto { margin: 0.85rem auto 0; max-width: 620px; text-align: left; }
+  details.howto summary {
+    cursor: pointer; list-style: none; color: var(--brass);
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  details.howto summary::-webkit-details-marker { display: none; }
+  details.howto summary::after { content: ' ▾'; }
+  details.howto[open] summary::after { content: ' ▴'; }
+  details.howto p { margin-top: 0.6rem; color: var(--cream-dim); font-size: 0.94rem; }
+
+  /* ---- day rail ---- */
+  .rail-wrap {
+    position: sticky; top: calc(env(safe-area-inset-top) + 3.05rem); z-index: 15;
+    background: rgba(14,26,43,0.9); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line); margin-top: 1.4rem;
+  }
+  .rail {
+    width: var(--shell); margin: 0 auto; padding: 0.6rem 1.25rem;
+    display: flex; gap: 0.45rem; overflow-x: auto; scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail button {
+    font: inherit; font-size: 0.8rem; flex: none; cursor: pointer;
+    background: var(--night-card); color: var(--cream-dim);
+    border: 1px solid transparent; border-radius: 999px;
+    padding: 0.42rem 0.9rem; transition: 0.18s; position: relative;
+  }
+  .rail button:hover { color: var(--cream); border-color: var(--line); }
+  .rail button[aria-current="true"] {
+    background: var(--brass); color: var(--night); font-weight: 600; border-color: var(--brass);
+  }
+  .rail button.done::after {
+    content: '✓'; position: absolute; top: -3px; right: -1px;
+    font-size: 0.62rem; width: 14px; height: 14px; line-height: 14px;
+    border-radius: 50%; background: var(--sage); color: var(--night); font-weight: 700;
+  }
+  .rail button.today-dot { box-shadow: inset 0 0 0 1px var(--line-strong); }
+
+  /* ---- day panel ---- */
+  main { padding: 2rem 0 3rem; }
+  .day { animation: rise 0.35s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .day-no { font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--brass); }
+  .day h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-size: clamp(1.7rem, 5.6vw, 2.3rem); line-height: 1.18; margin-top: 0.35rem;
+  }
+  .day-date { color: var(--cream-dim); font-size: 0.88rem; margin-top: 0.3rem; }
+  .readref {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.1rem;
+    background: rgba(212,162,83,0.1); border: 1px solid var(--line-strong);
+    border-radius: 999px; padding: 0.42rem 1rem;
+    color: var(--brass); font-size: 0.94rem; font-weight: 500;
+  }
+  .readref svg { width: 15px; height: 15px; flex: none; }
+  .prose { margin-top: 1.3rem; }
+  .prose p { margin-bottom: 1rem; font-size: 1.04rem; }
+  .prose p:last-child { margin-bottom: 0; }
+
+  .block { margin-top: 1.6rem; border-radius: 14px; padding: 1.1rem 1.25rem; }
+  .block h3 {
+    font-family: 'Inter Tight', sans-serif; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .pray { background: var(--night-soft); border: 1px solid var(--line); border-left: 3px solid var(--brass); }
+  .pray h3 { color: var(--brass); }
+  .pray p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.03rem; line-height: 1.6; }
+  .three { background: rgba(136,168,153,0.09); border: 1px solid rgba(136,168,153,0.28); border-left: 3px solid var(--sage); }
+  .three h3 { color: var(--sage); }
+  .three p { color: var(--cream-dim); font-size: 0.97rem; }
+  .reflect { background: var(--night-card); border: 1px solid var(--line); }
+  .reflect h3 { color: var(--rose); }
+  .reflect p { font-size: 1.03rem; }
+
+  .markrow { margin-top: 1.7rem; display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+  .navrow { margin-top: 1.2rem; display: flex; gap: 0.6rem; }
+  .navrow .btn { flex: 1; text-align: center; padding: 0.6rem 1rem; font-size: 0.9rem; }
+
+  .prog { margin-top: 2.4rem; text-align: center; color: var(--cream-dim); font-size: 0.82rem; }
+  .prog .bar { height: 4px; border-radius: 999px; background: var(--night-card); margin: 0.55rem auto 0; max-width: 260px; overflow: hidden; }
+  .prog .bar i { display: block; height: 100%; background: var(--brass); transition: width 0.4s; }
+
+  footer {
+    position: relative; z-index: 1; margin-top: 2.5rem; padding: 2rem 1.25rem 2.6rem;
+    border-top: 1px solid var(--line); text-align: center;
+    color: var(--cream-dim); font-size: 0.86rem; line-height: 1.85;
+  }
+  footer a { color: var(--brass); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .sdg { display: block; margin-top: 0.9rem; font-family: 'Fraunces', Georgia, serif; font-style: italic; color: var(--brass-soft); }
+
+  @media (max-width: 420px) {
+    html { font-size: 17px; }
+    .brandmark b { font-size: 0.9rem; }
+  }
+
+  /* ---- print: the whole week ---- */
+  @media print {
+    body { background: #fff; color: #111; }
+    body::before, body::after, .topbar, .rail-wrap, .markrow, .navrow, .prog, .btn { display: none !important; }
+    .shell { width: 100%; padding: 0; }
+    .day { display: block !important; page-break-after: always; animation: none; }
+    .day h2, header.hero h1 { color: #3a2a10; }
+    .block, .bigidea { border: 1px solid #bbb !important; background: #fafafa !important; }
+    .day-no, .readref, .pray h3 { color: #7a5a18 !important; }
+    .readref { border-color: #bbb; }
+    .three h3 { color: #3f5a4c !important; }
+    .reflect h3 { color: #8a3f33 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="brandmark">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 8c4-2 8-2 12 0 4-2 8-2 12 0v17c-4-2-8-2-12 0-4-2-8-2-12 0V8z"
+              fill="none" stroke="#d4a253" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M16 8v17" fill="none" stroke="#d4a253" stroke-width="1.6"/>
+        <circle cx="16" cy="4" r="1.6" fill="#f5ead4"/>
+      </svg>
+      <b>Daily Devotions</b>
+    </span>
+    <select class="week" id="weekSel" aria-label="Choose a week"></select>
+    <button class="btn" id="todayBtn" type="button">Today</button>
+  </div>
+</div>
+
+<div class="shell">
+  <header class="hero">
+    <p class="eyebrow">St Paul's Anglican Kogarah</p>
+    <h1 id="wTitle"></h1>
+    <p class="hero-sub" id="wPassage"></p>
+    <p class="hero-dates" id="wDates"></p>
+    <div class="bigidea"><b>Big idea &middot; </b><span id="wIdea"></span></div>
+    <details class="howto">
+      <summary>How to use this</summary>
+      <p id="wHow"></p>
+    </details>
+  </header>
+</div>
+
+<div class="rail-wrap"><div class="rail" id="rail" role="tablist" aria-label="Days of the week"></div></div>
+
+<div class="shell">
+  <main id="days"></main>
+
+  <div class="prog">
+    <span id="progText"></span>
+    <span class="bar"><i id="progBar" style="width:0%"></i></span>
+  </div>
+</div>
+
+<footer>
+  Rev David Yung &middot; St Paul's Anglican Church Kogarah<br>
+  <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a> &middot; (02) 9587 5951<br>
+  <a href="index.html">Seek &amp; Find sermon library</a> &middot;
+  <a href="seven-stars.html">Seven Stars</a> &middot;
+  <a href="#" onclick="window.print();return false;">Print the week</a>
+  <span class="sdg">Soli Deo Gloria</span>
+</footer>
+
+<script>
+/* ==========================================================================
+   DEVOTION DATA
+   --------------------------------------------------------------------------
+   To add a new week, copy one WEEKS entry and edit it. Nothing else changes.
+
+     id      unique slug, used in the #hash link and to save progress
+     title   the series title (usually the sermon title)
+     passage the passage the week works through
+     start   Monday of that week, "YYYY-MM-DD" — the app uses it to find today
+     idea    the sermon's big idea, one sentence
+     how     the "how to use" note
+     days[]  one entry per day, in order:
+               t     day title
+               read  Bible reading reference (reference only)
+               body  array of paragraphs
+               pray  the written prayer, including that day's Checkpoint
+               ask   the reflection question
+     three   the standing reminder printed under every prayer that week
+   ========================================================================== */
+
+const WEEKS = [
+{
+  id: "romans4",
+  title: "Hope Against Hope",
+  passage: "Romans 4:1–25",
+  start: "2026-08-10",
+  idea: "Be fully and joyfully convinced, hoping against hope, in the God who credits righteousness to those who trust in him who raised Jesus our Lord from the dead.",
+  how: "Each day, find a quiet ten minutes. Read the short Bible passage slowly (CSB if you can), then the reflection, which follows Sunday's sermon through the passage a few verses at a time. Pray the written prayer in your own words, and sit with the question before you get on with your day. Six days, Monday to Saturday, so that Sunday's word is still working on you when the next Sunday comes. Each day carries one of our six church Checkpoints in its prayer — by Saturday you will have prayed for them all.",
+  three: "And as every day this week: pray for your three friends who aren't Christians yet — that God's kindness would lead them to repentance, and that God would give you an opportunity to point one of them to Jesus.",
+  days: [
+    {
+      t: "Who Gets the Credit?",
+      read: "Romans 4:1–5 (CSB)",
+      body: [
+        "Once upon a time, television shows rolled their credits before the show began — actors, director, producers, hair stylists, assistants — because a lot of people had worked hard to make it happen. Then the credits moved to the end. Then they were sped up. Now, before they even start, you have already pressed the link to the next video. Who really cares about the credits?",
+        "In Romans 4 someone gets credited — and more impressive than the person credited is the Person doing the crediting. It is God himself. And the man he credits is Abraham.",
+        "Paul asks what Abraham “found”. It is a lovely word: Abraham discovered something. He discovered he had nothing to boast about before God. Not before people either. For most of his life before he was seventy-five he was an idol worshipper, and he lied more than once to save his own skin — even when it put his wife at risk. Some Jewish teachers held him up as the man who kept the law before the law was given. Abraham himself knew better.",
+        "Instead, “Abraham believed God, and it was credited to him for righteousness” (v.3). Verse 4 draws the line: wages are owed, gifts are given. Nobody writes a thank-you card to their employer for their salary. And no guest at your birthday hands you an invoice for your present — if they did, they were never really your friend. Wages are not gifts, and gifts are not wages.",
+        "So stop asking, “What have I achieved for God?” and start asking, “What has God credited to me in Christ?”"
+      ],
+      pray: "Father, I have been quietly keeping a record of my own good work and hoping it counts for something with you. Forgive me. Teach me to receive your righteousness as the gift it is, given in Jesus and never earned. And as we seek to grow three mid-week Growth Groups, raise up the leaders, open the homes, and gather the people, so that more of us learn to live by faith together. Amen.",
+      ask: "Where are you still trying to hand God an invoice — treating some part of your obedience as though he owes you for it?"
+    },
+    {
+      t: "The Drive Is Gone",
+      read: "Romans 4:6–8 (CSB)",
+      body: [
+        "Paul brings a second witness, and it is not a man you would choose as a character reference. It is King David — adulterer, liar, and the arranger of a good man's death. David sings, “Blessed are those whose lawless acts are forgiven and whose sins are covered. Blessed is the person the Lord will never charge with sin” (vv.7–8, quoting Psalm 32).",
+        "To be blessed is to be happy — happy because God is happy with you. Your sins are covered. God will not revisit them.",
+        "Imagine a USB drive holding the evidence of the thing you are most ashamed of. An outright lie. A plan to bring somebody down. As long as that drive exists you are never quite at ease; there is proof of your guilt sitting in somebody's drawer. Now imagine the Supreme Judge walks over, takes the drive, and tells you that you never need to think about it again. Someone else has been sentenced for what you did. You are free to go. The drive is gone, forever.",
+        "You can doubt the Judge and refuse the news. Or you can trust what he has said and finally breathe.",
+        "That is not the Judge being soft. God says in Exodus 23:7 that he will not justify the guilty, and he does not — he justifies the guilty by putting forward Jesus as the atoning sacrifice for our sin (3:25). The cost was paid; it simply was not paid by you.",
+        "As Origen put it long ago, “faith relies on the grace of the justifier, works rely on the justice of the rewarder.” Which are you relying on today? Let the relief of being forgiven turn into the joy David is singing about."
+      ],
+      pray: "Father, thank you that in Christ my sin is covered and you will never charge me with it again. Turn my relief into song. Make me a person who tells others what you have done rather than what I have done. And please give us six additional qualified helpers for KOGKids, KOGMini and KOGYouth — people who know they are forgiven, and who will teach our children and young people to know it too. Amen.",
+      ask: "What is the sin you keep re-opening even though God has closed the file? What would it look like to thank him for it instead?"
+    },
+    {
+      t: "Father of All Who Believe",
+      read: "Romans 4:9–12 (CSB)",
+      body: [
+        "Paul now asks a question about timing, and the answer is worth more than it first looks. Was Abraham credited with righteousness before or after he was circumcised? Before — by many years. Circumcision came afterwards, as a seal on a righteousness he already had by faith. He was not circumcised in order to be righteous; he trusted God, was counted righteous, and then was circumcised.",
+        "Which makes Abraham the father of two kinds of people who are really one kind: those who are not Jewish but trust the Lord Jesus, and those who are Jewish and also walk in the footsteps of their father's faith. Abraham is father to everyone who trusts God — not by blood, but by faith.",
+        "That has a very practical shape at Kogarah. If God credits righteousness to the ungodly who trust him, then our invitation to the five hundred households within ten minutes of our building can never be limited to people who have sorted their lives out. We welcome the messy, the imperfect, the ones who do not look or sound like us — because God welcomed us. If God has taken us into his family, we dare not turn anyone away or let anyone feel unwelcome.",
+        "That is exactly what the Welcome to Life ministry is for, and why we have set up the Discover course and the Welcome Tent. Come as the ungodly, and be counted righteous in Christ.",
+        "It also means we will never congratulate ourselves on our attendance or how smoothly we run. We believe in the God who declares the ungodly righteous, and we simply long to see him declare more of them righteous in Jesus."
+      ],
+      pray: "Father, you welcomed me before I had anything to show you. Make our church a place where nobody is turned away and nobody is left feeling unwelcome. Bless our Father's Day celebration, “A Father's Invitation” — give us courage to invite, give our guests ears to hear, and make many of them children of Abraham by faith in Jesus. Amen.",
+      ask: "Who would feel out of place if they walked into our church this Sunday — and what will you personally do about it?"
+    },
+    {
+      t: "Steps of Conviction",
+      read: "Romans 4:13–17a (CSB)",
+      body: [
+        "Lleyton Hewitt was the last Australian man to hold the world number one ranking in tennis, almost twenty-five years ago now, and his trademark was that hand to the head and a shouted “C'mon”. Twenty-five years later his son Cruz plays too — and when he wins a big point, he does the same “C'mon”. He is telling everyone whose footsteps he is walking in.",
+        "Paul says God's promise never ran along the track of law-keeping. “If those who are of the law are heirs, faith is made empty and the promise nullified, because the law produces wrath” (vv.14–15). The law is good; it shows us when we have stepped over the line. But that is bad news for people who cross the line all the time. The law shows how bad we are, and in doing so it shows how good God is to promise righteousness by faith.",
+        "Do not mistake faith for an easier alternative — as though the law was too hard, so God lowered the bar to something simpler called believing. Even our faith comes from God. We can no more manufacture trust in God than we can keep his law perfectly. And trusting God fully is far harder than relying on ourselves, because we are always tempted to keep a little credit, a little glory, for ourselves. That is not faith. Faith trusts that God has done everything, gives him all the credit, and tells people that he is the one we glory in.",
+        "Abraham waited years for glimpses of what God had promised. Anyone with worldly sense would have called him a fool. He walked with conviction anyway. So do we."
+      ],
+      pray: "Father, I am slow to give you all the credit and quick to keep a little for myself. Strip that from me, and let me walk in the steps of father Abraham with conviction, even when I am thought a fool for it. And please provide four new accompanists for our Chinese Parallel congregation — raise them up, give them willing hearts and skilful hands, so that your people can sing your praise. Amen.",
+      ask: "Where has trusting God recently made you look foolish to people who are wise by the world's measure — and did you keep walking?"
+    },
+    {
+      t: "Hope Against Hope",
+      read: "Romans 4:17b–21 (CSB)",
+      body: [
+        "Here is the God Abraham believed in: “the one who gives life to the dead and calls things into existence that do not exist” (v.17). If God has promised something, that thing will happen. Even when there is no hope at all from where we are standing, if it is God's will there is always hope — and that hope is sure.",
+        "Which is just as well, because Abraham was facing the deadness of his own ninety-nine-year-old body and the deadness of Sarah's womb (v.19). There was no denying it. It would be like a ninety-nine-year-old man leaving his nursing home to find a bride in another nursing home, and then house-hunting near a preschool. Nobody does that, because it does not happen.",
+        "“He did not waver in unbelief at God's promise but was strengthened in his faith and gave glory to God” (v.20). Everything Abraham had ever been taught about bodies and babies said no. He held on to one thing above all else: he was “fully convinced that what God had promised, he was also able to do” (v.21). That is what faith looks like — not merely knowing facts about God, but being so convinced by his promises that you hope against hope.",
+        "Michael Ryman's grandmother Irene walked that way. A condition made pregnancy dangerous for her, and when she was carrying Michael's father Stephen, doctors urged her to end it. She could have put her own safety first. She was convinced that following God mattered more than even her own life.",
+        "You will not always see the promise arrive on your timetable. Give glory to God before it does."
+      ],
+      pray: "Father, you give life to the dead and call into existence things that do not exist. Where I can see no way, keep me from wavering, and let me give you glory before I see anything at all. We ask you for the growth of our church to seventy-five households by the end of this year — not for our name, but so that more people are credited with righteousness in Jesus. Amen.",
+      ask: "What are you praying for that looks, humanly speaking, already dead? Will you keep asking, and give God glory now?"
+    },
+    {
+      t: "Raised for Your Justification",
+      read: "Romans 4:22–25 (CSB)",
+      body: [
+        "The best news in the chapter is that the crediting did not stop with Abraham. “It was credited to him was not written for Abraham alone, but also for us. It will be credited to us who believe in him who raised Jesus our Lord from the dead” (vv.23–24). The same God, the same crediting, the same empty hands — only now the promise has a name and a face.",
+        "Verse 25 sums up everything we believe about him: “He was delivered up for our trespasses and raised for our justification.” God himself handed Jesus over to pay for our sin, and raised him so that our standing before God would be beyond question. Because Jesus is risen, your justification is sure.",
+        "But how do you know your faith is real? In Abraham's case, his faith grew when it was tested. That is the test. Real faith deepens under the trials of life. If your trust in God grows when things are hard, that is an assurance that it is genuine. If you quit when it gets tough, or the trials make you turn on God, that is a warning. As the commentator Douglas Moo puts it, faith grows strong the way muscles do — by overcoming opposition.",
+        "This is why, of our seven G7 departments, Grow is matched with the musculo-skeletal system: KOGKids, home groups, online groups, Bible reading, discipleship. These are not places to collect Bible facts — any non-Christian can do that. They are places to exercise faith together, to share our struggles, and to ask others to pray and help.",
+        "So do not waver, and do not trust the goodness of your works either. In Jesus we live by faith, we die by faith, and we will rise by faith."
+      ],
+      pray: "Father, thank you that Jesus was delivered up for my trespasses and raised for my justification, so that my standing before you is settled. When trials come, grow my faith through them rather than letting me quit. And go ahead of us as we look towards our move to the new School hall in 2027 — prepare the place, prepare us, and gather in the people you have already chosen. Amen.",
+      ask: "Looking back over the last year, has opposition made your faith stronger or quieter — and who could you ask to help you grow?"
+    }
+  ]
+}
+];
+
+/* ========================================================================== */
+
+const DAYNAMES = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+
+const $ = id => document.getElementById(id);
+let wIdx = 0, dIdx = 0;
+
+function store(k, v) {
+  try {
+    if (v === undefined) return localStorage.getItem(k);
+    localStorage.setItem(k, v);
+  } catch (e) { /* private browsing — progress just won't persist */ }
+}
+
+function dateOf(week, i) {
+  const p = week.start.split("-").map(Number);
+  const d = new Date(p[0], p[1] - 1, p[2]);
+  d.setDate(d.getDate() + i);
+  return d;
+}
+function longDate(d) {
+  return DAYNAMES[(d.getDay() + 6) % 7] + " " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+}
+function shortRange(week) {
+  const a = dateOf(week, 0), b = dateOf(week, 5);
+  const am = MONTHS[a.getMonth()], bm = MONTHS[b.getMonth()];
+  return "Monday " + a.getDate() + (am === bm ? "" : " " + am) +
+         " – Saturday " + b.getDate() + " " + bm + " " + b.getFullYear();
+}
+function midnight(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); }
+
+/* which day index is "today", or -1 if we are outside the week */
+function todayIndex(week) {
+  const now = midnight(new Date());
+  for (let i = 0; i < week.days.length; i++) {
+    if (midnight(dateOf(week, i)) === now) return i;
+  }
+  return -1;
+}
+/* the week whose dates are nearest to today */
+function nearestWeek() {
+  const now = midnight(new Date());
+  let best = 0, bestGap = Infinity;
+  WEEKS.forEach((w, i) => {
+    const gap = Math.min(
+      Math.abs(midnight(dateOf(w, 0)) - now),
+      Math.abs(midnight(dateOf(w, 5)) - now)
+    );
+    if (gap < bestGap) { bestGap = gap; best = i; }
+  });
+  return best;
+}
+
+function doneKey(week, i) { return "dd:" + week.id + ":" + i; }
+function isDone(week, i) { return store(doneKey(week, i)) === "1"; }
+
+function buildWeekSelect() {
+  const sel = $("weekSel");
+  sel.innerHTML = "";
+  WEEKS.forEach((w, i) => {
+    const o = document.createElement("option");
+    o.value = i;
+    o.textContent = w.passage;
+    sel.appendChild(o);
+  });
+  sel.style.display = WEEKS.length > 1 ? "" : "none";
+}
+
+function renderWeek() {
+  const w = WEEKS[wIdx];
+  $("weekSel").value = wIdx;
+  $("wTitle").textContent = w.title;
+  $("wPassage").textContent = "Daily devotions in " + w.passage;
+  $("wDates").textContent = shortRange(w);
+  $("wIdea").textContent = w.idea;
+  $("wHow").textContent = w.how;
+  document.title = w.title + " — Daily Devotions";
+
+  const rail = $("rail");
+  rail.innerHTML = "";
+  const ti = todayIndex(w);
+  w.days.forEach((d, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("role", "tab");
+    b.textContent = DAYNAMES[i].slice(0, 3) + " · " + (i + 1);
+    b.title = d.t;
+    if (i === ti) b.classList.add("today-dot");
+    b.onclick = () => { dIdx = i; renderDay(); };
+    rail.appendChild(b);
+  });
+
+  const main = $("days");
+  main.innerHTML = "";
+  w.days.forEach((d, i) => {
+    const sec = document.createElement("article");
+    sec.className = "day";
+    sec.dataset.i = i;
+    sec.innerHTML =
+      '<p class="day-no">Day ' + (i + 1) + ' &middot; ' + DAYNAMES[i] + '</p>' +
+      '<h2></h2>' +
+      '<p class="day-date"></p>' +
+      '<span class="readref"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v14c-3-1.5-6-1.5-9 0-3-1.5-6-1.5-9 0V5z"/><path d="M12 5v14"/></svg><span class="rr"></span></span>' +
+      '<div class="prose"></div>' +
+      '<div class="block pray"><h3>Pray</h3><p class="pp"></p></div>' +
+      '<div class="block three"><h3>Every day this week</h3><p class="tt"></p></div>' +
+      '<div class="block reflect"><h3>Reflect</h3><p class="rf"></p></div>' +
+      '<div class="markrow"><button class="btn ghost mark" type="button"></button></div>' +
+      '<div class="navrow"><button class="btn ghost prev" type="button">&larr; Previous day</button>' +
+      '<button class="btn next" type="button">Next day &rarr;</button></div>';
+    sec.querySelector("h2").textContent = d.t;
+    sec.querySelector(".day-date").textContent = longDate(dateOf(w, i));
+    sec.querySelector(".rr").textContent = "Read " + d.read;
+    const pr = sec.querySelector(".prose");
+    d.body.forEach(t => { const p = document.createElement("p"); p.textContent = t; pr.appendChild(p); });
+    sec.querySelector(".pp").textContent = d.pray;
+    sec.querySelector(".tt").textContent = w.three;
+    sec.querySelector(".rf").textContent = d.ask;
+    sec.querySelector(".mark").onclick = () => {
+      store(doneKey(w, i), isDone(w, i) ? "0" : "1");
+      paint();
+    };
+    sec.querySelector(".prev").onclick = () => { if (dIdx > 0) { dIdx--; renderDay(); } };
+    sec.querySelector(".next").onclick = () => { if (dIdx < w.days.length - 1) { dIdx++; renderDay(); } };
+    main.appendChild(sec);
+  });
+}
+
+function renderDay() {
+  const w = WEEKS[wIdx];
+  dIdx = Math.max(0, Math.min(w.days.length - 1, dIdx));
+  [].forEach.call($("days").children, (sec, i) => { sec.style.display = i === dIdx ? "" : "none"; });
+  const cur = $("days").children[dIdx];
+  cur.style.animation = "none"; void cur.offsetWidth; cur.style.animation = "";
+  location.hash = w.id + "/" + (dIdx + 1);
+  paint();
+  const pill = $("rail").children[dIdx];
+  if (pill && pill.scrollIntoView) pill.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function paint() {
+  const w = WEEKS[wIdx];
+  let done = 0;
+  [].forEach.call($("rail").children, (b, i) => {
+    b.setAttribute("aria-current", i === dIdx ? "true" : "false");
+    b.classList.toggle("done", isDone(w, i));
+    if (isDone(w, i)) done++;
+  });
+  [].forEach.call($("days").children, (sec, i) => {
+    const btn = sec.querySelector(".mark");
+    btn.textContent = isDone(w, i) ? "✓ Read — mark as unread" : "Mark this day as read";
+    sec.querySelector(".prev").disabled = i === 0;
+    sec.querySelector(".next").disabled = i === w.days.length - 1;
+  });
+  const pct = Math.round(done / w.days.length * 100);
+  $("progText").textContent = done + " of " + w.days.length + " days read this week";
+  $("progBar").style.width = pct + "%";
+}
+
+function goToday() {
+  const near = nearestWeek();
+  if (near !== wIdx) { wIdx = near; renderWeek(); }
+  const ti = todayIndex(WEEKS[wIdx]);
+  dIdx = ti >= 0 ? ti : 0;
+  renderDay();
+}
+
+/* ---- boot ---- */
+buildWeekSelect();
+$("weekSel").onchange = e => { wIdx = +e.target.value; dIdx = 0; renderWeek(); renderDay(); };
+$("todayBtn").onclick = goToday;
+
+(function start() {
+  const h = decodeURIComponent(location.hash.replace(/^#/, ""));
+  const m = h.match(/^([^/]+)(?:\/(\d+))?$/);
+  const found = m ? WEEKS.findIndex(w => w.id === m[1]) : -1;
+  if (found > -1) {
+    wIdx = found;
+    renderWeek();
+    dIdx = m[2] ? +m[2] - 1 : 0;
+    renderDay();
+  } else {
+    wIdx = nearestWeek();
+    renderWeek();
+    goToday();
+  }
+})();
+
+document.addEventListener("keydown", e => {
+  if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)) return;
+  if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); dIdx++; renderDay(); }
+  if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); dIdx--; renderDay(); }
+});
+
+/* swipe between days on a phone */
+(function swipe() {
+  let x0 = null, y0 = null;
+  document.addEventListener("touchstart", e => {
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    const dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) {
+      dIdx += dx < 0 ? 1 : -1;
+      renderDay();
+    }
+    x0 = y0 = null;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
