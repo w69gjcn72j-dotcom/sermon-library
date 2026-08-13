@@ -189,6 +189,20 @@
   .navrow { margin-top: 1.2rem; display: flex; gap: 0.6rem; }
   .navrow .btn { flex: 1; text-align: center; padding: 0.6rem 1rem; font-size: 0.9rem; }
 
+  /* ---- whole-week view ---- */
+  body.showall .day { display: block !important; }
+  body.showall .day + .day { margin-top: 3rem; padding-top: 2.4rem; border-top: 1px solid var(--line); }
+  body.showall .navrow { display: none; }
+  body.printing .day { display: block !important; }
+
+  .tools { margin-top: 1.8rem; display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+  .tools .btn { font-size: 0.84rem; padding: 0.5rem 1.1rem; }
+  .tip {
+    margin: 0.75rem auto 0; max-width: 460px; text-align: center;
+    color: var(--cream-dim); font-size: 0.8rem; line-height: 1.5; display: none;
+  }
+  .tip.on { display: block; }
+
   .prog { margin-top: 2.4rem; text-align: center; color: var(--cream-dim); font-size: 0.82rem; }
   .prog .bar { height: 4px; border-radius: 999px; background: var(--night-card); margin: 0.55rem auto 0; max-width: 260px; overflow: hidden; }
   .prog .bar i { display: block; height: 100%; background: var(--brass); transition: width 0.4s; }
@@ -210,7 +224,7 @@
   /* ---- print: the whole week ---- */
   @media print {
     body { background: #fff; color: #111; }
-    body::before, body::after, .topbar, .rail-wrap, .markrow, .navrow, .prog, .btn { display: none !important; }
+    body::before, body::after, .topbar, .rail-wrap, .markrow, .navrow, .prog, .tools, .tip, .btn, footer { display: none !important; }
     .shell { width: 100%; padding: 0; }
     .day { display: block !important; page-break-after: always; animation: none; }
     .day h2, header.hero h1 { color: #3a2a10; }
@@ -259,6 +273,12 @@
 <div class="shell">
   <main id="days"></main>
 
+  <div class="tools">
+    <button class="btn ghost" id="allBtn" type="button">Read the whole week</button>
+    <button class="btn ghost" id="printBtn" type="button">Print / save as PDF</button>
+  </div>
+  <p class="tip" id="printTip"></p>
+
   <div class="prog">
     <span id="progText"></span>
     <span class="bar"><i id="progBar" style="width:0%"></i></span>
@@ -270,8 +290,7 @@
   <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a> &middot; (02) 9587 5951<br>
   <a href="./">All resources</a> &middot;
   <a href="library/">Seek &amp; Find</a> &middot;
-  <a href="seven-stars/">Seven Stars</a> &middot;
-  <a href="#" onclick="window.print();return false;">Print the week</a>
+  <a href="seven-stars/">Seven Stars</a>
   <span class="sdg">Soli Deo Gloria</span>
 </footer>
 
@@ -478,7 +497,16 @@ function renderWeek() {
     b.textContent = DAYNAMES[i].slice(0, 3) + " · " + (i + 1);
     b.title = d.t;
     if (i === ti) b.classList.add("today-dot");
-    b.onclick = () => { dIdx = i; renderDay(); };
+    b.onclick = () => {
+      dIdx = i;
+      if (document.body.classList.contains("showall")) {
+        const t = $("days").children[i];
+        if (t && t.scrollIntoView) t.scrollIntoView({ behavior: "smooth", block: "start" });
+        paint();
+      } else {
+        renderDay();
+      }
+    };
     rail.appendChild(b);
   });
 
@@ -558,10 +586,62 @@ function goToday() {
   renderDay();
 }
 
+/* ---- whole week on screen ---- */
+function showAll() { return document.body.classList.contains("showall"); }
+
+function setAll(on) {
+  document.body.classList.toggle("showall", on);
+  $("allBtn").textContent = on ? "Back to one day at a time" : "Read the whole week";
+  if (on) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    renderDay();
+  }
+}
+$("allBtn").onclick = () => setAll(!showAll());
+
+/* ---- print / save as PDF ----
+   window.print() is ignored by some browsers — notably a page added to an
+   iPhone home screen. So: open the whole week first (which is what people
+   actually want), then try to print, and if nothing happens say what to do. */
+function printWeek() {
+  const wasAll = showAll();
+  if (!wasAll) setAll(true);
+  document.body.classList.add("printing");
+
+  let fired = false;
+  const done = () => document.body.classList.remove("printing");
+  window.addEventListener("beforeprint", function onBefore() {
+    fired = true;
+    window.removeEventListener("beforeprint", onBefore);
+  });
+  window.addEventListener("afterprint", function onAfter() {
+    window.removeEventListener("afterprint", onAfter);
+    done();
+  });
+
+  let ok = true;
+  try {
+    if (typeof window.print === "function") window.print(); else ok = false;
+  } catch (e) { ok = false; }
+
+  setTimeout(() => {
+    if (!fired) done();
+    if (!ok || !fired) {
+      const tip = $("printTip");
+      tip.textContent = "If no print window appeared, all six days are now open above — " +
+        "use your browser's Share or File menu and choose Print (or Save as PDF). " +
+        "On an iPhone home-screen app, open this page in Safari first.";
+      tip.classList.add("on");
+    }
+  }, 1200);
+}
+$("printBtn").onclick = printWeek;
+
 /* ---- boot ---- */
 buildWeekSelect();
-$("weekSel").onchange = e => { wIdx = +e.target.value; dIdx = 0; renderWeek(); renderDay(); };
-$("todayBtn").onclick = goToday;
+$("weekSel").onchange = e => { wIdx = +e.target.value; dIdx = 0; setAll(false); renderWeek(); renderDay(); };
+$("todayBtn").onclick = () => { setAll(false); goToday(); };
 
 (function start() {
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
