@@ -1,0 +1,16 @@
+{
+  "name": "St Paul's Anglican Kogarah — Word & Prayer",
+  "short_name": "Word & Prayer",
+  "description": "Sermons, daily devotions and the Seven Stars from St Paul's Anglican Church Kogarah.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1a2b",
+  "theme_color": "#0e1a2b",
+  "icons": [
+    { "src": "hub-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "hub-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "hub-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
