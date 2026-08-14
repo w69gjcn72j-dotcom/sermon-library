@@ -1,0 +1,31 @@
+{
+  "name": "每日灵修 — 高嘉华圣保罗圣公会",
+  "short_name": "每日灵修",
+  "description": "跟随主日讲道的六天读经、反思与祷告。",
+  "start_url": "./daily-devotions-cn.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1a2b",
+  "theme_color": "#0e1a2b",
+  "icons": [
+    {
+      "src": "dd-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "dd-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "dd-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

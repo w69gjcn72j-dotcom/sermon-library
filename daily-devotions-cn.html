@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Daily Devotions — St Paul's Anglican Kogarah</title>
+<title>每日灵修 — 高嘉华圣保罗圣公会</title>
 <link rel="apple-touch-icon" sizes="180x180" href="dd-apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="dd-favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="dd-icon-512.png">
-<link rel="manifest" href="daily-devotions.webmanifest">
+<link rel="manifest" href="daily-devotions-cn.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Daily Devotions">
-<meta name="application-name" content="Daily Devotions">
+<meta name="apple-mobile-web-app-title" content="每日灵修">
+<meta name="application-name" content="每日灵修">
 <meta name="theme-color" content="#0e1a2b">
-<meta name="description" content="Daily Bible devotions following Sunday's sermon at St Paul's Anglican Church Kogarah.">
-<meta property="og:title" content="Daily Devotions — St Paul's Anglican Kogarah">
-<meta property="og:description" content="Six days of Bible reading, reflection and prayer, following Sunday's sermon.">
+<meta name="description" content="跟随主日讲道的每日读经灵修 — 高嘉华圣保罗圣公会。">
+<meta property="og:title" content="每日灵修 — 高嘉华圣保罗圣公会">
+<meta property="og:description" content="跟随主日讲道的六天读经、反思与祷告。">
 <meta property="og:image" content="dd-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
   }
   html { font-size: 18px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    font-family: 'Inter Tight', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter Tight', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
     background: var(--night); color: var(--cream);
     min-height: 100vh; line-height: 1.65; overflow-x: hidden; position: relative;
     padding-bottom: env(safe-area-inset-bottom);
@@ -70,7 +70,7 @@
   .brandmark { display: flex; align-items: center; gap: 0.55rem; margin-right: auto; min-width: 0; }
   .brandmark svg { width: 26px; height: 26px; flex: none; }
   .brandmark b {
-    font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 0.98rem;
+    font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-weight: 600; font-size: 0.98rem;
     letter-spacing: 0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
   select.week {
@@ -108,7 +108,7 @@
   }
   .eyebrow::before, .eyebrow::after { content: ''; height: 1px; width: 32px; background: var(--brass-soft); opacity: 0.6; }
   header.hero h1 {
-    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-weight: 600;
     font-size: clamp(2rem, 7vw, 3rem); line-height: 1.12; letter-spacing: -0.01em;
   }
   .hero-sub { margin-top: 0.55rem; color: var(--brass); font-size: 1.02rem; letter-spacing: 0.02em; }
@@ -117,7 +117,7 @@
     margin: 1.6rem auto 0; max-width: 620px; text-align: left;
     background: var(--night-soft); border: 1px solid var(--line);
     border-radius: 14px; padding: 1.05rem 1.2rem;
-    font-family: 'Fraunces', Georgia, serif; font-size: 1.02rem; line-height: 1.55;
+    font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-size: 1.02rem; line-height: 1.55;
   }
   .bigidea b { color: var(--brass); font-weight: 600; }
   details.howto { margin: 0.85rem auto 0; max-width: 620px; text-align: left; }
@@ -164,7 +164,7 @@
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   .day-no { font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--brass); }
   .day h2 {
-    font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+    font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-weight: 600;
     font-size: clamp(1.7rem, 5.6vw, 2.3rem); line-height: 1.18; margin-top: 0.35rem;
   }
   .day-date { color: var(--cream-dim); font-size: 0.88rem; margin-top: 0.3rem; }
@@ -181,12 +181,12 @@
 
   .block { margin-top: 1.6rem; border-radius: 14px; padding: 1.1rem 1.25rem; }
   .block h3 {
-    font-family: 'Inter Tight', sans-serif; font-size: 0.72rem; font-weight: 600;
+    font-family: 'Inter Tight', 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 0.6rem;
   }
   .pray { background: var(--night-soft); border: 1px solid var(--line); border-left: 3px solid var(--brass); }
   .pray h3 { color: var(--brass); }
-  .pray p { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.03rem; line-height: 1.6; }
+  .pray p { font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-style: italic; font-size: 1.03rem; line-height: 1.6; }
   .three { background: rgba(136,168,153,0.09); border: 1px solid rgba(136,168,153,0.28); border-left: 3px solid var(--sage); }
   .three h3 { color: var(--sage); }
   .three p { color: var(--cream-dim); font-size: 0.97rem; }
@@ -223,7 +223,7 @@
   }
   footer a { color: var(--brass); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
-  footer .sdg { display: block; margin-top: 0.9rem; font-family: 'Fraunces', Georgia, serif; font-style: italic; color: var(--brass-soft); }
+  footer .sdg { display: block; margin-top: 0.9rem; font-family: 'Fraunces', 'Songti SC', 'STSong', Georgia, serif; font-style: italic; color: var(--brass-soft); }
 
   @media (max-width: 420px) {
     html { font-size: 17px; }
@@ -256,36 +256,36 @@
         <path d="M16 8v17" fill="none" stroke="#d4a253" stroke-width="1.6"/>
         <circle cx="16" cy="4" r="1.6" fill="#f5ead4"/>
       </svg>
-      <b>Daily Devotions</b>
+      <b>每日灵修</b>
     </span>
-    <select class="week" id="weekSel" aria-label="Choose a week"></select>
-    <a class="xlink" href="seven-stars/" title="Seven Stars Pointing to Jesus">&#10022;<span>Seven Stars</span></a>
-    <button class="btn" id="todayBtn" type="button">Today</button>
+    <select class="week" id="weekSel" aria-label="选择哪一周"></select>
+    <a class="xlink" href="seven-stars/" title="七星指向耶稣">&#10022;<span>七星指向耶稣</span></a>
+    <button class="btn" id="todayBtn" type="button">今天</button>
   </div>
 </div>
 
 <div class="shell">
   <header class="hero">
-    <p class="eyebrow">St Paul's Anglican Kogarah</p>
+    <p class="eyebrow">高嘉华圣保罗圣公会</p>
     <h1 id="wTitle"></h1>
     <p class="hero-sub" id="wPassage"></p>
     <p class="hero-dates" id="wDates"></p>
-    <div class="bigidea"><b>Big idea &middot; </b><span id="wIdea"></span></div>
+    <div class="bigidea"><b>中心信息 &middot; </b><span id="wIdea"></span></div>
     <details class="howto">
-      <summary>How to use this</summary>
+      <summary>使用方法</summary>
       <p id="wHow"></p>
     </details>
   </header>
 </div>
 
-<div class="rail-wrap"><div class="rail" id="rail" role="tablist" aria-label="Days of the week"></div></div>
+<div class="rail-wrap"><div class="rail" id="rail" role="tablist" aria-label="一周各天"></div></div>
 
 <div class="shell">
   <main id="days"></main>
 
   <div class="tools">
-    <button class="btn ghost" id="allBtn" type="button">Read the whole week</button>
-    <button class="btn ghost" id="printBtn" type="button">Print / save as PDF</button>
+    <button class="btn ghost" id="allBtn" type="button">阅读整周</button>
+    <button class="btn ghost" id="printBtn" type="button">打印／存为 PDF</button>
   </div>
   <p class="tip" id="printTip"></p>
 
@@ -296,11 +296,11 @@
 </div>
 
 <footer>
-  Rev David Yung &middot; St Paul's Anglican Church Kogarah<br>
+  杨牧师 &middot; 高嘉华圣保罗圣公会 St Paul's Anglican Church Kogarah<br>
   <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a> &middot; (02) 9587 5951<br>
-  <a href="daily-devotions-cn.html">中文版</a> &middot;
-  <a href="seven-stars/">&#10022; Seven Stars Pointing to Jesus</a>
-  <span class="sdg">Soli Deo Gloria</span>
+  <a href="daily-devotions.html">English version</a> &middot;
+  <a href="seven-stars/">&#10022; 七星指向耶稣</a>
+  <span class="sdg">唯独归荣耀与神</span>
 </footer>
 
 <script>
@@ -327,90 +327,90 @@
 const WEEKS = [
 {
   id: "romans4",
-  title: "Hope Against Hope",
-  passage: "Romans 4:1–25",
+  title: "无可指望时仍有指望",
+  passage: "罗马书4:1–25",
   start: "2026-08-10",
-  idea: "Be fully and joyfully convinced, hoping against hope, in the God who credits righteousness to those who trust in him who raised Jesus our Lord from the dead.",
-  how: "Each day, find a quiet ten minutes. Read the short Bible passage slowly (CSB if you can), then the reflection, which follows Sunday's sermon through the passage a few verses at a time. Pray the written prayer in your own words, and sit with the question before you get on with your day. Six days, Monday to Saturday, so that Sunday's word is still working on you when the next Sunday comes. Each day carries one of our six church Checkpoints in its prayer — by Saturday you will have prayed for them all.",
-  three: "And as every day this week: pray for your three friends who aren't Christians yet — that God's kindness would lead them to repentance, and that God would give you an opportunity to point one of them to Jesus.",
+  idea: "要满心相信、欢欢喜喜地信靠神——在无可指望的时候仍因信有指望；他把义算给一切信靠他、信他叫我们主耶稣从死里复活的人。",
+  how: "每天找一个安静的十分钟。先慢慢读当天的短短经文（建议用《和合本》），再读灵修反思——它跟随主日讲道走过这段经文。用自己的话祷读所附的祷文，然后带着那个问题去过你一天的生活。星期一至星期六共六天，好叫主日的话语一直作工，直到下一个主日。每天的祷文都带着我们教会六个检查点之一——到了星期六，你就为全部六个都祷告过了。",
+  three: "一如本周每一天：为你三位还未信主的朋友祷告——愿神的恩慈领他们悔改，也愿神赐你机会，把他们中间的一位指向耶稣。",
   days: [
     {
-      t: "Who Gets the Credit?",
-      read: "Romans 4:1–5 (CSB)",
+      t: "这义算给谁？",
+      read: "罗马书4:1–5（和合本）",
       body: [
-        "Once upon a time, television shows rolled their credits before the show began — actors, director, producers, hair stylists, assistants — because a lot of people had worked hard to make it happen. Then the credits moved to the end. Then they were sped up. Now, before they even start, you have already pressed the link to the next video. Who really cares about the credits?",
-        "In Romans 4 someone gets credited — and more impressive than the person credited is the Person doing the crediting. It is God himself. And the man he credits is Abraham.",
-        "Paul asks what Abraham “found”. It is a lovely word: Abraham discovered something. He discovered he had nothing to boast about before God. Not before people either. For most of his life before he was seventy-five he was an idol worshipper, and he lied more than once to save his own skin — even when it put his wife at risk. Some Jewish teachers held him up as the man who kept the law before the law was given. Abraham himself knew better.",
-        "Instead, “Abraham believed God, and it was credited to him for righteousness” (v.3). Verse 4 draws the line: wages are owed, gifts are given. Nobody writes a thank-you card to their employer for their salary. And no guest at your birthday hands you an invoice for your present — if they did, they were never really your friend. Wages are not gifts, and gifts are not wages.",
-        "So stop asking, “What have I achieved for God?” and start asking, “What has God credited to me in Christ?”"
+        "从前电视节目会把演职员名单放在开头——演员、导演、监制、化妆师、助理——因为一出戏是许多人辛苦作成的。后来名单挪到片尾，再后来被快转，如今片尾还没开始，你已经按下了下一集。谁还在意那份名单呢？",
+        "在罗马书第四章，有一个人被记上一笔；但比这个人更叫人惊奇的，是那位记账的——是神自己。而他所记的人，是亚伯拉罕。",
+        "保罗问亚伯拉罕“得了什么”。这是一个很美的字：亚伯拉罕发现了一件事。他发现自己在神面前无可夸口。在人面前其实也是。七十五岁以前，他大半生是拜偶像的人；他不止一次为保命而说谎，甚至让妻子陷入危险。有些犹太教师把他高举为律法未颁布以先就守全律法的人，亚伯拉罕自己却清楚得很。",
+        "圣经反倒说：“亚伯拉罕信神，这就算为他的义。”（3节）第4节把界线划清了：工价是欠的，恩典是白给的。没有人会为薪水写卡片谢老板；也没有客人在你生日之后寄账单来收礼物钱——若真有，他从来就不是你的朋友。工价不是礼物，礼物也不是工价。",
+        "所以，不要再问“我为神成就了什么”，要开始问“神在基督里把什么算给了我”。"
       ],
-      pray: "Father, I have been quietly keeping a record of my own good work and hoping it counts for something with you. Forgive me. Teach me to receive your righteousness as the gift it is, given in Jesus and never earned. And as we seek to grow three mid-week Growth Groups, raise up the leaders, open the homes, and gather the people, so that more of us learn to live by faith together. Amen.",
-      ask: "Where are you still trying to hand God an invoice — treating some part of your obedience as though he owes you for it?"
+      pray: "天父，我一直暗暗记着自己的好行为，指望它在你面前算数。求你赦免我。求你教我把你的义当作礼物领受——那是在耶稣里白白赐下的，从来不是我挣来的。我们求你兴起三个周间成长小组：兴起带领的人，打开接待的家，聚集你的百姓，叫我们更多人一同学习凭信心而活。奉主耶稣的名求，阿们。",
+      ask: "你在哪一方面仍想把账单递给神——把自己某部分的顺服，当作神欠你的？"
     },
     {
-      t: "The Drive Is Gone",
-      read: "Romans 4:6–8 (CSB)",
+      t: "那份罪证不见了",
+      read: "罗马书4:6–8（和合本）",
       body: [
-        "Paul brings a second witness, and it is not a man you would choose as a character reference. It is King David — adulterer, liar, and the arranger of a good man's death. David sings, “Blessed are those whose lawless acts are forgiven and whose sins are covered. Blessed is the person the Lord will never charge with sin” (vv.7–8, quoting Psalm 32).",
-        "To be blessed is to be happy — happy because God is happy with you. Your sins are covered. God will not revisit them.",
-        "Imagine a USB drive holding the evidence of the thing you are most ashamed of. An outright lie. A plan to bring somebody down. As long as that drive exists you are never quite at ease; there is proof of your guilt sitting in somebody's drawer. Now imagine the Supreme Judge walks over, takes the drive, and tells you that you never need to think about it again. Someone else has been sentenced for what you did. You are free to go. The drive is gone, forever.",
-        "You can doubt the Judge and refuse the news. Or you can trust what he has said and finally breathe.",
-        "That is not the Judge being soft. God says in Exodus 23:7 that he will not justify the guilty, and he does not — he justifies the guilty by putting forward Jesus as the atoning sacrifice for our sin (3:25). The cost was paid; it simply was not paid by you.",
-        "As Origen put it long ago, “faith relies on the grace of the justifier, works rely on the justice of the rewarder.” Which are you relying on today? Let the relief of being forgiven turn into the joy David is singing about."
+        "保罗传召第二位证人，而这人绝不是你会挑来作品格证明的：大卫王——奸淫的人、说谎的人，也是设计害死忠良的人。大卫却唱说：“得赦免其过、遮盖其罪的，这人是有福的！主不算为有罪的，这人是有福的！”（7–8节，引自诗篇32篇）",
+        "有福，就是有喜乐——因为神喜悦你。你的罪被遮盖了，神必不再翻旧账。",
+        "想象有一个U盘，里面存着你最羞耻的那件事：一个彻底的谎言，一个要拉别人下水的计划。只要那U盘还在，你就永远松不了一口气，因为证据就摆在某人的抽屉里。如今想象那位至高的审判者走过来，把U盘拿走，并对你说：你再也不用想这件事了，因为已经有别人为你所作的受了刑罚。你可以走了。那U盘永远不见了。",
+        "你可以怀疑审判者、不肯接受这消息；也可以相信他所说的，终于松一口气。",
+        "这并不是审判者姑息。神在出埃及记23章7节说他必不以恶人为义，他也确实没有——他是藉着设立耶稣作挽回祭，为我们的罪付上代价，才称罪人为义（罗3:25）。代价付清了，只是不是你付的。",
+        "古时的俄利根说得好：“信心倚靠那称人为义者的恩典，行为倚靠那赏赐者的公义。”今天你倚靠的是哪一样？愿蒙赦免的舒畅，化作大卫所唱的喜乐。"
       ],
-      pray: "Father, thank you that in Christ my sin is covered and you will never charge me with it again. Turn my relief into song. Make me a person who tells others what you have done rather than what I have done. And please give us six additional qualified helpers for KOGKids, KOGMini and KOGYouth — people who know they are forgiven, and who will teach our children and young people to know it too. Amen.",
-      ask: "What is the sin you keep re-opening even though God has closed the file? What would it look like to thank him for it instead?"
+      pray: "天父，谢谢你：在基督里我的罪被遮盖了，你必不再算我有罪。求你把我的舒畅化为诗歌，使我成为述说你作为、而不是述说自己作为的人。也求你为KOGKids、KOGMini和KOGYouth添上六位合资格的助手——是深知自己已蒙赦免的人，好把这份赦免教给我们的孩子和青少年。奉主耶稣的名求，阿们。",
+      ask: "有哪一件罪，神已经结案，你却一再翻开？若改为为它感谢神，会是什么光景？"
     },
     {
-      t: "Father of All Who Believe",
-      read: "Romans 4:9–12 (CSB)",
+      t: "一切信之人的父",
+      read: "罗马书4:9–12（和合本）",
       body: [
-        "Paul now asks a question about timing, and the answer is worth more than it first looks. Was Abraham credited with righteousness before or after he was circumcised? Before — by many years. Circumcision came afterwards, as a seal on a righteousness he already had by faith. He was not circumcised in order to be righteous; he trusted God, was counted righteous, and then was circumcised.",
-        "Which makes Abraham the father of two kinds of people who are really one kind: those who are not Jewish but trust the Lord Jesus, and those who are Jewish and also walk in the footsteps of their father's faith. Abraham is father to everyone who trusts God — not by blood, but by faith.",
-        "That has a very practical shape at Kogarah. If God credits righteousness to the ungodly who trust him, then our invitation to the five hundred households within ten minutes of our building can never be limited to people who have sorted their lives out. We welcome the messy, the imperfect, the ones who do not look or sound like us — because God welcomed us. If God has taken us into his family, we dare not turn anyone away or let anyone feel unwelcome.",
-        "That is exactly what the Welcome to Life ministry is for, and why we have set up the Discover course and the Welcome Tent. Come as the ungodly, and be counted righteous in Christ.",
-        "It also means we will never congratulate ourselves on our attendance or how smoothly we run. We believe in the God who declares the ungodly righteous, and we simply long to see him declare more of them righteous in Jesus."
+        "保罗接着问了一个关乎次序的问题，而答案比乍看之下更宝贵：亚伯拉罕被算为义，是在受割礼以前还是以后？是以前——而且早了许多年。割礼是后来才有的，作他因信称义的印证。他不是为了成为义人才受割礼；他信神，被算为义，然后才受割礼。",
+        "这样，亚伯拉罕就作了两种人的父——其实是同一种人：那些不是犹太人却信靠主耶稣的，和那些是犹太人、又踏着他们先祖信心脚踪而行的。凡信靠神的人，亚伯拉罕都是他们的父——不是按血统，而是按信心。",
+        "这在高嘉华有很实际的样式。既然神把义算给信靠他的罪人，那么我们向十分钟路程内那五百个家庭发出的邀请，就绝不能只限于那些已经把生活整理好的人。我们欢迎生命一团乱的、不完美的、与我们看来不像也说话不像的人——因为神先欢迎了我们。神既接我们进他的家，我们就断不敢拒人于门外，也不敢叫任何人觉得自己不受欢迎。",
+        "这正是“迎向生命”事工存在的原因，也是我们开设Discover课程和欢迎帐篷的原因。带着不敬虔的自己来，在基督里被算为义。",
+        "这也意味着我们绝不会为出席人数或运作顺畅而自我庆贺。我们所信的，是那称不敬虔之人为义的神；我们所渴望的，不过是看见他在耶稣里称更多这样的人为义。"
       ],
-      pray: "Father, you welcomed me before I had anything to show you. Make our church a place where nobody is turned away and nobody is left feeling unwelcome. Bless our Father's Day celebration, “A Father's Invitation” — give us courage to invite, give our guests ears to hear, and make many of them children of Abraham by faith in Jesus. Amen.",
-      ask: "Who would feel out of place if they walked into our church this Sunday — and what will you personally do about it?"
+      pray: "天父，在我一无所有的时候，你就先接纳了我。求你使我们的教会成为没有人被拒于门外、没有人被冷落的地方。求你赐福我们的父亲节庆典——“天父的邀请”：赐我们勇气去邀请，赐来宾听得进的耳朵，使他们中间许多人因信耶稣成为亚伯拉罕的子孙。奉主耶稣的名求，阿们。",
+      ask: "这个主日若有人走进我们教会，谁会觉得格格不入？你自己会为他做些什么？"
     },
     {
-      t: "Steps of Conviction",
-      read: "Romans 4:13–17a (CSB)",
+      t: "踏着信心的脚踪",
+      read: "罗马书4:13–17上（和合本）",
       body: [
-        "Lleyton Hewitt was the last Australian man to hold the world number one ranking in tennis, almost twenty-five years ago now, and his trademark was that hand to the head and a shouted “C'mon”. Twenty-five years later his son Cruz plays too — and when he wins a big point, he does the same “C'mon”. He is telling everyone whose footsteps he is walking in.",
-        "Paul says God's promise never ran along the track of law-keeping. “If those who are of the law are heirs, faith is made empty and the promise nullified, because the law produces wrath” (vv.14–15). The law is good; it shows us when we have stepped over the line. But that is bad news for people who cross the line all the time. The law shows how bad we are, and in doing so it shows how good God is to promise righteousness by faith.",
-        "Do not mistake faith for an easier alternative — as though the law was too hard, so God lowered the bar to something simpler called believing. Even our faith comes from God. We can no more manufacture trust in God than we can keep his law perfectly. And trusting God fully is far harder than relying on ourselves, because we are always tempted to keep a little credit, a little glory, for ourselves. That is not faith. Faith trusts that God has done everything, gives him all the credit, and tells people that he is the one we glory in.",
-        "Abraham waited years for glimpses of what God had promised. Anyone with worldly sense would have called him a fool. He walked with conviction anyway. So do we."
+        "休伊特是澳洲最后一位登上男子网球世界第一的球员，那已是差不多二十五年前的事；他的招牌动作是把手掌拉到额前，大喊一声“C'mon”。二十五年后，他的儿子克鲁兹也打球——赢下关键分时，同样是那一声“C'mon”。他是在告诉所有人，他踏着谁的脚踪。",
+        "保罗说，神的应许从来不是走律法这条路。“若是属乎律法的人才得为后嗣，信就归于虚空，应许也就废弃了。因为律法是惹动忿怒的。”（14–15节）律法是好的，它指出我们何时越了界；但对于时常越界的人，这是坏消息。律法显明我们何等败坏，也因此显明神何等美善——他应许把义因信赐给我们。",
+        "不要误以为信心是比较轻省的替代品，好像律法太难，神就把标准降低，换成一件叫“相信”的简单差事。连我们的信心也是从神来的。我们无法凭自己制造出对神的信靠，正如无法完全遵行他的律法。而且完全信靠神远比倚靠自己艰难，因为我们总想为自己留下一点功劳、一点荣耀。那不是信心。信心相信神已成就了一切，把一切荣耀归给他，并告诉人：我们所夸的是他。",
+        "亚伯拉罕等了许多年，才看见应许的一点影儿。按世人的精明，他是个傻子。他仍然带着确信而行。我们也当如此。"
       ],
-      pray: "Father, I am slow to give you all the credit and quick to keep a little for myself. Strip that from me, and let me walk in the steps of father Abraham with conviction, even when I am thought a fool for it. And please provide four new accompanists for our Chinese Parallel congregation — raise them up, give them willing hearts and skilful hands, so that your people can sing your praise. Amen.",
-      ask: "Where has trusting God recently made you look foolish to people who are wise by the world's measure — and did you keep walking?"
+      pray: "天父，我迟迟不肯把一切荣耀归给你，却很快为自己留一点。求你除去我这心思，叫我踏着先祖亚伯拉罕的脚踪，带着确信而行，即使被人看为愚拙。也求你为中文平行崇拜添上四位新司琴——兴起他们，赐他们乐意的心和熟练的手，好叫你的百姓歌颂你。奉主耶稣的名求，阿们。",
+      ask: "最近哪一次信靠神，让你在世人眼中显得愚拙？你有没有继续走下去？"
     },
     {
-      t: "Hope Against Hope",
-      read: "Romans 4:17b–21 (CSB)",
+      t: "无可指望时仍有指望",
+      read: "罗马书4:17下–21（和合本）",
       body: [
-        "Here is the God Abraham believed in: “the one who gives life to the dead and calls things into existence that do not exist” (v.17). If God has promised something, that thing will happen. Even when there is no hope at all from where we are standing, if it is God's will there is always hope — and that hope is sure.",
-        "Which is just as well, because Abraham was facing the deadness of his own ninety-nine-year-old body and the deadness of Sarah's womb (v.19). There was no denying it. It would be like a ninety-nine-year-old man leaving his nursing home to find a bride in another nursing home, and then house-hunting near a preschool. Nobody does that, because it does not happen.",
-        "“He did not waver in unbelief at God's promise but was strengthened in his faith and gave glory to God” (v.20). Everything Abraham had ever been taught about bodies and babies said no. He held on to one thing above all else: he was “fully convinced that what God had promised, he was also able to do” (v.21). That is what faith looks like — not merely knowing facts about God, but being so convinced by his promises that you hope against hope.",
-        "Michael Ryman's grandmother Irene walked that way. A condition made pregnancy dangerous for her, and when she was carrying Michael's father Stephen, doctors urged her to end it. She could have put her own safety first. She was convinced that following God mattered more than even her own life.",
-        "You will not always see the promise arrive on your timetable. Give glory to God before it does."
+        "亚伯拉罕所信的是这样一位神：“那叫死人复活、使无变为有的神”（17节）。神既应许了，那事就必成就。即使从我们所站的地方看不见一丝指望，只要那是神的旨意，就永远有指望，而且那指望是确实的。",
+        "这实在是恩典，因为亚伯拉罕面对的，是自己将近百岁如同已死的身体，和撒拉断绝生育的胎（19节）。这是无从否认的。那就像一位九十九岁的老人离开安老院，到另一间安老院找新娘，然后到幼儿园附近看房子。没有人会这样，因为这种事根本不会发生。",
+        "“并且仰望神的应许，总没有因不信心里起疑惑，反倒因信心里得坚固，将荣耀归给神。”（20节）亚伯拉罕所学过关于身体与生育的一切都说不可能。他却紧紧抓住一件事：他“满心相信神所应许的必能做成”（21节）。这就是信心的样子——不只是知道关于神的道理，而是被他的应许深深说服，以致在无可指望的时候仍有指望。",
+        "雷曼弟兄的祖母艾琳就是这样行的。她的身体状况使怀孕十分危险；当她怀着雷曼的父亲司提反时，医生劝她终止。她本可以先顾自己的安全，但她确信顺服神比自己的性命更要紧。",
+        "应许未必按你的时间表临到。在还没看见以先，就把荣耀归给神。"
       ],
-      pray: "Father, you give life to the dead and call into existence things that do not exist. Where I can see no way, keep me from wavering, and let me give you glory before I see anything at all. We ask you for the growth of our church to seventy-five households by the end of this year — not for our name, but so that more people are credited with righteousness in Jesus. Amen.",
-      ask: "What are you praying for that looks, humanly speaking, already dead? Will you keep asking, and give God glory now?"
+      pray: "天父，你叫死人复活，使无变为有。在我看不见出路的地方，求你保守我不起疑惑，使我在什么都还没看见以先，就把荣耀归给你。我们求你使教会在年底前增长至七十五个家庭——不是为我们的名声，而是为叫更多人在耶稣里被算为义。奉主耶稣的名求，阿们。",
+      ask: "你正在为什么祷告，是按人看来早已“死了”的？你会继续求，并且现在就把荣耀归给神吗？"
     },
     {
-      t: "Raised for Your Justification",
-      read: "Romans 4:22–25 (CSB)",
+      t: "为我们称义而复活",
+      read: "罗马书4:22–25（和合本）",
       body: [
-        "The best news in the chapter is that the crediting did not stop with Abraham. “It was credited to him was not written for Abraham alone, but also for us. It will be credited to us who believe in him who raised Jesus our Lord from the dead” (vv.23–24). The same God, the same crediting, the same empty hands — only now the promise has a name and a face.",
-        "Verse 25 sums up everything we believe about him: “He was delivered up for our trespasses and raised for our justification.” God himself handed Jesus over to pay for our sin, and raised him so that our standing before God would be beyond question. Because Jesus is risen, your justification is sure.",
-        "But how do you know your faith is real? In Abraham's case, his faith grew when it was tested. That is the test. Real faith deepens under the trials of life. If your trust in God grows when things are hard, that is an assurance that it is genuine. If you quit when it gets tough, or the trials make you turn on God, that is a warning. As the commentator Douglas Moo puts it, faith grows strong the way muscles do — by overcoming opposition.",
-        "This is why, of our seven G7 departments, Grow is matched with the musculo-skeletal system: KOGKids, home groups, online groups, Bible reading, discipleship. These are not places to collect Bible facts — any non-Christian can do that. They are places to exercise faith together, to share our struggles, and to ask others to pray and help.",
-        "So do not waver, and do not trust the goodness of your works either. In Jesus we live by faith, we die by faith, and we will rise by faith."
+        "这一章最好的消息，是这“算为义”并没有停在亚伯拉罕身上。“算为他义的这句话，不是单为他写的，也是为我们将来得算为义之人写的，就是我们这信神使我们的主耶稣从死里复活的人。”（23–24节）同一位神，同样的算法，同样空空的双手——只是如今这应许有了名字，有了面容。",
+        "第25节把我们所信的都概括了：“耶稣被交给人，是为我们的过犯；复活，是为叫我们称义。”神亲自把耶稣交出来，为我们的罪付上代价，又叫他复活，好使我们在神面前的地位再无可置疑。因为耶稣已经复活，你的称义是确实的。",
+        "但你怎么知道自己的信心是真的？在亚伯拉罕身上，他的信心是在受试验时长大的。这就是试金石。真信心会在人生的试炼中变得更深。若你在艰难中对神的信靠反倒增长，那是真实的凭据；若你一遇难处就放弃，或试炼使你转过来埋怨神，那就是警号。正如解经家慕理所说，信心像肌肉一样，是在抵抗中变得强壮的。",
+        "所以在我们教会的七个部门（G7）中，“成长”配的是肌肉骨骼系统：KOGKids、家庭小组、网上小组、读经与门训。这些聚会不是收集圣经知识的地方——不信主的人也能收集知识；它们是一同操练信心的地方，是彼此坦白挣扎、请人代祷与相助的地方。",
+        "所以不要疑惑，也不要倚靠自己行为的良善。在耶稣里，我们凭信而活，凭信而死，也必凭信复活。"
       ],
-      pray: "Father, thank you that Jesus was delivered up for my trespasses and raised for my justification, so that my standing before you is settled. When trials come, grow my faith through them rather than letting me quit. And go ahead of us as we look towards our move to the new School hall in 2027 — prepare the place, prepare us, and gather in the people you have already chosen. Amen.",
-      ask: "Looking back over the last year, has opposition made your faith stronger or quieter — and who could you ask to help you grow?"
+      pray: "天父，谢谢你：耶稣为我的过犯被交出，又为叫我称义而复活，使我在你面前的地位已经稳妥。当试炼临到，求你藉着试炼使我的信心长大，不容我半途而废。求你也在我们前面开路，预备2027年迁往学校新礼堂的事——预备那地方，预备我们，也招聚你早已拣选的人。奉主耶稣的名求，阿们。",
+      ask: "回顾过去一年，逼迫与难处使你的信心更强壮，还是更沉寂？你可以请谁帮助你成长？"
     }
   ]
 }
@@ -418,9 +418,8 @@ const WEEKS = [
 
 /* ========================================================================== */
 
-const DAYNAMES = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-const MONTHS = ["January","February","March","April","May","June",
-                "July","August","September","October","November","December"];
+const DAYNAMES = ["星期一","星期二","星期三","星期四","星期五","星期六"];
+const MONTHS = null; /* Chinese dates are numeric */
 
 const $ = id => document.getElementById(id);
 let wIdx = 0, dIdx = 0;
@@ -439,13 +438,14 @@ function dateOf(week, i) {
   return d;
 }
 function longDate(d) {
-  return DAYNAMES[(d.getDay() + 6) % 7] + " " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+  return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日（" +
+         DAYNAMES[(d.getDay() + 6) % 7] + "）";
 }
 function shortRange(week) {
   const a = dateOf(week, 0), b = dateOf(week, 5);
-  const am = MONTHS[a.getMonth()], bm = MONTHS[b.getMonth()];
-  return "Monday " + a.getDate() + (am === bm ? "" : " " + am) +
-         " – Saturday " + b.getDate() + " " + bm + " " + b.getFullYear();
+  return a.getFullYear() + "年" + (a.getMonth() + 1) + "月" + a.getDate() + "日（星期一）至" +
+         (a.getMonth() === b.getMonth() ? "" : (b.getMonth() + 1) + "月") +
+         b.getDate() + "日（星期六）";
 }
 function midnight(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); }
 
@@ -490,11 +490,11 @@ function renderWeek() {
   const w = WEEKS[wIdx];
   $("weekSel").value = wIdx;
   $("wTitle").textContent = w.title;
-  $("wPassage").textContent = "Daily devotions in " + w.passage;
+  $("wPassage").textContent = w.passage + " 六天每日灵修";
   $("wDates").textContent = shortRange(w);
   $("wIdea").textContent = w.idea;
   $("wHow").textContent = w.how;
-  document.title = w.title + " — Daily Devotions";
+  document.title = w.title + " — 每日灵修";
 
   const rail = $("rail");
   rail.innerHTML = "";
@@ -503,7 +503,7 @@ function renderWeek() {
     const b = document.createElement("button");
     b.type = "button";
     b.setAttribute("role", "tab");
-    b.textContent = DAYNAMES[i].slice(0, 3) + " · " + (i + 1);
+    b.textContent = DAYNAMES[i].slice(-1) + " · " + (i + 1);
     b.title = d.t;
     if (i === ti) b.classList.add("today-dot");
     b.onclick = () => {
@@ -526,20 +526,20 @@ function renderWeek() {
     sec.className = "day";
     sec.dataset.i = i;
     sec.innerHTML =
-      '<p class="day-no">Day ' + (i + 1) + ' &middot; ' + DAYNAMES[i] + '</p>' +
+      '<p class="day-no">第 ' + (i + 1) + ' 天 &middot; ' + DAYNAMES[i] + '</p>' +
       '<h2></h2>' +
       '<p class="day-date"></p>' +
       '<span class="readref"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v14c-3-1.5-6-1.5-9 0-3-1.5-6-1.5-9 0V5z"/><path d="M12 5v14"/></svg><span class="rr"></span></span>' +
       '<div class="prose"></div>' +
-      '<div class="block pray"><h3>Pray</h3><p class="pp"></p></div>' +
-      '<div class="block three"><h3>Every day this week</h3><p class="tt"></p></div>' +
-      '<div class="block reflect"><h3>Reflect</h3><p class="rf"></p></div>' +
+      '<div class="block pray"><h3>祷告</h3><p class="pp"></p></div>' +
+      '<div class="block three"><h3>本周每一天</h3><p class="tt"></p></div>' +
+      '<div class="block reflect"><h3>反思</h3><p class="rf"></p></div>' +
       '<div class="markrow"><button class="btn ghost mark" type="button"></button></div>' +
-      '<div class="navrow"><button class="btn ghost prev" type="button">&larr; Previous day</button>' +
-      '<button class="btn next" type="button">Next day &rarr;</button></div>';
+      '<div class="navrow"><button class="btn ghost prev" type="button">&larr; 前一天</button>' +
+      '<button class="btn next" type="button">后一天 &rarr;</button></div>';
     sec.querySelector("h2").textContent = d.t;
     sec.querySelector(".day-date").textContent = longDate(dateOf(w, i));
-    sec.querySelector(".rr").textContent = "Read " + d.read;
+    sec.querySelector(".rr").textContent = "读经：" + d.read;
     const pr = sec.querySelector(".prose");
     d.body.forEach(t => { const p = document.createElement("p"); p.textContent = t; pr.appendChild(p); });
     sec.querySelector(".pp").textContent = d.pray;
@@ -578,12 +578,12 @@ function paint() {
   });
   [].forEach.call($("days").children, (sec, i) => {
     const btn = sec.querySelector(".mark");
-    btn.textContent = isDone(w, i) ? "✓ Read — mark as unread" : "Mark this day as read";
+    btn.textContent = isDone(w, i) ? "✓ 已读 — 标为未读" : "标记今天已读";
     sec.querySelector(".prev").disabled = i === 0;
     sec.querySelector(".next").disabled = i === w.days.length - 1;
   });
   const pct = Math.round(done / w.days.length * 100);
-  $("progText").textContent = done + " of " + w.days.length + " days read this week";
+  $("progText").textContent = "本周已读 " + done + " / " + w.days.length + " 天";
   $("progBar").style.width = pct + "%";
 }
 
@@ -600,7 +600,7 @@ function showAll() { return document.body.classList.contains("showall"); }
 
 function setAll(on) {
   document.body.classList.toggle("showall", on);
-  $("allBtn").textContent = on ? "Back to one day at a time" : "Read the whole week";
+  $("allBtn").textContent = on ? "回到逐日阅读" : "阅读整周";
   if (on) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
@@ -638,9 +638,9 @@ function printWeek() {
     if (!fired) done();
     if (!ok || !fired) {
       const tip = $("printTip");
-      tip.textContent = "If no print window appeared, all six days are now open above — " +
-        "use your browser's Share or File menu and choose Print (or Save as PDF). " +
-        "On an iPhone home-screen app, open this page in Safari first.";
+      tip.textContent = "若没有出现打印视窗，六天的内容现已全部展开在上方——" +
+        "请用浏览器的「分享」或「文件」选单选择「打印」（或「存为 PDF」）。" +
+        "若是从 iPhone 主画面开启的应用，请先在 Safari 中打开本页。";
       tip.classList.add("on");
     }
   }, 1200);
