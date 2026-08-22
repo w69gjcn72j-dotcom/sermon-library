@@ -14,9 +14,9 @@
 <meta name="apple-mobile-web-app-title" content="Word &amp; Prayer">
 <meta name="application-name" content="Word &amp; Prayer">
 <meta name="theme-color" content="#0e1a2b">
-<meta name="description" content="Sermons, daily devotions and the Seven Stars — resources from St Paul's Anglican Church Kogarah.">
+<meta name="description" content="Sermons, daily devotions, growth group Bible studies and the Seven Stars — resources from St Paul's Anglican Church Kogarah.">
 <meta property="og:title" content="St Paul's Anglican Kogarah — Word &amp; Prayer">
-<meta property="og:description" content="Sermons, daily devotions and the Seven Stars.">
+<meta property="og:description" content="Sermons, daily devotions, Bible studies and the Seven Stars.">
 <meta property="og:image" content="hub-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,15 @@
       </span>
     </a>
 
+    <a class="card" href="studies/">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v16H5.5A1.5 1.5 0 0 0 4 20.5V4.5z"/><path d="M8 7.5h7M8 11h7M8 14.5h4"/></svg></span>
+      <span>
+        <h2>Bible Studies</h2>
+        <p>Growth group studies following Sunday&#39;s sermon &mdash; youth, adults, young adults and nursing home talks.</p>
+        <span class="go">Browse the studies</span>
+      </span>
+    </a>
+
     <a class="card" href="library/">
       <span class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg></span>
       <span>
@@ -154,6 +163,7 @@
     <dl>
       <div><dt>Everything</dt><dd id="u0"></dd></div>
       <div><dt>Daily Devotions</dt><dd id="u1"></dd></div>
+      <div><dt>Bible Studies</dt><dd id="u4"></dd></div>
       <div><dt>Seek &amp; Find</dt><dd id="u2"></dd></div>
       <div><dt>Seven Stars</dt><dd id="u3"></dd></div>
     </dl>
@@ -164,6 +174,7 @@
   Rev David Yung &middot; St Paul's Anglican Church Kogarah<br>
   <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a> &middot; (02) 9587 5951<br>
   中文：<a href="daily-devotions-cn.html">每日灵修</a> &middot;
+  <a href="bible-studies-cn.html">查经材料</a> &middot;
   <a href="seven-stars-cn.html">七星指向耶稣</a>
   <span class="sdg">Soli Deo Gloria</span>
 </footer>
@@ -175,6 +186,7 @@
   var show = base.replace(/^https?:\/\//, "");
   document.getElementById("u0").textContent = show;
   document.getElementById("u1").textContent = show + "devotions/";
+  document.getElementById("u4").textContent = show + "studies/";
   document.getElementById("u2").textContent = show + "library/";
   document.getElementById("u3").textContent = show + "seven-stars/";
 })();
