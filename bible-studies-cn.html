@@ -127,7 +127,10 @@ const GROUPS = [
 ];
 const NAMES = { ky: "青少年成长小组", gg: "成人成长小组", ya: "青年成人", nh: "安老院短讲" };
 
-let active = "all";
+const VALID = ["all", "ky", "gg", "ya", "nh"];
+// ?c=gg 预先选定某个系列 — 供短网址转介之用。
+const wanted = new URLSearchParams(location.search).get("c");
+let active = VALID.indexOf(wanted) !== -1 ? wanted : "all";
 
 const chipsEl  = document.getElementById("chips");
 const listEl   = document.getElementById("list");
