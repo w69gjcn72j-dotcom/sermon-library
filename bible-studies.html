@@ -153,7 +153,10 @@ const GROUPS = [
 ];
 const NAMES = { ky: "KOGYouth", gg: "Growth Groups", ya: "Young Adults", nh: "Nursing Home" };
 
-let active = "all";
+const VALID = ["all", "ky", "gg", "ya", "nh"];
+// ?c=ky preselects a collection — used by the retired study repos when they redirect here.
+const wanted = new URLSearchParams(location.search).get("c");
+let active = VALID.indexOf(wanted) !== -1 ? wanted : "all";
 
 const chipsEl = document.getElementById("chips");
 const listEl  = document.getElementById("list");

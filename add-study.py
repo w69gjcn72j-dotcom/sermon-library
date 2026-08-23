@@ -32,6 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SERMON_DIR = os.path.abspath(os.path.join(HERE, os.pardir))
 INDEX_EN = os.path.join(HERE, "bible-studies.html")
 INDEX_CN = os.path.join(HERE, "bible-studies-cn.html")
+CN_DIR = os.path.join(HERE, "cn")      # one <pagebase>.json per translated study
 
 COLLECTIONS = [
     ("kogyouth_",             "ky", "KOGYouth",      "KOGYouth Growth Groups",   "青少年成长小组查经"),
@@ -327,7 +328,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 <div class="shell">
   <nav class="topbar">
     <a href="bible-studies.html">← All studies</a>
-    <a href="index.html">Word &amp; Prayer</a>
+    <a href="{toggle}">{toggle_label}</a>
   </nav>
   <header>
     <p class="eyebrow">{coll}</p>
@@ -385,11 +386,78 @@ def render_body(blocks):
 
 def render_page(e):
     desc = (e["idea"] or e["title"])[:180]
+    cn = cn_path(e)
     return PAGE_TMPL.format(title=html.escape(e["title"]), desc=html.escape(desc),
+                            toggle=(cn_file(e) if cn else "index.html"),
+                            toggle_label=("中文" if cn else "Word &amp; Prayer"),
                             css=PAGE_CSS, coll=html.escape(e["coll"]["long"]),
                             ref=html.escape(e["ref"]),
                             dateline=html.escape(e["dateline"] or e["note"]),
                             body=render_body(e["blocks"]))
+
+CN_PAGE_TMPL = """<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{title} — 高嘉华圣保罗圣公会</title>
+<meta name="description" content="{desc}">
+<meta name="theme-color" content="#0e1a2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>{css}
+  body{{font-family:'Inter Tight','PingFang SC','Songti SC','Microsoft YaHei',system-ui,sans-serif;
+        line-height:1.9}}
+  h1,main h2,a.study h2{{font-family:'Fraunces',Georgia,'Songti SC',serif}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="topbar">
+    <a href="bible-studies-cn.html">← 全部查经</a>
+    <a href="{en}">English</a>
+  </nav>
+  <header>
+    <p class="eyebrow">{coll}</p>
+    <h1>{title}</h1>
+    <p class="ref">{ref} &middot; {dateline}</p>
+  </header>
+  <main>
+{body}
+  </main>
+  <p style="margin:2rem 0 0;font-size:0.82rem;color:#8a8370;line-height:1.7">
+    本页中文译自英文原稿，供弟兄姊妹参考；如与英文版有出入，以英文版为准。
+  </p>
+</div>
+<footer>
+  翁沛偉牧师 Rev David Yung &middot; 高嘉华圣保罗圣公会<br>
+  <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a>
+  <span class="sdg">Soli Deo Gloria</span>
+</footer>
+</body>
+</html>
+"""
+
+
+def cn_file(e):
+    return e["file"].replace(".html", "-cn.html")
+
+
+def cn_path(e):
+    f = os.path.join(CN_DIR, e["file"].split("-")[0] + "-" + e["file"].split("-")[1] + ".json")
+    return f if os.path.exists(f) else None
+
+
+def render_cn_page(e, data):
+    blocks = [(b[0], b[1]) for b in data["blocks"]]
+    desc = (data.get("idea") or data["title"])[:180]
+    return CN_PAGE_TMPL.format(title=html.escape(data["title"]), desc=html.escape(desc),
+                               css=PAGE_CSS, coll=html.escape(data.get("coll", e["coll"]["cn"])),
+                               ref=html.escape(data.get("ref", e["ref"])),
+                               dateline=html.escape(data.get("dateline", e["dateline"])),
+                               en=e["file"], body=render_body(blocks))
+
 
 # ---------------------------------------------------------------- index
 
@@ -436,20 +504,39 @@ def cmd_rebuild():
     entries = build()
     for e in entries:
         open(os.path.join(HERE, e["file"]), "w", encoding="utf-8").write(render_page(e))
+    cn_entries = []
+    for e in entries:
+        src = cn_path(e)
+        if not src:
+            continue
+        data = json.load(open(src, encoding="utf-8"))
+        open(os.path.join(HERE, cn_file(e)), "w", encoding="utf-8").write(render_cn_page(e, data))
+        ce = dict(e)
+        ce["title"] = data["title"]
+        ce["ref"] = data.get("ref", e["ref"])
+        ce["idea"] = data.get("idea", "")
+        ce["note"] = data.get("note", e["note"])
+        ce["file"] = cn_file(e)
+        cn_entries.append(ce)
+
     ordered = sorted(entries, key=lambda e: (e["date"], e["coll"]["prefix"]), reverse=True)
     write_index(ordered, INDEX_EN)
+    write_index(sorted(cn_entries, key=lambda e: (e["date"], e["coll"]["prefix"]), reverse=True),
+                INDEX_CN)
     by = {}
     for e in entries:
         by[e["coll"]["long"]] = by.get(e["coll"]["long"], 0) + 1
     print("Wrote %d study pages" % len(entries))
     for k in sorted(by):
         print("  %-26s %d" % (k, by[k]))
-    print("Index updated: bible-studies.html")
+    print("Chinese pages: %d of %d" % (len(cn_entries), len(entries)))
+    print("Index updated: bible-studies.html, bible-studies-cn.html")
 
 
 def cmd_check():
     entries = build()
     listed = set(e["file"] for e in entries)
+    listed |= set(cn_file(e) for e in entries if cn_path(e))
     problems = 0
     for e in entries:
         if not os.path.exists(os.path.join(HERE, e["file"])):
@@ -463,6 +550,13 @@ def cmd_check():
     for e in entries:
         if e["file"] not in src:
             print("NOT IN INDEX  %s" % e["file"]); problems += 1
+    cnsrc = open(INDEX_CN, encoding="utf-8").read()
+    for e in entries:
+        if cn_path(e) and cn_file(e) not in cnsrc:
+            print("NOT IN CN INDEX  %s" % cn_file(e)); problems += 1
+    todo = [e["file"] for e in entries if not cn_path(e)]
+    if todo:
+        print("NO CHINESE YET (%d): %s" % (len(todo), ", ".join(t[:6] for t in todo)))
     print("%d studies checked, %d problem(s)." % (len(entries), problems))
     return problems
 
