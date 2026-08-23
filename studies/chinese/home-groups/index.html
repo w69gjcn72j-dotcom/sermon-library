@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-<base href="../../">
+<base href="../../../">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>查经材料 &mdash; St Paul's Anglican Kogarah</title>
-<link rel="apple-touch-icon" sizes="180x180" href="bs-apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="bs-favicon-32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="bs-icon-512.png">
-<link rel="manifest" href="bible-studies.webmanifest">
+<title>成人家庭小组查经 &mdash; St Paul's Anglican Kogarah</title>
+<link rel="apple-touch-icon" sizes="180x180" href="gg-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="gg-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="gg-icon-512.png">
+<link rel="manifest" href="studies-home-groups.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="查经">
+<meta name="apple-mobile-web-app-title" content="家庭小组">
 <meta name="theme-color" content="#0e1a2b">
 <meta name="description" content="高嘉华圣保罗圣公会的家庭小组查经材料 — 青少年、成人、青年成人及安老院短讲。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -137,7 +137,7 @@ const NAMES = { ky: "青少年成长小组", gg: "成人家庭小组", ya: "青�
 const VALID = ["all", "ky", "gg", "ya", "nh"];
 // ?c=gg 预先选定某个系列 — 供短网址转介之用。
 const wanted = new URLSearchParams(location.search).get("c");
-let active = VALID.indexOf(wanted) !== -1 ? wanted : "all";
+let active = VALID.indexOf(wanted) !== -1 ? wanted : "gg";
 
 const chipsEl  = document.getElementById("chips");
 const listEl   = document.getElementById("list");

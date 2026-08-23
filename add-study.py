@@ -9,7 +9,7 @@ Usage:
 
 Collections and their page prefixes:
     kogyouth_*            -> ky-   KOGYouth Growth Groups
-    homegroup_adults_*    -> gg-   Growth Groups (adults)
+    homegroup_adults_*    -> gg-   Home Groups (adults)
     homegroup_youngadults_* -> ya- Young Adults (19-30)
     *Nursing Home*        -> nh-   Nursing Home Talks
 
@@ -36,7 +36,7 @@ CN_DIR = os.path.join(HERE, "cn")      # one <pagebase>.json per translated stud
 
 COLLECTIONS = [
     ("kogyouth_",             "ky", "KOGYouth",      "KOGYouth Growth Groups",   "青少年成长小组查经"),
-    ("homegroup_adults_",     "gg", "Growth Groups", "Growth Groups (adults)",   "成人成长小组查经"),
+    ("homegroup_adults_",     "gg", "Home Groups",   "Home Groups (adults)",     "成人家庭小组查经"),
     ("homegroup_youngadults_","ya", "Young Adults",  "Young Adults (19–30)","青年成人查经"),
     ("nursing home",          "nh", "Nursing Home",  "Nursing Home Talks",       "安老院短讲"),
 ]
@@ -478,6 +478,57 @@ def write_index(entries, path, marker_lang="en"):
         sys.exit("markers not found in %s" % path)
     open(path, "w", encoding="utf-8").write(new)
 
+# ---------------------------------------------------------------- collection pages
+
+# Each collection gets a real page at its own URL (not a redirect) so that
+# "Add to Home Screen" picks up that collection's icon rather than the
+# shared one. A <base> element lets the copied markup keep working from a
+# nested folder without rewriting every relative link.
+COLLECTION_PAGES = [
+    # (folder,                     code, source page,             icon,  manifest,                    title,                  app title)
+    ("studies/home-groups",        "gg", "bible-studies.html",    "gg", "studies-home-groups.webmanifest",    "Home Group Studies",   "Home Groups"),
+    ("studies/youth",              "ky", "bible-studies.html",    "ky", "studies-youth.webmanifest",          "KOGYouth Studies",     "KOGYouth"),
+    ("studies/young-adults",       "ya", "bible-studies.html",    "ya", "studies-young-adults.webmanifest",   "Young Adults Studies", "Young Adults"),
+    ("studies/nursing-home",       "nh", "bible-studies.html",    "nh", "studies-nursing-home.webmanifest",   "Nursing Home Talks",   "Nursing Home"),
+    ("studies",                    "all","bible-studies.html",    "bs", "bible-studies.webmanifest",          "Bible Studies",        "Studies"),
+    ("studies/chinese",            "all","bible-studies-cn.html", "bs", "bible-studies.webmanifest",          "查经材料",              "查经"),
+    ("studies/chinese/home-groups","gg","bible-studies-cn.html",  "gg", "studies-home-groups.webmanifest",    "成人家庭小组查经",       "家庭小组"),
+]
+
+
+def write_collection_pages():
+    made = []
+    for folder, code, source, icon, manifest, title, app in COLLECTION_PAGES:
+        src = open(os.path.join(HERE, source), encoding="utf-8").read()
+        depth = len(folder.strip("/").split("/"))
+        base = "../" * depth
+
+        # resolve every relative URL against the site root
+        out = src.replace("<head>", '<head>\n<base href="%s">' % base, 1)
+
+        # swap in this collection's icons, manifest and titles
+        out = re.sub(r'<link rel="apple-touch-icon"[^>]*>', 
+                     '<link rel="apple-touch-icon" sizes="180x180" href="%s-apple-touch-icon.png">' % icon, out, count=1)
+        out = re.sub(r'<link rel="icon" type="image/png" sizes="32x32"[^>]*>',
+                     '<link rel="icon" type="image/png" sizes="32x32" href="%s-favicon-32.png">' % icon, out, count=1)
+        out = re.sub(r'<link rel="icon" type="image/png" sizes="512x512"[^>]*>',
+                     '<link rel="icon" type="image/png" sizes="512x512" href="%s-icon-512.png">' % icon, out, count=1)
+        out = re.sub(r'<link rel="manifest"[^>]*>', '<link rel="manifest" href="%s">' % manifest, out, count=1)
+        out = re.sub(r'<meta name="apple-mobile-web-app-title"[^>]*>',
+                     '<meta name="apple-mobile-web-app-title" content="%s">' % html.escape(app), out, count=1)
+        out = re.sub(r"<title>.*?</title>",
+                     "<title>%s &mdash; St Paul's Anglican Kogarah</title>" % html.escape(title), out, count=1, flags=re.S)
+
+        # open on this collection
+        out = out.replace('let active = VALID.indexOf(wanted) !== -1 ? wanted : "all";',
+                          'let active = VALID.indexOf(wanted) !== -1 ? wanted : "%s";' % code, 1)
+
+        os.makedirs(os.path.join(HERE, folder), exist_ok=True)
+        open(os.path.join(HERE, folder, "index.html"), "w", encoding="utf-8").write(out)
+        made.append(folder + "/")
+    return made
+
+
 # ---------------------------------------------------------------- commands
 
 def build():
@@ -530,6 +581,7 @@ def cmd_rebuild():
     for k in sorted(by):
         print("  %-26s %d" % (k, by[k]))
     print("Chinese pages: %d of %d" % (len(cn_entries), len(entries)))
+    print("Collection pages: %s" % ", ".join(write_collection_pages()))
     print("Index updated: bible-studies.html, bible-studies-cn.html")
 
 

@@ -4,15 +4,15 @@
 <base href="../../">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>KOGYouth Studies &mdash; St Paul's Anglican Kogarah</title>
-<link rel="apple-touch-icon" sizes="180x180" href="ky-apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="ky-favicon-32.png">
-<link rel="icon" type="image/png" sizes="512x512" href="ky-icon-512.png">
-<link rel="manifest" href="studies-youth.webmanifest">
+<title>Home Group Studies &mdash; St Paul's Anglican Kogarah</title>
+<link rel="apple-touch-icon" sizes="180x180" href="gg-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="gg-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="gg-icon-512.png">
+<link rel="manifest" href="studies-home-groups.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="KOGYouth">
+<meta name="apple-mobile-web-app-title" content="Home Groups">
 <meta name="theme-color" content="#0e1a2b">
 <meta name="description" content="Home group Bible studies from St Paul's Anglican Kogarah — KOGYouth, adult home groups, young adults and nursing home talks.">
 <meta property="og:title" content="Bible Studies — St Paul's Anglican Kogarah">
@@ -163,7 +163,7 @@ const NAMES = { ky: "KOGYouth", gg: "Home Groups", ya: "Young Adults", nh: "Nurs
 const VALID = ["all", "ky", "gg", "ya", "nh"];
 // ?c=ky preselects a collection — used by the retired study repos when they redirect here.
 const wanted = new URLSearchParams(location.search).get("c");
-let active = VALID.indexOf(wanted) !== -1 ? wanted : "ky";
+let active = VALID.indexOf(wanted) !== -1 ? wanted : "gg";
 
 const chipsEl = document.getElementById("chips");
 const listEl  = document.getElementById("list");

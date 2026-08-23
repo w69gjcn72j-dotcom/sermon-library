@@ -4,12 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Bible Studies — St Paul's Anglican Kogarah</title>
-<link rel="apple-touch-icon" sizes="180x180" href="hub-apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="hub-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="bs-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="bs-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="bs-icon-512.png">
+<link rel="manifest" href="bible-studies.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Studies">
 <meta name="theme-color" content="#0e1a2b">
-<meta name="description" content="Growth group Bible studies from St Paul's Anglican Kogarah — KOGYouth, adult growth groups, young adults and nursing home talks.">
+<meta name="description" content="Home group Bible studies from St Paul's Anglican Kogarah — KOGYouth, adult home groups, young adults and nursing home talks.">
 <meta property="og:title" content="Bible Studies — St Paul's Anglican Kogarah">
-<meta property="og:description" content="Every growth group study, following Sunday's sermon.">
+<meta property="og:description" content="Every home group study, following Sunday's sermon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -78,7 +84,7 @@
   <header>
     <p class="eyebrow">St Paul's Anglican Kogarah</p>
     <h1>Bible Studies</h1>
-    <p class="tagline">Growth group studies following Sunday's sermon — for youth, adults, young adults, and our nursing home visits.</p>
+    <p class="tagline">Home group studies following Sunday's sermon — for youth, adults, young adults, and our nursing home visits.</p>
   </header>
 
   <div class="controls">
@@ -147,11 +153,11 @@ const STUDIES = [
 const GROUPS = [
   { c: "all", label: "All" },
   { c: "ky",  label: "KOGYouth" },
-  { c: "gg",  label: "Growth Groups" },
+  { c: "gg",  label: "Home Groups" },
   { c: "ya",  label: "Young Adults" },
   { c: "nh",  label: "Nursing Home" }
 ];
-const NAMES = { ky: "KOGYouth", gg: "Growth Groups", ya: "Young Adults", nh: "Nursing Home" };
+const NAMES = { ky: "KOGYouth", gg: "Home Groups", ya: "Young Adults", nh: "Nursing Home" };
 
 const VALID = ["all", "ky", "gg", "ya", "nh"];
 // ?c=ky preselects a collection — used by the retired study repos when they redirect here.

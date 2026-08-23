@@ -1,0 +1,31 @@
+{
+  "name": "Bible Studies — St Paul's Anglican Kogarah",
+  "short_name": "Studies",
+  "description": "Home group, youth, young adults and nursing home Bible studies from St Paul's Anglican Kogarah.",
+  "start_url": "studies/",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1a2b",
+  "theme_color": "#0e1a2b",
+  "icons": [
+    {
+      "src": "bs-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "bs-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "bs-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

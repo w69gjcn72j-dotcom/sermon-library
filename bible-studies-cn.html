@@ -4,10 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>查经材料 — 高嘉华圣保罗圣公会</title>
-<link rel="apple-touch-icon" sizes="180x180" href="hub-apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="hub-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="bs-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="bs-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="bs-icon-512.png">
+<link rel="manifest" href="bible-studies.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="查经">
 <meta name="theme-color" content="#0e1a2b">
-<meta name="description" content="高嘉华圣保罗圣公会的成长小组查经材料 — 青少年、成人、青年成人及安老院短讲。">
+<meta name="description" content="高嘉华圣保罗圣公会的家庭小组查经材料 — 青少年、成人、青年成人及安老院短讲。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -72,7 +78,7 @@
   <header>
     <p class="eyebrow">高嘉华圣保罗圣公会</p>
     <h1>查经材料</h1>
-    <p class="tagline">跟随主日讲道的成长小组查经 — 青少年、成人、青年成人，以及安老院短讲。</p>
+    <p class="tagline">跟随主日讲道的家庭小组查经 — 青少年、成人、青年成人，以及安老院短讲。</p>
   </header>
 
   <div class="controls">
@@ -121,11 +127,11 @@ const STUDIES = [
 const GROUPS = [
   { c: "all", label: "全部" },
   { c: "ky",  label: "青少年" },
-  { c: "gg",  label: "成人小组" },
+  { c: "gg",  label: "家庭小组" },
   { c: "ya",  label: "青年成人" },
   { c: "nh",  label: "安老院" }
 ];
-const NAMES = { ky: "青少年成长小组", gg: "成人成长小组", ya: "青年成人", nh: "安老院短讲" };
+const NAMES = { ky: "青少年成长小组", gg: "成人家庭小组", ya: "青年成人", nh: "安老院短讲" };
 
 const VALID = ["all", "ky", "gg", "ya", "nh"];
 // ?c=gg 预先选定某个系列 — 供短网址转介之用。
