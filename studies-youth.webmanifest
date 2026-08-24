@@ -1,7 +1,7 @@
 {
   "name": "KOGYouth Studies — St Paul's Anglican Kogarah",
   "short_name": "KOGYouth",
-  "description": "KOGYouth growth group studies for high schoolers.",
+  "description": "KOGYouth Bible studies for high schoolers.",
   "start_url": "studies/youth/",
   "scope": "./",
   "display": "standalone",

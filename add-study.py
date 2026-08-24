@@ -8,7 +8,7 @@ Usage:
     python3 add-study.py --check       # verify entries <-> pages, report gaps
 
 Collections and their page prefixes:
-    kogyouth_*            -> ky-   KOGYouth Growth Groups
+    kogyouth_*            -> ky-   KOGYouth
     homegroup_adults_*    -> gg-   Home Groups (adults)
     homegroup_youngadults_* -> ya- Young Adults (19-30)
     *Nursing Home*        -> nh-   Nursing Home Talks
@@ -35,7 +35,7 @@ INDEX_CN = os.path.join(HERE, "bible-studies-cn.html")
 CN_DIR = os.path.join(HERE, "cn")      # one <pagebase>.json per translated study
 
 COLLECTIONS = [
-    ("kogyouth_",             "ky", "KOGYouth",      "KOGYouth Growth Groups",   "青少年成长小组查经"),
+    ("kogyouth_",             "ky", "KOGYouth",      "KOGYouth",                 "KOGYouth 青少年查经"),
     ("homegroup_adults_",     "gg", "Home Groups",   "Home Groups (adults)",     "成人家庭小组查经"),
     ("homegroup_youngadults_","ya", "Young Adults",  "Young Adults (19–30)","青年成人查经"),
     ("nursing home",          "nh", "Nursing Home",  "Nursing Home Talks",       "安老院短讲"),
