@@ -71,6 +71,8 @@ def find_docs():
                 continue
             if "_handout" in f.lower():          # student print copy, not a web page
                 continue
+            if f.lower().endswith("_cn.docx"):   # Chinese print copy; the web page comes from cn/*.json
+                continue
             p = os.path.join(root, f)
             if classify(p):
                 out.append(p)
@@ -431,7 +433,7 @@ CN_PAGE_TMPL = """<!DOCTYPE html>
   </p>
 </div>
 <footer>
-  翁沛偉牧师 Rev David Yung &middot; 高嘉华圣保罗圣公会<br>
+  翁沛伟牧师 Rev David Yung &middot; 高嘉华圣保罗圣公会<br>
   <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a>
   <span class="sdg">Soli Deo Gloria</span>
 </footer>
