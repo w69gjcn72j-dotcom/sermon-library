@@ -65,13 +65,19 @@
   .grid a small{display:block;color:var(--gold);font-size:.85rem;letter-spacing:.2em;margin-bottom:4px}
   footer{margin-top:2.4rem;color:var(--muted);font-size:1.1rem;line-height:1.8}
   @media print{.deck{height:auto;overflow:visible}section{min-height:auto;page-break-after:always}
-    .dots,#stars,.hint{display:none}}
+    .dots,#stars,.hint,.langtog{display:none}}
 
   .mini{height:34px;width:auto}
+  .langtog{position:fixed;top:max(12px,env(safe-area-inset-top));right:14px;z-index:6;
+    font-family:system-ui,-apple-system,'PingFang SC',sans-serif;font-size:.95rem;font-weight:600;letter-spacing:.04em;
+    color:var(--gold);text-decoration:none;padding:.45rem .95rem;border-radius:999px;
+    background:rgba(11,16,38,.72);border:1px solid rgba(244,200,96,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .langtog:hover,.langtog:focus-visible{background:rgba(244,200,96,.16)}
 </style>
 </head>
 <body>
 <div id="stars"></div>
+<a class="langtog" href="seven-stars-cn.html" lang="zh-Hans" title="阅读中文版">中文</a>
 <nav class="dots"><a href="#s0" title="Introduction"></a><a href="#s1" title="Creation"></a><a href="#s2" title="Fall"></a><a href="#s3" title="Judgement"></a><a href="#s4" title="Salvation"></a><a href="#s5" title="Resurrection"></a><a href="#s6" title="Regeneration"></a><a href="#s7" title="The Last Things"></a><a href="#s8" title="Contents"></a></nav>
 <main class="deck">
 <section id="s0"><div class="wrap">
@@ -143,8 +149,7 @@
   <footer>
     Rev David Yung &middot; St Paul's Anglican Church Kogarah<br>
     <a href="mailto:dyung@kogarah.church" style="color:var(--gold)">dyung@kogarah.church</a>
-    &middot; www.stpaulskogarah.com &middot; (02) 9587 5951<br>
-    <a href="seven-stars-cn.html" style="color:var(--gold)">&#20013;&#25991;&#29256;</a>
+    &middot; www.stpaulskogarah.com &middot; (02) 9587 5951
   </footer>
 </div></section>
 </main>
@@ -169,6 +174,13 @@
     var n=Math.min(secs.length-1,Math.max(0,cur+d));
     deck.scrollTo({top:secs[n].offsetTop,behavior:'smooth'});
   }
+  // Language toggle keeps the reader on the same star.
+  var tog=document.querySelector('.langtog');
+  if(tog) tog.addEventListener('click',function(){
+    var top=deck.scrollTop, id=secs[0].id;
+    secs.forEach(function(s){ if(s.offsetTop<=top+5) id=s.id; });
+    tog.href=tog.getAttribute('href').split('#')[0]+'#'+id;
+  });
   document.addEventListener('keydown',function(e){
     if(['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(1);}
     if(['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(-1);}
