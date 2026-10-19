@@ -1,0 +1,254 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>One Body, Many Members</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: a single column of short sections, with one coloured band for the seven teams. */
+:root {
+  --bg: #FDF6EC;
+  --fg: #1B2440;
+  --muted: #4A5568;
+  --card: #FFFFFF;
+  --line: #E6DCCB;
+  --coral: #E8724A;
+  --teal: #1A6B7A;
+  --gold: #C8962E;
+  --navy: #2C3E50;
+  --hero: #1B2440;
+  --hero-fg: #FDF6EC;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14192B;
+    --fg: #F3EBDD;
+    --muted: #B9B2A4;
+    --card: #1F2740;
+    --line: #34405E;
+    --coral: #F08A66;
+    --teal: #5FB3C2;
+    --gold: #E2B656;
+    --navy: #C9D3E0;
+    --hero: #0E1322;
+    --hero-fg: #FDF6EC;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14192B;
+  --fg: #F3EBDD;
+  --muted: #B9B2A4;
+  --card: #1F2740;
+  --line: #34405E;
+  --coral: #F08A66;
+  --teal: #5FB3C2;
+  --gold: #E2B656;
+  --navy: #C9D3E0;
+  --hero: #0E1322;
+  --hero-fg: #FDF6EC;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Calibri, Carlito, Arial, "Noto Sans SC", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; margin: 0 0 12px; font-family: "Calibri Light", Calibri, Carlito, sans-serif; font-weight: normal; }
+.gift-card { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; background: var(--card); border: 1px solid var(--line); border-left: 6px solid #6C3483; border-radius: 10px; padding: 20px; margin-top: 12px; }
+.gift-card svg { flex-shrink: 0; width: 112px; height: 112px; max-width: 100%; }
+.gift-card > div { flex: 1 1 260px; min-width: 0; }
+.gift-card ul { padding-left: 20px; margin: 8px 0 0; }
+.gift-card li { margin-bottom: 6px; }
+.note { font-size: 0.85rem; color: var(--muted); margin-top: 12px; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.5rem; margin-top: 8px; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 14px; max-width: 65ch; }
+.eyebrow { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
+.hero {
+  background: var(--hero);
+  color: var(--hero-fg);
+  padding: 56px 24px 48px;
+  margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 0;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+.hero .wrap { }
+.hero .eyebrow { color: var(--gold); }
+.hero h1 { color: var(--hero-fg); }
+.hero p { color: #E6DCCB; }
+.verse { border-left: 3px solid var(--coral); padding-left: 16px; margin: 24px 0 0; font-style: italic; color: #E6DCCB; }
+.verse cite { display: block; font-style: normal; font-size: 0.85rem; margin-top: 6px; color: var(--gold); }
+section { padding: 36px 0 0; }
+.teams { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+@media (min-width: 560px) { .teams { grid-template-columns: 1fr 1fr; } }
+.team {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  min-width: 0;
+}
+.team .name { font-weight: bold; font-size: 1.05rem; }
+.team .body-part { font-size: 0.85rem; color: var(--muted); margin: 2px 0 8px; }
+.team p { margin: 0; font-size: 0.95rem; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+.commit { counter-reset: c; list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
+.commit li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px 14px 56px;
+  position: relative;
+  min-width: 0;
+}
+.commit li::before {
+  counter-increment: c;
+  content: counter(c);
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.commit strong { display: block; margin-bottom: 2px; }
+.commit span { color: var(--muted); font-size: 0.95rem; }
+.stats { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+@media (min-width: 560px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+.stat { border-top: 3px solid var(--coral); background: var(--card); padding: 14px 16px; border-radius: 0 0 8px 8px; min-width: 0; }
+.stat .big { font-size: 1.8rem; color: var(--fg); font-variant-numeric: tabular-nums; }
+.stat .label { font-size: 0.9rem; color: var(--muted); }
+.closing {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.closing p:last-child { margin-bottom: 0; }
+footer { margin-top: 32px; font-size: 0.85rem; color: var(--muted); }
+.tbl-wrap { overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+.tbl th, .tbl td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tbl th { color: var(--muted); font-weight: normal; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.tbl td.num, .tbl th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tbl tr.total td { font-weight: bold; border-bottom: 0; }
+.tbl tr.team-row td { background: var(--bg); font-weight: bold; color: var(--teal); }
+.icon { width: 32px; height: 32px; vertical-align: middle; margin-right: 8px; flex-shrink: 0; }
+.gift-icon { width: 112px; height: 112px; max-width: 100%; flex-shrink: 0; }
+[data-editable] { cursor: text; }
+[data-editable]:hover { background: color-mix(in srgb, var(--coral) 10%, transparent); border-radius: 4px; }
+[data-editable]:focus { outline: 2px dashed var(--coral); outline-offset: 4px; border-radius: 4px; background: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { animation: rise 0.6s ease both; }
+  @keyframes rise { from { opacity: 0.001; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">St Paul's Anglican Church Kogarah · Giftedness and G7 teams</p>
+    <h1>One body, many members</h1>
+    <p>Our teams are not separate projects. Each one serves the whole church, and each member is needed.</p>
+    <blockquote class="verse">
+      "The eye cannot say to the hand, 'I do not need you,' … If one part suffers, every part suffers with it."
+      <cite>1 Corinthians 12:21, 26 (CSB)</cite>
+    </blockquote>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <p class="eyebrow">Who we are together</p>
+    <h2>Seven teams, one church</h2>
+    <p>Every member of the body has a part. These are the seven G7 teams, and what each one does for the rest of us.</p>
+    <div class="teams">
+      <div class="team"><div class="name"><img class="icon" src="icons/glorify.png" alt="Glorify icon" width="32" height="32">Glorify</div><div class="body-part">Cardiovascular system · Worship and service</div><p>Music, AV, service leading, prayer and the Lord's Table.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/grow.png" alt="Grow icon" width="32" height="32">Grow</div><div class="body-part">Musculoskeletal system · Discipleship</div><p>Home groups, KOG Kids, KOG Youth, 121s and Bible teaching.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/giftedness.png" alt="Giftedness icon" width="32" height="32">Giftedness</div><div class="body-part">Endocrine system · Gifts and calling</div><p>Helping each person find where God has gifted them, and training them to serve.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/gregarious.png" alt="Gregarious icon" width="32" height="32">Gregarious</div><div class="body-part">Integumentary system (skin) · Care, welcome and fellowship</div><p>Morning tea, Sunday Dish, outings and making sure no one stands alone.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/go.png" alt="Go icon" width="32" height="32">Go</div><div class="body-part">Respiratory system · Outreach and mission</div><p>SRE, KOGWorx, Easy English, short-term mission and sharing the gospel beyond our doors.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/governance.png" alt="Governance icon" width="32" height="32">Governance</div><div class="body-part">Nervous system · Leadership and stewardship</div><p>Parish Council, Wardens, finance, property and the mission of the parish.</p></div>
+      <div class="team"><div class="name"><img class="icon" src="icons/glue.png" alt="Glue icon" width="32" height="32">Glue</div><div class="body-part">Lymphatic system · Support and administration</div><p>Admin, IT, maintenance and the practical work that holds everything together.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Giftedness team</p>
+    <h2>Each member has a gift to use</h2>
+    <p>The Giftedness team helps each person discover the gifts God has given them and find where to serve. It walks people from first contact to belonging, and then to serving.</p>
+    <div class="gift-card">
+      <img class="gift-icon" src="icons/giftedness.png" alt="Giftedness icon from the G7 Design Scheme" width="112" height="112">
+      <div>
+        <h3>What the icon says</h3>
+        <ul>
+          <li>The star stands for the gifts God gives to each member.</li>
+          <li>Purple (#6C3483) is the Giftedness colour in the G7 Design Scheme.</li>
+          <li>Giftedness is the endocrine system in the body metaphor. Its work helps each part of the body serve well.</li>
+        </ul>
+        <p style="margin-top:10px">"Each one should use whatever gift he has received to serve others, as good stewards of God's varied grace." 1 Peter 4:10 (CSB)</p>
+        <p class="note">Icon from the G7 Design Scheme: a white symbol on a team-colour disc.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Our loyalty to one another</p>
+    <h2>Five commitments for every team</h2>
+    <p>Trust grows from small, repeated habits. These are the habits we ask every team to practise.</p>
+    <ol class="commit">
+      <li><strong>Cover for one another.</strong><span>Every role should have a trained second person, so that no one carries a ministry alone and no one is left without help when life gets busy.</span></li>
+      <li><strong>Speak well of one another.</strong><span>When someone is not in the room, we speak about them as we would want to be spoken about. We praise in public and raise concerns in private.</span></li>
+      <li><strong>Go to one another first.</strong><span>If something troubles us, we go to the person directly and gently, before we talk to anyone else about it.</span></li>
+      <li><strong>Pray by name.</strong><span>Each team meeting opens with prayer for the people in it, by name, and for the family and work commitments each person carries.</span></li>
+      <li><strong>Celebrate faithful service.</strong><span>We thank people for their service, publicly and specifically, and we mark the growth we see, including the first time someone leads something new.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="eyebrow">Where we are</p>
+    <h2>Growing the bench, not ranking the people</h2>
+    <p>Training is for every member, and it is a way of sharing the load. These figures come from our July 2026 gifts review, counting 67 people in our church community.</p>
+    <div class="stats">
+      <div class="stat reveal"><div class="big">42</div><div class="label">people currently serving (63%)</div></div>
+      <div class="stat reveal"><div class="big">56</div><div class="label">available to serve, pending pastoral decision (84%)</div></div>
+      <div class="stat reveal"><div class="big">34</div><div class="label">who would benefit from further training (51%)</div></div>
+    </div>
+    <p style="margin-top:16px">Our aim is simple: every serving role has a trained second person by the end of 2026. Each step toward that goal is a gift to the whole body.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">How people join us</p>
+    <h2>Welcome to the Team</h2>
+    <p>Our pathway for those who want to serve is called the Welcome Pathway. It includes the Welcome to Life ministries, the Welcome Home ministries, the Home Group ministries and the Welcome to the Team ministry. Once a person has understood the church's theological principles and practices, they will be provided with the appropriate leaders' training (with safe ministry, if applicable). Each step helps a person know they belong before they are given a task.</p>
+  </section>
+
+  <section class="closing">
+    <p class="eyebrow">Closing prayer</p>
+    <p>"Make every effort to keep the unity of the Spirit through the bond of peace." Ephesians 4:3 (CSB)</p>
+    <p>"Do nothing out of rivalry or conceit, but in humility consider others as more important than yourselves." Philippians 2:3 (CSB)</p>
+    <p>Father, make us one body in Christ. Give us trust in one another, loyalty to your church, and joy in the gifts you have given to each member. Amen.</p>
+  </section>
+
+  <footer>
+    Prepared 17 October 2026 for the Giftedness team meeting. Figures from the 2026 gifts review.
+  </footer>
+</main>
+
+
+</body></html>

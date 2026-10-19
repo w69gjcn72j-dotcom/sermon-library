@@ -1,0 +1,594 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>The Sunday God Gave Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,500;0,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&display=swap">
+<style>
+/* ── St Paul's Kogarah · Father's Day 2026 ─────────────────────────── */
+
+:root {
+  /* surfaces & ink — warm, slightly ochre paper; teal-biased neutrals */
+  --paper:      #FAF6F0;
+  --surface:    #FFFFFF;
+  --sunk:       #F2EBE2;
+  --ink:        #17322F;
+  --ink-2:      #40514F;
+  --ink-3:      #77857F;
+  --rule:       #E2D9CD;
+  --rule-soft:  #EDE5DA;
+
+  /* validated categorical trio — identical in both themes */
+  --teal:   #00908A;   /* regulars   */
+  --plum:   #8A6BB1;   /* irregulars */
+  --coral:  #E2603F;   /* visitors / accent */
+
+  --ghost:  #B9AC9C;
+
+  /* type */
+  /* Latin faces must precede the CJK fallbacks, or CJK fonts claim the
+     Latin punctuation (full-width apostrophes and quotes) when the
+     webfont has not loaded. */
+  --display: "Newsreader", "Bitstream Charter", "TeX Gyre Pagella", Georgia, "Times New Roman", "Noto Serif SC", "Noto Serif CJK SC", serif;
+  --body:    "Newsreader", "Bitstream Charter", "TeX Gyre Pagella", Georgia, "Times New Roman", "Noto Serif SC", "Noto Serif CJK SC", serif;
+  --han:     "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+  --util:    "IBM Plex Sans", Carlito, "TeX Gyre Heros", "Helvetica Neue", Arial, "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+
+  --measure: 34rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:     #131A19;
+    --surface:   #1A2322;
+    --sunk:      #202B29;
+    --ink:       #ECE5DA;
+    --ink-2:     #C0CAC7;
+    --ink-3:     #8B9995;
+    --rule:      #2E3A38;
+    --rule-soft: #253130;
+    --ghost:     #4E5B58;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:     #131A19;
+  --surface:   #1A2322;
+  --sunk:      #202B29;
+  --ink:       #ECE5DA;
+  --ink-2:     #C0CAC7;
+  --ink-3:     #8B9995;
+  --rule:      #2E3A38;
+  --rule-soft: #253130;
+  --ghost:     #4E5B58;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+}
+
+/* ── masthead ─────────────────────────────────────────────────────── */
+
+.eyebrow {
+  font-family: var(--util);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral);
+}
+.eyebrow .sep { color: var(--ink-3); padding: 0 0.5em; }
+.eyebrow .han { font-family: var(--util); letter-spacing: 0.08em; text-transform: none; }
+
+.masthead {
+  border-top: 3px solid var(--ink);
+  padding-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 6vw, 3.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 .han {
+  display: block;
+  font-family: var(--han);
+  font-size: 0.52em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-2);
+  margin-top: 0.55rem;
+}
+
+.standfirst {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2.75rem;
+  font-size: 1.14rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.6rem;
+}
+.standfirst p { margin: 0; }
+
+/* ── bilingual body grid ──────────────────────────────────────────── */
+
+section { margin-top: 3.4rem; }
+
+.sechead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.7rem;
+}
+.sechead .n {
+  font-family: var(--util);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.01em;
+}
+h2 .han { font-family: var(--han); font-size: 0.82em; color: var(--ink-2); font-weight: 500; }
+
+.diglot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.75rem;
+  align-items: start;
+}
+.diglot > .zh { font-family: var(--han); font-size: 0.98em; line-height: 1.85; }
+.diglot p { margin: 0 0 0.85rem; }
+.diglot p:last-child { margin-bottom: 0; }
+.diglot h3 {
+  font-family: var(--display);
+  font-size: 1.06rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.005em;
+}
+.diglot > .zh h3 { font-family: var(--han); font-weight: 600; }
+
+.pointlist { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+.pointlist > li { display: flex; gap: 0.85rem; }
+.pointlist .mark {
+  flex: 0 0 auto;
+  font-family: var(--util);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--coral);
+  padding-top: 0.42em;
+  min-width: 1.2em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── the ledger of what we brought ────────────────────────────────── */
+
+.ledger { display: flex; flex-direction: column; }
+.ledger .item {
+  display: grid;
+  grid-template-columns: 3.1rem 1fr 1fr;
+  gap: 0 2rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: baseline;
+}
+.ledger .item:first-child { border-top: 1px solid var(--rule-soft); }
+.ledger .fig {
+  font-family: var(--util);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.ledger .zh { font-family: var(--han); color: var(--ink-2); font-size: 0.94em; line-height: 1.7; }
+.ledger .when {
+  display: block;
+  font-family: var(--util);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+/* ── figures ──────────────────────────────────────────────────────── */
+
+figure {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 1.6rem 1.5rem 1.3rem;
+}
+figcaption {
+  font-family: var(--util);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+  margin-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 0.7rem;
+}
+.figtitle {
+  font-family: var(--util);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin: 0 0 0.15rem;
+}
+.figtitle .han { font-family: var(--util); letter-spacing: 0.05em; text-transform: none; color: var(--ink-3); font-weight: 500; }
+.figsub { font-family: var(--util); font-size: 0.76rem; color: var(--ink-3); margin: 0 0 1.15rem; }
+.chartwrap { overflow-x: auto; }
+svg { display: block; max-width: 100%; height: auto; }
+svg text { font-family: var(--util); }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.3rem;
+  font-family: var(--util);
+  font-size: 0.76rem;
+  color: var(--ink-2);
+  margin-bottom: 1.1rem;
+}
+.legend span { display: inline-flex; align-items: center; gap: 0.42rem; }
+.legend i { width: 0.72rem; height: 0.72rem; border-radius: 2px; display: inline-block; }
+
+/* ── hero number ──────────────────────────────────────────────────── */
+
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 2rem;
+  align-items: center;
+  background: var(--sunk);
+  padding: 1.5rem 1.75rem;
+  border-left: 4px solid var(--coral);
+  margin-bottom: 1.8rem;
+}
+.hero .num {
+  font-family: var(--display);
+  font-size: clamp(3.4rem, 9vw, 5.2rem);
+  font-weight: 600;
+  line-height: 0.85;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+.hero .say { font-size: 1.05rem; line-height: 1.45; }
+.hero .say .han { display: block; font-family: var(--han); font-size: 0.9em; color: var(--ink-2); margin-top: 0.35rem; }
+
+/* ── scripture ────────────────────────────────────────────────────── */
+
+blockquote.scripture {
+  margin: 2rem 0 0;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 2.75rem;
+}
+blockquote.scripture p { margin: 0; font-size: 1.12rem; line-height: 1.5; }
+blockquote.scripture .zh { font-family: var(--han); font-size: 1.02rem; line-height: 1.8; color: var(--ink-2); }
+blockquote.scripture cite {
+  grid-column: 1 / -1;
+  font-family: var(--util);
+  font-size: 0.73rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-top: 0.5rem;
+}
+
+.pull {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.4vw, 2.05rem);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+.pull .han { display: block; font-family: var(--han); font-size: 0.62em; line-height: 1.7; color: var(--ink-2); margin-top: 0.7rem; letter-spacing: 0.02em; }
+
+/* ── prayer ───────────────────────────────────────────────────────── */
+
+.prayer { display: flex; flex-direction: column; gap: 1.1rem; }
+.prayer .p {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 2.75rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--teal);
+}
+.prayer .p .zh { font-family: var(--han); color: var(--ink-2); font-size: 0.96em; line-height: 1.8; }
+.prayer .p strong { font-weight: 600; }
+
+/* ── colophon ─────────────────────────────────────────────────────── */
+
+.colophon {
+  margin-top: 4rem;
+  border-top: 3px solid var(--ink);
+  padding-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem 2rem;
+  font-family: var(--util);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+}
+.colophon strong { color: var(--ink); font-weight: 600; }
+.colophon .han { font-family: var(--han); }
+
+/* ── responsive ───────────────────────────────────────────────────── */
+
+@media screen and (max-width: 720px) {
+  .sheet { padding: 2.25rem 1.15rem 3.5rem; }
+  .standfirst,
+  .diglot,
+  blockquote.scripture,
+  .prayer .p { grid-template-columns: 1fr; gap: 0.8rem; }
+  .ledger .item { grid-template-columns: 2.6rem 1fr; gap: 0 1rem; }
+  .ledger .item .zh { grid-column: 2; margin-top: 0.3rem; }
+  .hero { grid-template-columns: 1fr; gap: 0.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ── print (A4) ───────────────────────────────────────────────────── */
+
+@page { size: A4; margin: 14mm 13mm 12mm; }
+
+@media print {
+  :root {
+    --paper: #FFFFFF; --surface: #FFFFFF; --sunk: #F5EFE6;
+    --ink: #15302D; --ink-2: #3C4D4B; --ink-3: #6E7C77;
+    --rule: #D6CCBE; --rule-soft: #E6DED2;
+  }
+  body { background: #fff; font-size: 10.2pt; line-height: 1.5; }
+  .sheet { max-width: none; padding: 0; }
+  h1 { font-size: 26pt; }
+  h1 .han { font-size: 0.5em; }
+  h2 { font-size: 14pt; }
+  .standfirst { font-size: 10.6pt; }
+  .hero .num { font-size: 46pt; }
+  .pull { font-size: 15pt; }
+  blockquote.scripture p { font-size: 11pt; }
+  section { margin-top: 1.35rem; break-inside: auto; }
+  figure, .hero, .sechead, .ledger .item, blockquote.scripture, .prayer .p, .pull, .pointlist > li { break-inside: avoid; }
+  .sechead, h2 { break-after: avoid; }
+  figure { padding: 1.1rem 1.1rem 0.9rem; }
+  .colophon { margin-top: 1.6rem; }
+  .pagebreak { break-before: page; }
+}
+
+.thanks {
+  background: var(--sunk);
+  border-left: 4px solid var(--teal);
+  padding: 1.4rem 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2.75rem;
+  margin-top: 2.4rem;
+}
+.thanks p { margin: 0; font-size: 1.06rem; }
+.thanks .zh { font-family: var(--han); font-size: 0.98rem; line-height: 1.8; color: var(--ink-2); }
+.dates { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 2.75rem; margin-top: 1.5rem; }
+.dates .d { border-top: 2px solid var(--coral); padding-top: 0.7rem; }
+.dates .k {
+  font-family: var(--util); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral);
+  display: block; margin-bottom: 0.3rem;
+}
+.dates .d p { margin: 0 0 0.35rem; }
+.dates .d .zh { font-family: var(--han); font-size: 0.94rem; line-height: 1.75; color: var(--ink-2); margin: 0; }
+@media screen and (max-width: 720px) { .thanks, .dates { grid-template-columns: 1fr; } }
+@media print { .thanks, .dates .d { break-inside: avoid; } }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow">St Paul's Anglican Kogarah<span class="sep">·</span>Father's Day, 6 September 2026<span class="sep">·</span><span class="han">圣保罗堂 高嘉华</span></div>
+    <h1>The Sunday God Gave Us<span class="han">神所赐的那个主日</span></h1>
+    <div class="standfirst">
+      <p>Father&rsquo;s Day was the largest Sunday St Paul&rsquo;s has had all year &mdash; and it came in a fortnight when we had least to give. Thank you. Praise God.</p>
+      <p class="zh" lang="zh-Hans">父亲节是圣保罗堂今年人数最多的一个主日——而它偏偏发生在我们最缺人手的两周。谢谢各位，愿荣耀归神。</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="sechead"><span class="n">WHY WE KEEP THE DAY <span class="han">我们为何守这日</span></span></div>
+    <h2>Father&rsquo;s Day is really about the Father <span class="han">父亲节，说到底是关乎天父</span></h2>
+
+    <div class="diglot">
+      <div>
+        <p>We do not mark Father&rsquo;s Day because greeting cards told us to. We mark it because fatherhood was God&rsquo;s idea first. Every family in heaven and on earth, the Bible says, is named after him &mdash; our dads are the copy, and he is the original.</p>
+        <p>That is why the day can be honest. Some of us had wonderful fathers to thank on Sunday. Some of us were remembering a dad we have lost, and some were carrying a hurt that Father&rsquo;s Day reopens. A day built on God&rsquo;s fatherhood makes room for all three.</p>
+        <p>And it holds out the best news there is: through Jesus, God does not merely tolerate us &mdash; he adopts us. People who were outsiders get called his children, and the name sticks.</p>
+      </div>
+      <div class="zh" lang="zh-Hans">
+        <p>我们守父亲节，不是因为贺卡商这样吩咐，而是因为「父亲」原是神的心意。圣经说，天上地上的各家都是从他得名——我们的父亲是摹本，神才是原型。</p>
+        <p>正因如此，这日子可以很诚实。主日那天，有人为一位美好的父亲献上感恩；有人在思念已故的父亲；也有人心里的旧伤，正因父亲节而再被掀开。以神的父性为根基的节日，能同时容纳这三种人。</p>
+        <p>而它也捧出世上最好的消息：藉着耶稣，神不只是勉强接纳我们，而是收纳我们为儿女。本是局外人的，得称为神的儿女，且这名分永不更改。</p>
+      </div>
+    </div>
+
+    <blockquote class="scripture">
+      <p>&ldquo;See what kind of love the Father has given to us, that we should be called children of God; and so we are.&rdquo;</p>
+      <p class="zh" lang="zh-Hans">「你看父赐给我们是何等的慈爱，使我们得称为神的儿女；我们也真是他的儿女。」</p>
+      <cite>1 John 3:1 · 约翰一书 3:1</cite>
+    </blockquote>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="n">WHAT GOD DID <span class="han">神所成就的</span></span></div>
+    <h2>Seventy-nine of us, in a week we had nothing spare <span class="han">在毫无余力的一周，聚集了七十九人</span></h2>
+
+    <div class="hero">
+      <div class="num">79</div>
+      <div class="say">Our biggest Sunday of 2026 &mdash; more than Mother&rsquo;s Day (76) and Easter Sunday (73).
+        <span class="han" lang="zh-Hans">2026年人数最多的主日——超过母亲节（76人）与复活节主日（73人）。</span>
+      </div>
+    </div>
+
+    <figure>
+      <p class="figtitle">The three big Sundays of 2026 <span class="han">2026年三个大主日</span></p>
+      <p class="figsub">The dashed line shows where we would have landed had the 22 regular members who were away been with us: over 100.</p>
+      <div class="chartwrap">
+<svg viewBox="0 0 760 182" role="img" aria-label="Sunday attendance in 2026: Easter 73, Mother's Day 76, Father's Day 79, with 22 regular members absent on Father's Day.">
+<g stroke="var(--rule)" stroke-width="1">
+<line x1="158.0" y1="8" x2="158.0" y2="154" />
+<line x1="281.2" y1="8" x2="281.2" y2="154" />
+<line x1="404.4" y1="8" x2="404.4" y2="154" />
+<line x1="527.5" y1="8" x2="527.5" y2="154" />
+<line x1="650.7" y1="8" x2="650.7" y2="154" />
+</g>
+<line x1="158.0" y1="154" x2="700.0" y2="154" stroke="var(--ink-3)" stroke-width="1" />
+<g fill="var(--ink-3)" font-size="11" text-anchor="middle">
+<text x="158.0" y="171">0</text>
+<text x="281.2" y="171">25</text>
+<text x="404.4" y="171">50</text>
+<text x="527.5" y="171">75</text>
+<text x="650.7" y="171">100</text>
+</g>
+<text x="0" y="26.0" fill="var(--ink)" font-size="12.5" font-weight="600">Easter Sunday</text>
+<text x="0" y="40.0" fill="var(--ink-3)" font-size="11">复活节主日</text>
+<rect x="158.0" y="12" width="359.7" height="30" rx="4" fill="var(--teal)"><title>Easter Sunday 2026 — 73 present</title></rect>
+<text x="505.7" y="32.0" fill="#fff" font-size="15" font-weight="600" text-anchor="end">73</text>
+<text x="0" y="76.0" fill="var(--ink)" font-size="12.5" font-weight="600">Mother's Day</text>
+<text x="0" y="90.0" fill="var(--ink-3)" font-size="11">母亲节</text>
+<rect x="158.0" y="62" width="374.5" height="30" rx="4" fill="var(--teal)"><title>Mother's Day 2026 — 76 present</title></rect>
+<text x="520.5" y="82.0" fill="#fff" font-size="15" font-weight="600" text-anchor="end">76</text>
+<text x="0" y="126.0" fill="var(--ink)" font-size="12.5" font-weight="600">Father's Day</text>
+<text x="0" y="140.0" fill="var(--ink-3)" font-size="11">父亲节</text>
+<rect x="549.3" y="112" width="106.4" height="30" rx="3" fill="none" stroke="var(--ghost)" stroke-width="1.5" stroke-dasharray="4 3" />
+<text x="665.7" y="125.0" fill="var(--ink-2)" font-size="13" font-weight="600">101</text>
+<text x="665.7" y="139.0" fill="var(--ink-3)" font-size="10">if all came</text>
+<rect x="158.0" y="112" width="389.3" height="30" rx="4" fill="var(--coral)"><title>Father's Day 2026 — 79 present</title></rect>
+<text x="535.3" y="132.0" fill="#fff" font-size="15" font-weight="600" text-anchor="end">79</text>
+</svg>
+      </div>
+      <figcaption>Father&rsquo;s Day 79 · Mother&rsquo;s Day 76 · Easter Sunday 73. &nbsp;父亲节79人、母亲节76人、复活节主日73人。</figcaption>
+    </figure>
+
+    <figure style="margin-top:1.5rem">
+      <p class="figtitle">Who was in the room <span class="han">当天在场的是哪些人</span></p>
+      <p class="figsub">Ten visitors came &mdash; more than on any other Sunday this year &mdash; along with twenty-one friends who normally manage less than one Sunday a month.</p>
+      <div class="chartwrap">
+<svg viewBox="0 0 760 100" role="img" aria-label="The 79 present on Father's Day: 48 regular members, 21 who normally come less than once a month, and 10 visitors.">
+<rect x="20.0" y="36" width="435.0" height="46" rx="5" fill="var(--teal)"><title>Regulars 恒常会众: 48</title></rect>
+<text x="237.5" y="67.0" fill="#fff" font-size="22" font-weight="600" text-anchor="middle">48</text>
+<text x="237.5" y="20.0" fill="var(--ink)" font-size="12.5" font-weight="600" text-anchor="middle">Regulars</text>
+<text x="237.5" y="33.0" fill="var(--ink-3)" font-size="11" text-anchor="middle">恒常会众</text>
+<rect x="457.0" y="36" width="190.3" height="46" rx="2" fill="var(--plum)"><title>Come rarely 偶尔出席: 21</title></rect>
+<text x="552.2" y="67.0" fill="#fff" font-size="22" font-weight="600" text-anchor="middle">21</text>
+<text x="552.2" y="20.0" fill="var(--ink)" font-size="12.5" font-weight="600" text-anchor="middle">Come rarely</text>
+<text x="552.2" y="33.0" fill="var(--ink-3)" font-size="11" text-anchor="middle">偶尔出席</text>
+<rect x="649.4" y="36" width="90.6" height="46" rx="5" fill="var(--coral)"><title>Visitors 来宾: 10</title></rect>
+<text x="694.7" y="67.0" fill="#fff" font-size="22" font-weight="600" text-anchor="middle">10</text>
+<text x="694.7" y="20.0" fill="var(--ink)" font-size="12.5" font-weight="600" text-anchor="middle">Visitors</text>
+<text x="694.7" y="33.0" fill="var(--ink-3)" font-size="11" text-anchor="middle">来宾</text>
+</svg>
+      </div>
+      <figcaption>10 visitors (9 English-speaking, 1 Chinese-speaking) · 21 who come rarely · 48 regular members. &nbsp;来宾10位（英语堂9、华语堂1）；偶尔出席者21位；恒常会众48位。</figcaption>
+    </figure>
+
+    <div class="diglot" style="margin-top:1.8rem">
+      <p>None of that was arranged by us. In the two weeks before Father&rsquo;s Day we farewelled five much-loved members of the 9:15 congregation, held a funeral, and came to Sunday with two brand-new AV operators, one rostered welcomer, and only two service leaders &mdash; both of whom were leading. We had very little in hand. God gave a great deal.</p>
+      <p class="zh" lang="zh-Hans">这一切都不是我们安排出来的。父亲节前的两周，我们欢送了九时十五分堂五位深受爱戴的弟兄姊妹，举行了一场安息礼拜；到了主日，视听同工是两位刚上任不足一个月的新手，当值迎新同工只有一位，在场的主领同工也只有两位，而且两位都在带领聚会。我们手上所有的极少，神所赐的却极多。</p>
+    </div>
+
+    <p class="pull" style="margin-top:2rem">We had the least to work with, and God gave us the most.
+      <span class="han" lang="zh-Hans">我们手上的资源最少，神却赐下最多。</span>
+    </p>
+
+    <blockquote class="scripture">
+      <p>&ldquo;My grace is sufficient for you, for my power is made perfect in weakness.&rdquo;</p>
+      <p class="zh" lang="zh-Hans">「我的恩典够你用的，因为我的能力是在人的软弱上显得完全。」</p>
+      <cite>2 Corinthians 12:9 · 哥林多后书 12:9</cite>
+    </blockquote>
+  </section>
+
+  <div class="thanks">
+    <p><strong>Thank you.</strong> To everyone who set up, welcomed, ran the desk, poured tea, minded the children, cooked, prayed, invited a friend, or simply moved along the pew to make room &mdash; you carried one another on Sunday, and it was the most inspiring part of the morning. Sunday is what we hope every Sunday will look like.</p>
+    <p class="zh" lang="zh-Hans"><strong>谢谢你们。</strong>感谢每一位摆设场地、接待、操作控制台、斟茶、照顾孩子、预备饭食、代祷、邀请朋友，或只是往长椅里挪一挪、为人腾出座位的弟兄姊妹——主日那天你们彼此担当，这是当天早上最令人振奋的一幕。我们盼望每个主日都是这个样子。</p>
+  </div>
+
+  <section>
+    <div class="sechead"><span class="n">PLEASE PRAY <span class="han">请一同代祷</span></span></div>
+    <h2>Two things ahead, and one thing to keep asking <span class="han">前面两件事，与一个持续的祈求</span></h2>
+
+    <div class="dates">
+      <div class="d">
+        <span class="k">Coming up · 即将举行</span>
+        <p><strong>The Mid-Autumn Festival.</strong> Pray for wisdom and willing hands as we prepare, and start praying now for the friend or neighbour you might invite.</p>
+        <p class="zh" lang="zh-Hans"><strong>中秋节聚会。</strong>求神在筹备中赐下智慧与乐意服侍的人手；也请现在就为你可能邀请的朋友或邻舍祷告。</p>
+      </div>
+      <div class="d">
+        <span class="k">Coming up · 即将举行</span>
+        <p><strong>Our 157th anniversary.</strong> God has kept this church since 1869. Pray that another year of his mercy would end in his praise, not ours.</p>
+        <p class="zh" lang="zh-Hans"><strong>157周年堂庆。</strong>神自1869年保守这教会至今。愿再一年的怜悯，最终归荣耀于他，而不是归功于我们。</p>
+      </div>
+      <div class="d">
+        <span class="k">Keep asking · 持续祈求</span>
+        <p><strong>For the ten visitors and twenty-one occasional friends.</strong> That the welcome they found here would bring them back, and that they would meet the Father himself.</p>
+        <p class="zh" lang="zh-Hans"><strong>为十位来宾及二十一位偶尔出席的朋友祷告。</strong>愿他们在这里所领受的接待成为再来的动力，更让他们亲自认识天父。</p>
+      </div>
+      <div class="d">
+        <span class="k">Keep asking · 持续祈求</span>
+        <p><strong>That God would keep glorifying himself through the work of our hands</strong> &mdash; and that a Sunday like this one would become ordinary among us.</p>
+        <p class="zh" lang="zh-Hans"><strong>愿神继续藉我们手所作的工得着荣耀</strong>——也愿这样的主日，成为我们中间的常态。</p>
+      </div>
+    </div>
+
+    <blockquote class="scripture">
+      <p>&ldquo;Unless the LORD builds the house, those who build it labor in vain.&rdquo;</p>
+      <p class="zh" lang="zh-Hans">「若不是耶和华建造房屋，建造的人就枉然劳力。」</p>
+      <cite>Psalm 127:1 · 诗篇 127:1</cite>
+    </blockquote>
+  </section>
+
+  <div class="colophon">
+    <div><strong>St Paul&rsquo;s Anglican Church, Kogarah</strong> &mdash; 9:15am English &amp; Chinese congregations<br><span class="han" lang="zh-Hans">圣保罗堂（高嘉华）&mdash; 上午九时十五分 英语及华语崇拜</span></div>
+    <div><strong>Rev David Yung <span class="han">翁沛偉牧師</span></strong><br>Scripture: ESV · 和合本</div>
+  </div>
+
+</div>
+
+</body></html>

@@ -1,0 +1,666 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kogarah Sunday Afternoons</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADJUlEQVR4nO3dMYocRxTH4ZlljqBUKBFeLBQZlBkZbAfGkZJVZAS+gO4iXcBgHO0dHBh8BIPxHfYO69Qs+oFq1kxXU99Hx0Px+s+rrtezs8eXr98c4FNO9/f3W6+BSV1tvQDmJRwk4SAJB0k4SKeDwwpB5yAJB0k4SCePHJTTwRMpwbZCcpQl6Rwk4SAJB0k4SMJBEg6SoyzJ+JxkfE7yzEESDpJwkISDtNZR9q/ff3n8h7z87ufHf8gu6Bwk4SAJB8mEdNg6FdM5SMbnZ1ilYmsdZf8fy1TMtkISDpJwkISDJBwk4SA5yo5bpmLG58PWqZhthWR8foZVKqZzkISDJBwkR9lxy1RM5yAJB0k4SCakw9apmM5BEg7S6eBfh45apmI6B+n4xasft17DJ/z9x69bL+HSvvzm3dZLeEjnIAkHSThIXrxNY74boXOQjM9nMeGN0DlIwkESDpI/TZjHdDfCUXYa890I2wpJOEjCQRIOkgnpLCa8EToHyVF2GvPdCJ2DJBwk4/N5THcjdA7S8flXP2y9hsv558/fHv8h11//9PgP2QWdg+QoO26ZiukcJOPzYetUTOcgCQdJOEjCQfLLPuOWqZjOQRIOknCQhINkQjpsnYrpHCRvZcctUzGdgyQcJOEg+fb5GVapmM5BEg6So+y4ZSqmc5CMz4etUzGdgyQcJOEgCQfJUXbcMhUzPj/DKhWzrZCEgyQcJBPSYetUTOcgOcqOW6ZiOgdJOEjCQRIOknCQ/LLPuGUqpnOQhINkfD5snYrpHCThIAkHyYu3cctUTOcgHZ+9+H7rNTApnYPkTxNIOgfJhJTkKEuyrZCEgyQcJOEgCQdJOEiOsqRdjs9v399tvYRzvP34ZOsljNnftrLTZBx2uPKr+8NhR9fu6vvA7fu7zWv4+df+OgcXIxyknYXjZm/PdA/sa/1X2+9sg9fNhz3V979uPjzZvHpD1/Hp9bdbF41J7Wxb4ZKEgyQcpF2Oz7kMXzAmeStL8sxBEg6ScJCEgyQcJOEgOcqSdA6S8TnJ+JxkWyEJB0k4SI6yJJ2DJBwk4SAJB0k4SMJB+hcB8V6iUc5NNgAAAABJRU5ErkJggg==">
+<meta name="apple-mobile-web-app-title" content="Sundays">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1B2440">
+
+<style>
+  :root{
+    --ground:#FDF6EC;
+    --panel:#FFFCF6;
+    --ink:#1B2440;
+    --ink-2:#2C3E50;
+    --muted:#7A7161;
+    --faint:#A79C8A;
+    --rule:#E4D9C6;
+    --rule-soft:#EFE6D6;
+    --teal:#2D7B8C;
+    --coral:#E8714A;
+    --gold:#C8962E;
+    --gold-wash:#F6EBD2;
+    --shadow:0 1px 2px rgba(27,36,64,.06), 0 6px 18px rgba(27,36,64,.05);
+    --serif:"Palatino Linotype",Palatino,"Book Antiqua","URW Palladio L",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#141B2E;
+      --panel:#1B2440;
+      --ink:#F3EADA;
+      --ink-2:#DCD2C0;
+      --muted:#9E9584;
+      --faint:#736B5D;
+      --rule:#2B3654;
+      --rule-soft:#232D48;
+      --teal:#5BAFC0;
+      --coral:#F08F6D;
+      --gold:#E0B254;
+      --gold-wash:#2A2A34;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#141B2E;
+    --panel:#1B2440;
+    --ink:#F3EADA;
+    --ink-2:#DCD2C0;
+    --muted:#9E9584;
+    --faint:#736B5D;
+    --rule:#2B3654;
+    --rule-soft:#232D48;
+    --teal:#5BAFC0;
+    --coral:#F08F6D;
+    --gold:#E0B254;
+    --gold-wash:#2A2A34;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+  }
+
+  :root{background:var(--ground);}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:16px;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+    padding-inline:18px;
+    padding-block:0 40px;
+    max-width:600px;
+    margin-inline:auto;
+  }
+  *{box-sizing:border-box;}
+
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--faint);
+  }
+
+  /* ---- masthead ---- */
+  header.masthead{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    z-index:5;
+    background:var(--ground);
+    padding-block:16px 12px;
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .mast-cross{
+    font-family:var(--serif);
+    color:var(--gold);
+    font-size:19px;
+    line-height:1;
+  }
+  .mast-name{
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:.005em;
+    color:var(--ink);
+  }
+  .mast-term{
+    margin-left:auto;
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-variant-numeric:tabular-nums;
+  }
+
+  h1{
+    font-size:30px;
+    line-height:1.12;
+    font-weight:600;
+    letter-spacing:-.012em;
+    text-wrap:balance;
+    margin:22px 0 8px;
+  }
+  .standfirst{
+    color:var(--muted);
+    font-size:15.5px;
+    margin:0 0 4px;
+    max-width:44ch;
+  }
+
+  /* ---- next up ---- */
+  .nextup{
+    margin-top:22px;
+    background:var(--gold-wash);
+    border:1px solid var(--gold);
+    border-radius:4px;
+    padding:14px 16px 15px;
+    display:none;
+  }
+  .nextup.on{display:block;}
+  .nextup .eyebrow{color:var(--gold);}
+  .nextup-line{
+    font-size:19px;
+    font-weight:600;
+    margin-top:5px;
+    line-height:1.25;
+  }
+  .nextup-when{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--muted);
+    margin-top:3px;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---- schedule ---- */
+  h2{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin:38px 0 0;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+
+  ol.schedule{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+  }
+  li.sunday{
+    border-bottom:1px solid var(--rule-soft);
+  }
+  li.sunday.past{opacity:.42;}
+
+  details{width:100%;}
+  summary{
+    list-style:none;
+    cursor:pointer;
+    display:grid;
+    grid-template-columns:54px 1fr 14px;
+    gap:12px;
+    align-items:baseline;
+    padding:14px 0 14px 11px;
+    border-left:3px solid var(--rule);
+    margin-left:0;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:2px;
+  }
+  .kind-g7 > summary{border-left-color:var(--teal);}
+  .kind-lunch > summary{border-left-color:var(--coral);}
+  .kind-clear > summary{border-left-color:var(--rule);}
+
+  .date{
+    font-family:var(--sans);
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.03em;
+    color:var(--muted);
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+    text-transform:uppercase;
+  }
+  li.sunday.is-next .date{color:var(--gold);}
+
+  .what{min-width:0;}
+  .what strong{
+    display:block;
+    font-size:17px;
+    font-weight:600;
+    line-height:1.28;
+    letter-spacing:-.004em;
+  }
+  .kind-clear .what strong{font-weight:500;color:var(--muted);font-style:italic;}
+  .sub{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--faint);
+    margin-top:3px;
+    line-height:1.45;
+  }
+  .time{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--muted);
+    font-variant-numeric:tabular-nums;
+  }
+  .chev{
+    align-self:center;
+    width:8px;height:8px;
+    border-right:1.5px solid var(--faint);
+    border-bottom:1.5px solid var(--faint);
+    transform:rotate(45deg) translateY(-2px);
+    transition:transform .18s ease;
+  }
+  details[open] .chev{transform:rotate(-135deg) translateY(-2px);}
+  .kind-clear .chev{visibility:hidden;}
+
+  .body{
+    padding:2px 0 18px 66px;
+    font-size:15px;
+  }
+  .body p{margin:0 0 10px;}
+  .body p:last-child{margin-bottom:0;}
+  .who{
+    font-family:var(--sans);
+    font-size:13px;
+    line-height:1.55;
+    color:var(--ink-2);
+  }
+  .who em{
+    font-style:normal;
+    color:var(--faint);
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    font-size:10.5px;
+    font-weight:600;
+    display:block;
+    margin-bottom:2px;
+  }
+  .focus{color:var(--muted);font-size:14.5px;}
+  .flag{
+    font-family:var(--sans);
+    font-size:12.5px;
+    color:var(--coral);
+    line-height:1.5;
+  }
+
+  /* ---- reference blocks ---- */
+  .ref{
+    background:var(--panel);
+    border:1px solid var(--rule-soft);
+    border-radius:4px;
+    padding:16px 18px;
+    margin-top:14px;
+    box-shadow:var(--shadow);
+  }
+  .ref h3{
+    font-size:17px;
+    font-weight:600;
+    margin:0 0 3px;
+    letter-spacing:-.004em;
+  }
+  .ref .hint{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--faint);
+    margin:0 0 11px;
+  }
+  .ref ol, .ref ul{
+    margin:0;
+    padding-left:1.25em;
+    font-size:15px;
+    line-height:1.55;
+  }
+  .ref li{margin-bottom:3px;}
+  .ref li:last-child{margin-bottom:0;}
+  .ref p{margin:0 0 9px;font-size:15px;}
+  .ref p:last-child{margin-bottom:0;}
+  .milestone{
+    margin-top:12px;
+    padding-top:11px;
+    border-top:1px solid var(--rule-soft);
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  .clearlist{
+    list-style:none;
+    padding:0;
+    margin:0;
+    font-size:14.5px;
+  }
+  .clearlist li{
+    display:grid;
+    grid-template-columns:82px 1fr;
+    gap:10px;
+    padding:7px 0;
+    border-bottom:1px solid var(--rule-soft);
+    align-items:baseline;
+  }
+  .clearlist li:last-child{border-bottom:0;}
+  .clearlist b{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:600;
+    color:var(--muted);
+    letter-spacing:.03em;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+
+  .legend{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin:14px 0 2px;
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .legend span{display:flex;align-items:center;gap:6px;}
+  .swatch{width:11px;height:3px;border-radius:2px;display:inline-block;}
+
+  footer{
+    margin-top:34px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    font-family:var(--sans);
+    font-size:11.5px;
+    line-height:1.6;
+    color:var(--faint);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+
+<header class="masthead">
+  <span class="mast-cross" aria-hidden="true">&#10013;</span>
+  <span class="mast-name">St Paul&rsquo;s Kogarah</span>
+  <span class="mast-term">Q4 2026</span>
+</header>
+
+<h1>Sunday Afternoons</h1>
+<p class="standfirst">Meet the Minister lunches at 12:00, G7 team meetings at 2:00. October to December.</p>
+
+<div class="nextup" id="nextup">
+  <span class="eyebrow">Next up</span>
+  <div class="nextup-line" id="nextup-line">Meet the Minister Lunch</div>
+  <div class="nextup-when" id="nextup-when">Sunday 4 October &middot; 12:00&ndash;1:30pm</div>
+</div>
+
+<div class="legend">
+  <span><i class="swatch" style="background:var(--coral)"></i>Lunch</span>
+  <span><i class="swatch" style="background:var(--teal)"></i>G7 team</span>
+  <span><i class="swatch" style="background:var(--rule)"></i>Clear</span>
+</div>
+
+<h2>The ten Sundays</h2>
+<ol class="schedule">
+
+  <li class="sunday kind-lunch" data-date="2026-10-04">
+    <details>
+      <summary>
+        <span class="date">Sun 4 Oct</span>
+        <span class="what">
+          <strong>Meet the Minister Lunch</strong>
+          <span class="sub">Ord Sunday 27 &middot; Spring holidays</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">12:00&ndash;1:30pm &middot; Church hall</p>
+        <p class="focus">October lunch. Guests drawn from the welcome cards and ChurchSuite follow-up.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-10-11">
+    <details>
+      <summary>
+        <span class="date">Sun 11 Oct</span>
+        <span class="what">
+          <strong>G7 Grow &#22686;&#38271;&#22242;&#38431;</strong>
+          <span class="sub">Ord Sunday 28 &middot; Spring holidays</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Going Deep in the Word and Prayer. Home Groups, KOGKids, KOGYouth, 121 discipleship, and who is ready to lead in 2027.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-10-18">
+    <details>
+      <summary>
+        <span class="date">Sun 18 Oct</span>
+        <span class="what">
+          <strong>G7 Giftedness &#24681;&#36176;&#22242;&#38431;</strong>
+          <span class="sub">Ord Sunday 29 &middot; Term 4 begins</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Launching New Ministries. Discovery Course and Day, the G7 trainings, and leaders for the mid-week Home Group, KOGMen and Music Ministries.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-10-25">
+    <details>
+      <summary>
+        <span class="date">Sun 25 Oct</span>
+        <span class="what">
+          <strong>G7 Glue &#21518;&#21220;&#22242;&#38431;</strong>
+          <span class="sub">Ord Sunday 30</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Admin, IT, graphics, Safe Ministry, translation, the SPCC board and maintenance &mdash; and the set-up, slides and print load across Advent and Christmas.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-lunch" data-date="2026-11-01">
+    <details>
+      <summary>
+        <span class="date">Sun 1 Nov</span>
+        <span class="what">
+          <strong>Meet the Minister Lunch</strong>
+          <span class="sub">Ord Sunday 31</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">12:00&ndash;1:30pm &middot; Church hall</p>
+        <p class="focus">November lunch. Guests drawn from the welcome cards and ChurchSuite follow-up.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-11-08">
+    <details>
+      <summary>
+        <span class="date">Sun 8 Nov</span>
+        <span class="what">
+          <strong>G7 Gregarious &#20851;&#24576;&#22242;&#38431;</strong>
+          <span class="sub">Ord Sunday 32</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Christmas hospitality, and how we care for and follow up the people who walk in for the first time at Christmas. Sunday Dish, morning tea, the pantry, pastoral visits.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-11-15">
+    <details>
+      <summary>
+        <span class="date">Sun 15 Nov</span>
+        <span class="what">
+          <strong>G7 Glorify &#33635;&#32768;&#22242;&#38431;</strong>
+          <span class="sub">Ord Sunday 33</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Thanksgiving and Pledging. Services, music, AV, translation and the companion booklet, through Advent, Baptism and Confirmation Sunday, and Christmas.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-clear" data-date="2026-11-22">
+    <details>
+      <summary>
+        <span class="date">Sun 22 Nov</span>
+        <span class="what">
+          <strong>Clear</strong>
+          <span class="sub">King of the Universe</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="focus">Kept clear as a breather between Glorify and Go.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-g7" data-date="2026-11-29">
+    <details>
+      <summary>
+        <span class="date">Sun 29 Nov</span>
+        <span class="what">
+          <strong>G7 Go &#24046;&#27966;&#22242;&#38431;</strong>
+          <span class="sub">Advent 1</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">2:00&ndash;3:30pm &middot; 57 Princes Highway</p>
+        <p class="focus">Go and Glorify &mdash; Christmas. The invitation push and who each of us is personally inviting; promotion, SRE and the Scripture Fund, local and overseas missions.</p>
+      </div>
+    </details>
+  </li>
+
+  <li class="sunday kind-lunch" data-date="2026-12-06">
+    <details>
+      <summary>
+        <span class="date">Sun 6 Dec</span>
+        <span class="what">
+          <strong>Meet the Minister Lunch</strong>
+          <span class="sub">Advent 2</span>
+        </span>
+        <i class="chev" aria-hidden="true"></i>
+      </summary>
+      <div class="body">
+        <p class="time">12:00&ndash;1:30pm &middot; Church hall</p>
+        <p class="focus">The week before Baptism and Confirmation Sunday &mdash; a natural place to raise baptism and confirmation with anyone ready for it.</p>
+      </div>
+    </details>
+  </li>
+
+</ol>
+
+<h2>How a G7 meeting runs</h2>
+<div class="ref">
+  <h3>The standing agenda</h3>
+  <p class="hint">Ninety minutes. The same shape for all six teams.</p>
+  <ol>
+    <li>Opening prayer</li>
+    <li>Devotion</li>
+    <li>KOGCircle &mdash; where our people actually are</li>
+    <li>KOGPathway &mdash; First Contact, Face to Face, Meet the Minister, Integration, Church Life, Grow &amp; Serve</li>
+    <li>The team&rsquo;s own Term 4 focus</li>
+    <li>Goals for the next step on the pathway</li>
+    <li>Actionable steps, and who owns each</li>
+    <li>Closing prayer</li>
+  </ol>
+  <p class="milestone">75 households serving densely at St Paul&rsquo;s Kogarah across three congregations by 31 December 2026.</p>
+</div>
+
+<div class="ref">
+  <h3>The lunch</h3>
+  <p class="hint">Greet a visitor within two minutes; Meet the Minister within three weeks.</p>
+  <ol>
+    <li>Welcome and grace</li>
+    <li>Lunch together</li>
+    <li>Our story &mdash; God gathers us at St Paul&rsquo;s Kogarah to build and to cultivate his house of prayer, which lives and breathes the gospel of Jesus Christ</li>
+    <li>Their story &mdash; how they came, what they are looking for</li>
+    <li>The next step &mdash; a Home Group, Welcome to Life, or a place on a team</li>
+    <li>Prayer</li>
+  </ol>
+</div>
+
+<h2>Deliberately left alone</h2>
+<div class="ref">
+  <ul class="clearlist">
+    <li><b>22 Nov</b><span>A breather between Glorify and Go.</span></li>
+    <li><b>13 Dec</b><span>Baptism and Confirmation Sunday, with Bishop Stead.</span></li>
+    <li><b>20 &amp; 27 Dec</b><span>Summer leave.</span></li>
+    <li><b>Fridays</b><span>Governance meets with Parish Council on Friday nights, so it is not scheduled here.</span></li>
+  </ul>
+</div>
+
+<footer>
+  Ten Sundays, six G7 teams, three lunches. Dates verified against the 2026 yearly planner and the parish calendar.<br>
+  To keep this on your home screen: open it in Safari, tap Share, then Add to Home Screen.
+</footer>
+
+<script>
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('li.sunday'));
+  if(!items.length) return;
+
+  // Local midnight today, so "today" still counts as upcoming all day.
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  function parse(s){
+    var p = s.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2]);
+  }
+
+  var next = null;
+  items.forEach(function(li){
+    var d = parse(li.getAttribute('data-date'));
+    li.classList.remove('is-next');
+    if(d < today){
+      li.classList.add('past');
+    } else if(!next){
+      next = li;
+      li.classList.add('is-next');
+    }
+  });
+
+  var card = document.getElementById('nextup');
+  if(next){
+    var title = next.querySelector('.what strong').textContent.trim();
+    var d = parse(next.getAttribute('data-date'));
+    var when = d.toLocaleDateString('en-AU', {weekday:'long', day:'numeric', month:'long'});
+    var time = next.classList.contains('kind-lunch') ? '12:00–1:30pm'
+             : next.classList.contains('kind-g7')    ? '2:00–3:30pm'
+             : 'Nothing scheduled';
+    document.getElementById('nextup-line').textContent = title;
+    document.getElementById('nextup-when').textContent = when + ' · ' + time;
+    card.classList.add('on');
+
+    var days = Math.round((d - today) / 86400000);
+    if(days === 0){
+      document.getElementById('nextup-when').textContent = 'Today · ' + time;
+    }
+    // Open the next Sunday so the page lands on what matters.
+    var det = next.querySelector('details');
+    if(det) det.open = true;
+  } else {
+    document.getElementById('nextup-line').textContent = 'The quarter is done';
+    document.getElementById('nextup-when').textContent = 'Nothing further scheduled for 2026';
+    card.classList.add('on');
+  }
+})();
+</script>
+
+</body></html>
