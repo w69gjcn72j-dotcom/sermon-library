@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /sermons/
+# Sermon pages sit at the site root (numbered 001- to 299-)
+Disallow: /0
+Disallow: /1
+Disallow: /2
