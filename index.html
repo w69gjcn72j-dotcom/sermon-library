@@ -110,6 +110,7 @@
   footer .sdg { display: block; margin-top: 0.9rem; font-family: 'Fraunces', Georgia, serif; font-style: italic; color: var(--brass-soft); }
   @media (max-width: 420px) { html { font-size: 17px; } a.card { padding: 1.1rem; gap: 0.9rem; } }
 </style>
+<script src="https://glorify.kogarah.church/shared/kog-shell.js" data-app="word"></script>
 </head>
 <body>
 
@@ -209,6 +210,58 @@
   document.getElementById("u4").textContent = show + "studies/";
   document.getElementById("u2").textContent = show + "library/";
   document.getElementById("u3").textContent = show + "seven-stars/";
+})();
+</script>
+<script>
+/* Chinese for this page. The English is the page as written above; when a card is added,
+   add its three lines to ZH below and it will follow the language switch in the shared bar
+   (shared/kog-shell.js at glorify.kogarah.church), which also turns 简体 into 繁體.
+   Anything without an entry here simply stays in English. */
+(function () {
+  var K = window.KOG;
+  if (!K) return;
+  var ZH = {
+    "St Paul's Anglican Kogarah": "高嘉华圣保罗圣公会",
+    "Word & Prayer": "圣言与祷告",
+    "Everything we publish for reading, praying and following Jesus through the week.": "我们为每周读经、祷告、跟随耶稣所预备的一切资料。",
+    "Daily Devotions": "每日灵修",
+    "Six days of Bible reading, reflection and prayer, following Sunday's sermon. Opens on today.": "每周六天的读经、默想和祷告，配合主日讲道。打开就是今天的内容。",
+    "Read today's": "阅读今天的灵修",
+    "Bible Studies": "查经材料",
+    "Home group studies following Sunday's sermon — youth, adults, young adults and nursing home talks.": "配合主日讲道的小组查经：青少年、成人、青年成人，以及安老院短讲。",
+    "Browse the studies": "浏览查经材料",
+    "Seek & Find": "寻找就寻见",
+    "The sermon library — every sermon, searchable, book by book across the whole Bible.": "讲道库：所有讲道都可以搜索，按圣经书卷排列（英文）。",
+    "Search the sermons": "搜索讲道",
+    "Seven Stars": "七星指向耶稣",
+    "Seven teachings of the Bible, all pointing to Jesus — a short walk through the gospel.": "圣经的七个教导，都指向耶稣，带您简要地走一遍福音。",
+    "Follow the stars": "跟随七星",
+    "Church Pages": "教会页面",
+    "The Welcome Pathway, Welcome Home, Sunday afternoons, the G7 teams and updates from St Paul's.": "欢迎路径、欢迎回家、主日下午、G7 团队，以及圣保罗堂的最新消息（英文）。",
+    "See the pages": "查看页面",
+    "Teaching": "教学材料",
+    "Lessons and series materials for kids, youth and SRE classes.": "儿童、青少年和学校圣经课（SRE）的课程与系列材料（英文）。",
+    "Open the lessons": "打开课程",
+    "Share these": "分享这些链接",
+    "Everything": "全部"
+  };
+  /* where a card has a Chinese page of its own, open that one */
+  var ZH_HREF = { "devotions/": "daily-devotions-cn.html", "studies/": "studies/chinese/", "seven-stars/": "seven-stars-cn.html" };
+  function tidy(t) { return t.replace(/\s+/g, " ").replace(/^ | $/g, ""); }
+  var nodes = [].slice.call(document.querySelectorAll("header .eyebrow, header h1, header .tagline, .card h2, .card p, .card .go, .links h3, .links dt"));
+  var en = nodes.map(function (n) { return n.textContent; });
+  var cards = [].slice.call(document.querySelectorAll("a.card"));
+  var hrefs = cards.map(function (a) { return a.getAttribute("href"); });
+  var title = document.title;
+  function apply() {
+    var zh = K.lang !== "en";
+    nodes.forEach(function (n, i) { var t = ZH[tidy(en[i])]; n.textContent = zh && t ? t : en[i]; });
+    cards.forEach(function (a, i) { a.setAttribute("href", zh && ZH_HREF[hrefs[i]] ? ZH_HREF[hrefs[i]] : hrefs[i]); });
+    document.documentElement.lang = zh ? "zh-Hans" : "en";
+    document.title = zh ? "圣言与祷告 — 高嘉华圣保罗圣公会" : title;
+  }
+  document.addEventListener("kog:lang", apply);
+  apply();
 })();
 </script>
 </body>

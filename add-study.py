@@ -7,6 +7,9 @@ Usage:
     python3 add-study.py --rebuild     # scan the Sermon folder, regenerate every page + index
     python3 add-study.py --check       # verify entries <-> pages, report gaps
 
+--rebuild finishes by running add-menu.py, which puts the shared menu bar and language
+switch (one <script> line in <head>) on every page of the site.
+
 Collections and their page prefixes:
     kogyouth_*            -> ky-   KOGYouth
     homegroup_adults_*    -> gg-   Home Groups (adults)
@@ -585,6 +588,10 @@ def cmd_rebuild():
     print("Chinese pages: %d of %d" % (len(cn_entries), len(entries)))
     print("Collection pages: %s" % ", ".join(write_collection_pages()))
     print("Index updated: bible-studies.html, bible-studies-cn.html")
+    # Every page carries the shared menu bar and language switch; pages written above start
+    # without it, so put it back on all of them (add-menu.py is safe to run repeatedly).
+    import subprocess
+    subprocess.run([sys.executable, os.path.join(HERE, "add-menu.py")], check=False)
 
 
 def cmd_check():
