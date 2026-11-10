@@ -25,9 +25,9 @@ SHELL = "https://glorify.kogarah.church/shared/kog-shell.js"
 TAG_RE = re.compile(r'[ \t]*<script src="[^"]*kog-shell\.js"[^>]*></script>[ \t]*\n?')
 STUB_RE = re.compile(r'location\.replace\("([^"]+)" \+ location\.hash\)')
 
-PREFIX_APP = {"ky": "youth", "gg": "growth-groups", "ya": "young-adults", "nh": "nursing-home"}
+PREFIX_APP = {"ky": "youth", "gg": "home-groups", "ya": "young-adults", "nh": "nursing-home"}
 COLLECTION = {  # folder -> (menu entry, collection code on the browse pages)
-    "studies/youth": ("youth", "ky"), "studies/home-groups": ("growth-groups", "gg"),
+    "studies/youth": ("youth", "ky"), "studies/home-groups": ("home-groups", "gg"),
     "studies/young-adults": ("young-adults", "ya"), "studies/nursing-home": ("nursing-home", "nh"),
 }
 
