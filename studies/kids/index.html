@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="../../">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOGKids Worksheets &mdash; St Paul's Anglican Kogarah</title>
+<link rel="apple-touch-icon" sizes="180x180" href="kk-apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="kk-favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="kk-icon-512.png">
+<link rel="manifest" href="studies-kids.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KOGKids">
+<meta name="theme-color" content="#0e1a2b">
+<meta name="description" content="Home group Bible studies from St Paul's Anglican Kogarah — KOGYouth, adult home groups, young adults, nursing home talks and KOGKids worksheets.">
+<meta property="og:title" content="Bible Studies — St Paul's Anglican Kogarah">
+<meta property="og:description" content="Every home group study, following Sunday's sermon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{--night:#0e1a2b;--night-soft:#142339;--night-card:#1a2c47;--brass:#d4a253;
+        --brass-soft:#b08539;--cream:#f5ead4;--cream-dim:#c9bfa8;
+        --line:rgba(212,162,83,0.18);--line-strong:rgba(212,162,83,0.42)}
+  html{font-size:18px;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter Tight',system-ui,-apple-system,sans-serif;background:var(--night);
+       color:var(--cream);line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+  .shell{width:min(720px,100%);margin:0 auto;padding:0 1.35rem;flex:1}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+          padding:1.4rem 0 0.4rem;font-size:0.82rem}
+  .topbar a{color:var(--brass);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase}
+  .topbar a:hover{text-decoration:underline}
+  header{padding:1.6rem 0 1.4rem}
+  .eyebrow{font-size:0.72rem;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;
+           color:var(--brass);margin-bottom:0.9rem}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:600;
+     font-size:clamp(2rem,7vw,2.9rem);line-height:1.12;letter-spacing:-0.01em}
+  .tagline{margin-top:0.8rem;color:var(--cream-dim);font-size:1rem;max-width:520px}
+  .controls{position:sticky;top:0;z-index:5;background:var(--night);
+            padding:0.9rem 0 0.8rem;border-bottom:1px solid var(--line)}
+  input[type=search]{width:100%;background:var(--night-soft);border:1px solid var(--line);
+       border-radius:12px;padding:0.7rem 0.95rem;color:var(--cream);font:inherit;font-size:0.95rem}
+  input[type=search]::placeholder{color:var(--cream-dim);opacity:0.75}
+  input[type=search]:focus{outline:none;border-color:var(--line-strong)}
+  .chips{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.7rem}
+  .chip{background:transparent;border:1px solid var(--line);color:var(--cream-dim);
+        border-radius:999px;padding:0.34rem 0.8rem;font:inherit;font-size:0.8rem;cursor:pointer;
+        transition:border-color .15s,color .15s,background .15s}
+  .chip:hover{border-color:var(--line-strong);color:var(--cream)}
+  .chip[aria-pressed="true"]{background:rgba(212,162,83,0.14);border-color:var(--line-strong);
+        color:var(--brass);font-weight:500}
+  .count{margin:1.1rem 0 0.2rem;font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;
+         color:var(--cream-dim)}
+  .list{display:grid;gap:0.85rem;padding:0.9rem 0 1rem}
+  a.study{display:block;text-decoration:none;color:inherit;background:var(--night-soft);
+        border:1px solid var(--line);border-radius:16px;padding:1.05rem 1.15rem;
+        transition:border-color .2s,transform .2s,background .2s}
+  a.study:hover{border-color:var(--line-strong);background:var(--night-card);transform:translateY(-2px)}
+  .tag{display:inline-block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;
+       color:var(--brass);border:1px solid var(--line);border-radius:999px;
+       padding:0.12rem 0.55rem;margin-bottom:0.55rem}
+  a.study h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.2rem;line-height:1.3}
+  a.study .meta{margin-top:0.3rem;color:var(--brass-soft);font-size:0.85rem}
+  a.study .idea{margin-top:0.5rem;color:var(--cream-dim);font-size:0.9rem;line-height:1.6}
+  .empty{padding:2.4rem 0;text-align:center;color:var(--cream-dim)}
+  footer{border-top:1px solid var(--line);text-align:center;color:var(--cream-dim);
+         font-size:0.84rem;line-height:1.85;padding:2.2rem 1.35rem 2.6rem;margin-top:1.4rem}
+  footer a{color:var(--brass);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  footer .sdg{display:block;margin-top:0.8rem;font-family:'Fraunces',Georgia,serif;
+              font-style:italic;color:var(--brass-soft)}
+  @media (max-width:420px){html{font-size:17px}}
+</style>
+<script src="https://glorify.kogarah.church/shared/kog-shell.js" data-app="word" data-page-lang="en"></script>
+</head>
+<body>
+<div class="shell">
+  <nav class="topbar">
+    <a href="index.html">← Word &amp; Prayer</a>
+    <a href="bible-studies-cn.html">中文</a>
+  </nav>
+
+  <header>
+    <p class="eyebrow">St Paul's Anglican Kogarah</p>
+    <h1>Bible Studies</h1>
+    <p class="tagline">Home group studies following Sunday's sermon — for youth, adults, young adults, our nursing home visits, and printable KOGKids worksheets.</p>
+  </header>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search by title, passage or big idea…" autocomplete="off">
+    <div class="chips" id="chips"></div>
+  </div>
+
+  <p class="count" id="count"></p>
+  <div class="list" id="list"></div>
+</div>
+
+<footer>
+  Rev David Yung &middot; St Paul's Anglican Church Kogarah<br>
+  <a href="mailto:dyung@kogarah.church">dyung@kogarah.church</a> &middot; (02) 9587 5951<br>
+  中文：<a href="bible-studies-cn.html">查经材料</a> &middot;
+  <a href="daily-devotions-cn.html">每日灵修</a>
+  <span class="sdg">Soli Deo Gloria</span>
+</footer>
+
+<script>
+/* ------------------------------------------------------------------
+   STUDIES is written by add-study.py — do not hand-edit between the
+   markers. Fields:
+     n     number within its collection
+     c     collection code: ky | gg | ya | nh | kk
+     t     study title
+     r     passage reference
+     d     date of the Sunday it follows (YYYY-MM-DD)
+     note  month and year, for display
+     idea  the study's Big Idea line
+     u     the page filename
+------------------------------------------------------------------ */
+/* STUDIES:START */
+const STUDIES = [
+  {"n": 20, "c": "ya", "t": "An Upside-Down World, a Solid Foundation", "r": "Luke 6:20–49", "d": "2026-11-22", "note": "November 2026", "idea": "The kingdom of God does not belong to the so-called “self-sufficient”, but to those who know they have nothing and can only depend on God; so build your identity and security on Jesus Christ, and let love, forgiveness, generosity and obedience flow from the grace you have already received.", "u": "ya-020-an-upside-down-world-a-solid-foundation.html"},
+  {"n": 22, "c": "ky", "t": "An Upside-Down World, a Solid Foundation", "r": "Luke 6:20–49", "d": "2026-11-22", "note": "November 2026", "idea": "The kingdom of God does not belong to the so-called “self-sufficient”, but to those who know they have nothing and can only depend on God; so build your identity and security on Jesus Christ, and let love, forgiveness, generosity and obedience flow from the grace you have already received.", "u": "ky-022-an-upside-down-world-a-solid-foundation.html"},
+  {"n": 3, "c": "kk", "t": "An Upside-Down World, a Solid Foundation", "r": "Luke 6:20–49", "d": "2026-11-22", "note": "November 2026", "idea": "Jesus turns the world upside down: God’s kingdom isn’t for people who think they’re good enough, but for people who know they need him. Build your life on Jesus, the Rock — and his love will flow out of you.", "u": "kk-003-an-upside-down-world-a-solid-foundation.html"},
+  {"n": 20, "c": "gg", "t": "An Upside-Down World, a Solid Foundation", "r": "Luke 6:20–49", "d": "2026-11-22", "note": "November 2026", "idea": "The kingdom of God does not belong to the so-called “self-sufficient”, but to those who know they have nothing and can only depend on God; so build your identity and security on Jesus Christ, and let love, forgiveness, generosity and obedience flow from the grace you have already received.", "u": "gg-020-an-upside-down-world-a-solid-foundation.html"},
+  {"n": 19, "c": "ya", "t": "The Lord of Rest, Prayer and Mercy", "r": "Luke 6:1–19", "d": "2026-11-15", "note": "November 2026", "idea": "Jesus is the Lord of Rest, the Lord of Prayer and the Lord of Mercy: true rest is not “I stop working” but “Christ has already finished the work for me”; prayer comes before action; and God often uses people who seem “impossible”.", "u": "ya-019-the-lord-of-rest-prayer-and-mercy.html"},
+  {"n": 21, "c": "ky", "t": "The Lord of Rest, Prayer and Mercy", "r": "Luke 6:1–19", "d": "2026-11-15", "note": "November 2026", "idea": "Jesus is the Lord of Rest, the Lord of Prayer and the Lord of Mercy: true rest is not “I stop working” but “Christ has already finished the work for me”; prayer comes before action; and God often uses people who seem “impossible”.", "u": "ky-021-the-lord-of-rest-prayer-and-mercy.html"},
+  {"n": 2, "c": "kk", "t": "The Lord of Rest, Prayer and Mercy", "r": "Luke 6:1–19", "d": "2026-11-15", "note": "November 2026", "idea": "Jesus is the Lord of Rest, the Lord of Prayer and the Lord of Mercy. We can’t fix ourselves or earn God’s love by keeping rules — but Jesus has done the work for us, and his power is for everyone who comes to him.", "u": "kk-002-the-lord-of-rest-prayer-and-mercy.html"},
+  {"n": 19, "c": "gg", "t": "The Lord of Rest, Prayer and Mercy", "r": "Luke 6:1–19", "d": "2026-11-15", "note": "November 2026", "idea": "Jesus is the Lord of Rest, the Lord of Prayer and the Lord of Mercy: true rest is not “I stop working” but “Christ has already finished the work for me”; prayer comes before action; and God often uses people who seem “impossible”.", "u": "gg-019-the-lord-of-rest-prayer-and-mercy.html"},
+  {"n": 18, "c": "ya", "t": "A New Way to Repent", "r": "Luke 5:27–39", "d": "2026-11-08", "note": "November 2026", "idea": "Fellow sick sinners, Jesus calls us to a new repentance centred on him, to leave everything, follow him, feast with him and fast in his absence.", "u": "ya-018-a-new-way-to-repent.html"},
+  {"n": 20, "c": "ky", "t": "A New Way to Repent", "r": "Luke 5:27–39", "d": "2026-11-08", "note": "November 2026", "idea": "Fellow sick sinners, Jesus calls us to a new repentance centred on him, to leave everything, follow him, feast with him and fast in his absence.", "u": "ky-020-a-new-way-to-repent.html"},
+  {"n": 1, "c": "kk", "t": "A New Way to Repent", "r": "Luke 5:27–39", "d": "2026-11-08", "note": "November 2026", "idea": "Jesus came to find people who need him — and that’s all of us! He says, “Follow me.”", "u": "kk-001-a-new-way-to-repent.html"},
+  {"n": 18, "c": "gg", "t": "A New Way to Repent", "r": "Luke 5:27–39", "d": "2026-11-08", "note": "November 2026", "idea": "Fellow sick sinners, Jesus calls us to a new repentance centred on him, to leave everything, follow him, feast with him and fast in his absence.", "u": "gg-018-a-new-way-to-repent.html"},
+  {"n": 17, "c": "ya", "t": "From Paradox to Doxology", "r": "Luke 5:1–26", "d": "2026-11-01", "note": "November 2026", "idea": "Glorify God for the incredible Jesus, who recruits the unworthy, cleanses the unclean, honours the faithful friends and forgives the immovable sinner.", "u": "ya-017-from-paradox-to-doxology.html"},
+  {"n": 19, "c": "ky", "t": "From Paradox to Doxology", "r": "Luke 5:1–26", "d": "2026-11-01", "note": "November 2026", "idea": "Glorify God for the incredible Jesus, who recruits the unworthy, cleanses the unclean, honours the faithful friends and forgives the immovable sinner.", "u": "ky-019-from-paradox-to-doxology.html"},
+  {"n": 17, "c": "gg", "t": "From Paradox to Doxology", "r": "Luke 5:1–26", "d": "2026-11-01", "note": "November 2026", "idea": "Glorify God for the incredible Jesus, who recruits the unworthy, cleanses the unclean, honours the faithful friends and forgives the immovable sinner.", "u": "gg-017-from-paradox-to-doxology.html"},
+  {"n": 16, "c": "ya", "t": "Doctor Jesus, heal yourself", "r": "Luke 4:16–44", "d": "2026-10-25", "note": "October 2026", "idea": "God sent Jesus to tell the gospel, and he would not waver before contempt or confusion. Now that you have heard it, respond with consecrated service.", "u": "ya-016-doctor-jesus-heal-yourself.html"},
+  {"n": 4, "c": "nh", "t": "The Doctor Who Came to Save", "r": "Nursing Home Talks", "d": "2026-10-25", "note": "October 2026", "idea": "God sent Jesus to bring the gospel, and he would not waver before contempt or confusion. Now that we have heard it, we answer with a life given to him.", "u": "nh-004-the-doctor-who-came-to-save.html"},
+  {"n": 18, "c": "ky", "t": "Doctor Jesus, heal yourself", "r": "Luke 4:16–44", "d": "2026-10-25", "note": "October 2026", "idea": "Jesus came to tell the gospel, and he wouldn’t back down — not when his own town turned on him, not when crowds only wanted a free doctor, not even at the cross. Now that you’ve heard it, don’t just admire him: serve him, because he served you first.", "u": "ky-018-doctor-jesus-heal-yourself.html"},
+  {"n": 16, "c": "gg", "t": "Doctor Jesus, heal yourself", "r": "Luke 4:16–44", "d": "2026-10-25", "note": "October 2026", "idea": "God sent Jesus to tell the gospel, and he would not waver before contempt or confusion. Now that you have heard it, respond with consecrated service.", "u": "gg-016-doctor-jesus-heal-yourself.html"},
+  {"n": 15, "c": "ya", "t": "Beware the friendly advice of the devil", "r": "Luke 4:1–15", "d": "2026-10-18", "note": "October 2026", "idea": "Reject the friendly devil’s temptation to be your own man, and rely on Jesus, who triumphed as the Son of God by trusting his Father’s word.", "u": "ya-015-beware-the-friendly-advice-of-the-devil.html"},
+  {"n": 17, "c": "ky", "t": "Beware the friendly advice of the devil", "r": "Luke 4:1–15", "d": "2026-10-18", "note": "October 2026", "idea": "The devil’s temptations sound like friendly advice: look after yourself, be your own boss, do it your way. Jesus, the Son of God, wouldn’t — he trusted his Father’s word. When you’re tempted, run to Jesus, who has already won.", "u": "ky-017-beware-the-friendly-advice-of-the-devil.html"},
+  {"n": 15, "c": "gg", "t": "Beware the friendly advice of the devil", "r": "Luke 4:1–15", "d": "2026-10-18", "note": "October 2026", "idea": "Reject the friendly devil’s temptation to be your own man, and rely on Jesus, who triumphed as the Son of God by trusting his Father’s word.", "u": "gg-015-beware-the-friendly-advice-of-the-devil.html"},
+  {"n": 14, "c": "ya", "t": "Wilderness to New Creation: Journey of Grace", "r": "Luke 3:1–38", "d": "2026-10-11", "note": "October 2026", "idea": "God’s word still comes to people who will listen in the wilderness; it turns us round to bear real fruit, and it grafts flawed people like us into Jesus’ genealogy of grace — the new humanity of the Father’s beloved Son.", "u": "ya-014-wilderness-to-new-creation-journey-of-grace.html"},
+  {"n": 16, "c": "ky", "t": "Wilderness to New Creation: Journey of Grace", "r": "Luke 3:1–38", "d": "2026-10-11", "note": "October 2026", "idea": "God’s word comes to people who will listen, not to the powerful. It turns us around to bear real fruit, and in Jesus — who stood with sinners and is the Father’s beloved Son — flawed people like us are welcomed into God’s family of grace.", "u": "ky-016-wilderness-to-new-creation-journey-of-grace.html"},
+  {"n": 14, "c": "gg", "t": "Wilderness to New Creation: Journey of Grace", "r": "Luke 3:1–38", "d": "2026-10-11", "note": "October 2026", "idea": "God’s word still comes to people who will listen in the wilderness; it turns us round to bear real fruit, and it grafts flawed people like us into Jesus’ genealogy of grace — the new humanity of the Father’s beloved Son.", "u": "gg-014-wilderness-to-new-creation-journey-of-grace.html"},
+  {"n": 13, "c": "ya", "t": "When Grace Breaks into the Impossible", "r": "Luke 1:26–45", "d": "2026-10-04", "note": "October 2026", "idea": "When grace breaks into the impossible, God uses those the world considers “unqualified”: his grace comes first, faith rests on his word, and faith is strengthened in fellowship.", "u": "ya-013-when-grace-breaks-into-the-impossible.html"},
+  {"n": 15, "c": "ky", "t": "When Grace Breaks into the Impossible", "r": "Luke 1:26–45", "d": "2026-10-04", "note": "October 2026", "idea": "When grace breaks into the impossible, God uses those the world considers “unqualified”: his grace comes first, faith rests on his word, and faith is strengthened in fellowship.", "u": "ky-015-when-grace-breaks-into-the-impossible.html"},
+  {"n": 13, "c": "gg", "t": "When Grace Breaks into the Impossible", "r": "Luke 1:26–45", "d": "2026-10-04", "note": "October 2026", "idea": "When grace breaks into the impossible, God uses those the world considers “unqualified”: his grace comes first, faith rests on his word, and faith is strengthened in fellowship.", "u": "gg-013-when-grace-breaks-into-the-impossible.html"},
+  {"n": 12, "c": "ya", "t": "Jesus Is the Light", "r": "John 8:12–20", "d": "2026-09-27", "note": "September 2026", "idea": "Follow Jesus, the Light of the World, and shine as his lower lights, with his light of life.", "u": "ya-012-jesus-is-the-light.html"},
+  {"n": 14, "c": "ky", "t": "Jesus Is the Light", "r": "John 8:12–20", "d": "2026-09-27", "note": "September 2026", "idea": "Follow Jesus, the Light of the World, and shine as his lower lights, with his light of life.", "u": "ky-014-jesus-is-the-light.html"},
+  {"n": 12, "c": "gg", "t": "Jesus Is the Light", "r": "John 8:12–20", "d": "2026-09-27", "note": "September 2026", "idea": "Follow Jesus, the Light of the World, and shine as his lower lights, with his light of life.", "u": "gg-012-jesus-is-the-light.html"},
+  {"n": 11, "c": "ya", "t": "Meeting the God Who Speaks, While We Wait", "r": "Luke 1:1–25", "d": "2026-09-20", "note": "September 2026", "idea": "God has not forgotten you. He speaks in history, he speaks into the impossible, and he works in the silence — and his word will be fulfilled in its proper time.", "u": "ya-011-meeting-the-god-who-speaks-while-we-wait.html"},
+  {"n": 13, "c": "ky", "t": "Meeting the God Who Speaks, While We Wait", "r": "Luke 1:1–25", "d": "2026-09-20", "note": "September 2026", "idea": "God has not forgotten you. He speaks in history, he speaks into the impossible, and he works in the silence — and his word will be fulfilled in its proper time.", "u": "ky-013-meeting-the-god-who-speaks-while-we-wait.html"},
+  {"n": 11, "c": "gg", "t": "Meeting the God Who Speaks, While We Wait", "r": "Luke 1:1–25", "d": "2026-09-20", "note": "September 2026", "idea": "God has not forgotten you. He speaks in history, he speaks into the impossible, and he works in the silence — and his word will be fulfilled in its proper time.", "u": "gg-011-meeting-the-god-who-speaks-while-we-wait.html"},
+  {"n": 10, "c": "ya", "t": "Race, Gender, Class — Think Like a Son, Not a Slave", "r": "Galatians 3:27–4:7", "d": "2026-09-13", "note": "September 2026", "idea": "You are baptised into Christ, clothed with him, one in him. So don’t identify yourself as a slave would, but as God does: his adopted son.", "u": "ya-010-race-gender-class-think-like-a-son-not-a-slave.html"},
+  {"n": 12, "c": "ky", "t": "Race, Gender, Class — Think Like a Son, Not a Slave", "r": "Galatians 3:27–4:7", "d": "2026-09-13", "note": "September 2026", "idea": "You are baptised into Christ, clothed with him, one in him. So don’t identify yourself as a slave would, but as God does: his adopted son.", "u": "ky-012-race-gender-class-think-like-a-son-not-a-slave.html"},
+  {"n": 10, "c": "gg", "t": "Race, Gender, Class — Think Like a Son, Not a Slave", "r": "Galatians 3:27–4:7", "d": "2026-09-13", "note": "September 2026", "idea": "You are baptised into Christ, clothed with him, one in him. So don’t identify yourself as a slave would, but as God does: his adopted son.", "u": "gg-010-race-gender-class-think-like-a-son-not-a-slave.html"},
+  {"n": 9, "c": "ya", "t": "Come to the Wedding of the King's Son", "r": "Matthew 22:1–14", "d": "2026-09-06", "note": "September 2026", "idea": "Don't insult the Heavenly Father's invitation with excuses or defiance — come when he summons, clothed in what he provides.", "u": "ya-009-come-to-the-wedding-of-the-kings-son.html"},
+  {"n": 11, "c": "ky", "t": "Come to the Wedding of the King's Son", "r": "Matthew 22:1–14", "d": "2026-09-06", "note": "September 2026", "idea": "Don't insult the Heavenly Father's invitation with excuses or defiance — come when he summons, clothed in what he provides.", "u": "ky-011-come-to-the-wedding-of-the-kings-son.html"},
+  {"n": 9, "c": "gg", "t": "Come to the Wedding of the King's Son", "r": "Matthew 22:1–14", "d": "2026-09-06", "note": "September 2026", "idea": "Don't insult the Heavenly Father's invitation with excuses or defiance — come when he summons, clothed in what he provides.", "u": "gg-009-come-to-the-wedding-of-the-kings-son.html"},
+  {"n": 8, "c": "ya", "t": "From Tribulation to the Throne: The Eternal Celebration in Heaven", "r": "Revelation 7:9–17", "d": "2026-08-30", "note": "August 2026", "idea": "The tribulation you are in is real, but it is not the end — the throne is. Because the Lamb has already washed you white in his own blood, you are already counted in the crowd no one can number, and God himself will shelter you and wipe away every tear.", "u": "ya-008-from-tribulation-to-the-throne-the-eternal-celebration-in-heaven.html"},
+  {"n": 10, "c": "ky", "t": "From Tribulation to the Throne: The Eternal Celebration in Heaven", "r": "Revelation 7:9–17", "d": "2026-08-30", "note": "August 2026", "idea": "Whatever you are going through right now is real, but it is not the end of your story. Jesus the Lamb has already washed you clean with his own blood, and he is taking you to a celebration in heaven where God himself wipes the tears off your face.", "u": "ky-010-from-tribulation-to-the-throne-the-eternal-celebration-in-heaven.html"},
+  {"n": 8, "c": "gg", "t": "From Tribulation to the Throne: The Eternal Celebration in Heaven", "r": "Revelation 7:9–17", "d": "2026-08-30", "note": "August 2026", "idea": "The tribulation you are in is real, but it is not the end — the throne is. Because the Lamb has already washed you white in his own blood, you are already counted in the crowd no one can number, and God himself will shelter you and wipe away every tear.", "u": "gg-008-from-tribulation-to-the-throne-the-eternal-celebration-in-heaven.html"},
+  {"n": 7, "c": "ya", "t": "How the Gospel Demolishes the Self and Rebuilds a Life", "r": "Galatians 2:15–21", "d": "2026-08-23", "note": "August 2026", "idea": "You are building a self — through marks, work, your feed, your reputation in the group chat. Galatians 2 says that tower has to come down, not be renovated. And what replaces it is not a better you, but Christ living in you.", "u": "ya-007-how-the-gospel-demolishes-the-self-and-rebuilds-a-life.html"},
+  {"n": 9, "c": "ky", "t": "How the Gospel Demolishes the Self and Rebuilds a Life", "r": "Galatians 2:15–21", "d": "2026-08-23", "note": "August 2026", "idea": "The gospel doesn’t renovate the self — it demolishes it, so that the life you now live is Christ living in you, by faith in the Son of God who loved you and gave himself for you.", "u": "ky-009-how-the-gospel-demolishes-the-self-and-rebuilds-a-life.html"},
+  {"n": 7, "c": "gg", "t": "How the Gospel Demolishes the Self and Rebuilds a Life", "r": "Galatians 2:15–21", "d": "2026-08-23", "note": "August 2026", "idea": "Every one of us is quietly building a tower of self to prove we are worth something. At the cross God posts a demolition order on it — and then, astonishingly, Christ himself moves in and becomes our life.", "u": "gg-007-how-the-gospel-demolishes-the-self-and-rebuilds-a-life.html"},
+  {"n": 6, "c": "ya", "t": "The Foolish Wisdom of the Cross of Christ", "r": "1 Corinthians 1:16–25", "d": "2026-08-16", "note": "August 2026", "idea": "Don’t be a wise-sounding fool but a foolish-sounding sage, for God is pleased to save all who believe his message of Christ crucified.", "u": "ya-006-the-foolish-wisdom-of-the-cross-of-christ.html"},
+  {"n": 8, "c": "ky", "t": "The Foolish Wisdom of the Cross of Christ", "r": "1 Corinthians 1:18–25", "d": "2026-08-16", "note": "August 2026", "idea": "Don’t be a wise-sounding fool but a foolish-sounding sage, for God is pleased to save all who believe his message of Christ crucified.", "u": "ky-008-the-foolish-wisdom-of-the-cross-of-christ.html"},
+  {"n": 6, "c": "gg", "t": "The Foolish Wisdom of the Cross of Christ", "r": "1 Corinthians 1:16–25", "d": "2026-08-16", "note": "August 2026", "idea": "Don’t be a wise-sounding fool but a foolish-sounding sage, for God is pleased to save all who believe his message of Christ crucified.", "u": "gg-006-the-foolish-wisdom-of-the-cross-of-christ.html"},
+  {"n": 5, "c": "ya", "t": "Hope Against Hope", "r": "Romans 4:1-25", "d": "2026-08-09", "note": "August 2026", "idea": "Be fully and joyfully convinced, hoping against hope, in the God who credits righteousness to those who trust in him who raised Jesus our Lord from the dead.", "u": "ya-005-hope-against-hope.html"},
+  {"n": 7, "c": "ky", "t": "Hope Against Hope", "r": "Romans 4:1–25", "d": "2026-08-09", "note": "August 2026", "idea": "Be fully and joyfully convinced, hoping against hope, in the God who credits righteousness to those who trust in him who raised Jesus our Lord from the dead.", "u": "ky-007-hope-against-hope.html"},
+  {"n": 5, "c": "gg", "t": "Hope Against Hope", "r": "Romans 4:1-25", "d": "2026-08-09", "note": "August 2026", "idea": "Be fully and joyfully convinced, hoping against hope, in the God who credits righteousness to those who trust in him who raised Jesus our Lord from the dead.", "u": "gg-005-hope-against-hope.html"},
+  {"n": 4, "c": "ya", "t": "How Can God Forgive and Still Be Good?", "r": "Romans 3:21-31", "d": "2026-08-02", "note": "August 2026", "idea": "Since all have sinned, all are justified by faith in Jesus Christ, whom God presented as an atoning sacrifice to show his righteousness.", "u": "ya-004-how-can-god-forgive-and-still-be-good.html"},
+  {"n": 6, "c": "ky", "t": "How Can God Forgive and Still Be Good?", "r": "Romans 3:21–31", "d": "2026-08-02", "note": "August 2026", "idea": "Since all have sinned, all are justified by faith in Jesus Christ, whom God presented as an atoning sacrifice to show his righteousness.", "u": "ky-006-how-can-god-forgive-and-still-be-good.html"},
+  {"n": 4, "c": "gg", "t": "How Can God Forgive and Still Be Good?", "r": "Romans 3:21-31", "d": "2026-08-02", "note": "August 2026", "idea": "Since all have sinned, all are justified by faith in Jesus Christ, whom God presented as an atoning sacrifice to show his righteousness.", "u": "gg-004-how-can-god-forgive-and-still-be-good.html"},
+  {"n": 3, "c": "ya", "t": "The Sinner in the Mirror", "r": "Romans 3:9–20", "d": "2026-07-26", "note": "July 2026", "idea": "The law of God exposes our true, utterly sinful selves — all alike under sin’s power, not even one of us righteous — so that every mouth is stopped before the judgement of God.", "u": "ya-003-the-sinner-in-the-mirror.html"},
+  {"n": 3, "c": "nh", "t": "The Sinner in the Mirror", "r": "Romans 3:9–20", "d": "2026-07-26", "note": "July 2026", "idea": "The law of God shows us who we truly are — all of us under sin, not one of us righteous — so that every mouth is stopped before God, and every heart is driven to Jesus Christ.", "u": "nh-003-the-sinner-in-the-mirror.html"},
+  {"n": 5, "c": "ky", "t": "The Sinner in the Mirror", "r": "Romans 3:9–20", "d": "2026-07-26", "note": "July 2026", "idea": "The law of God exposes our true, utterly sinful selves — all alike under sin’s power, and not even one of us righteous — so that every mouth is stopped before the judgement of God.", "u": "ky-005-the-sinner-in-the-mirror.html"},
+  {"n": 3, "c": "gg", "t": "The Sinner in the Mirror", "r": "Romans 3:9–20", "d": "2026-07-26", "note": "July 2026", "idea": "The law of God exposes our true, utterly sinful selves — all alike under sin’s power, not even one of us righteous — so that every mouth is stopped before the judgement of God.", "u": "gg-003-the-sinner-in-the-mirror.html"},
+  {"n": 2, "c": "ya", "t": "The Hypocrite and the Heart", "r": "Romans 2:17-3:8", "d": "2026-07-19", "note": "July 2026", "idea": "Don’t be hypocritical teachers whose falsehood breeds blasphemy; be people with Spirit-circumcised hearts, living out God’s word for his praise and glory.", "u": "ya-002-the-hypocrite-and-the-heart.html"},
+  {"n": 4, "c": "ky", "t": "The Hypocrite and the Heart", "r": "Romans 2:17–3:8", "d": "2026-07-19", "note": "July 2026", "idea": "Don't be hypocritical teachers whose falsehood breeds blasphemy; be people with Spirit-circumcised hearts, living out God's word for his praise and glory.", "u": "ky-004-the-hypocrite-and-the-heart.html"},
+  {"n": 2, "c": "gg", "t": "The Hypocrite and the Heart", "r": "Romans 2:17-3:8", "d": "2026-07-19", "note": "July 2026", "idea": "Don’t be hypocritical teachers whose falsehood breeds blasphemy; be people with Spirit-circumcised hearts, living out God’s word for his praise and glory.", "u": "gg-002-the-hypocrite-and-the-heart.html"},
+  {"n": 1, "c": "ya", "t": "Inexcusable in God’s Righteous Judgement", "r": "Romans 2:1-16", "d": "2026-07-12", "note": "July 2026", "idea": "God’s judgment is perfectly fair — He judges by truth, by works, and by light — so no one can plead “I’m a good person.” Our only escape is Jesus.", "u": "ya-001-inexcusable-in-gods-righteous-judgement.html"},
+  {"n": 3, "c": "ky", "t": "Inexcusable in God’s Righteous Judgement", "r": "Romans 2:1-16", "d": "2026-07-12", "note": "July 2026", "idea": "God’s judgment is perfectly fair — He judges by truth, by works, and by light — so no one can plead “I’m a good person.” Our only escape is Jesus.", "u": "ky-003-inexcusable-in-gods-righteous-judgement.html"},
+  {"n": 1, "c": "gg", "t": "Inexcusable in God’s Righteous Judgement", "r": "Romans 2:1-16", "d": "2026-07-12", "note": "July 2026", "idea": "God’s judgment is perfectly fair — He judges by truth, by works, and by light — so no one can plead “I’m a good person.” Our only escape is Jesus.", "u": "gg-001-inexcusable-in-gods-righteous-judgement.html"},
+  {"n": 2, "c": "ky", "t": "What Happens When God Lets Go", "r": "Romans 1:18-32", "d": "2026-07-05", "note": "July 2026", "idea": "Everyone already knows God is real — and keeps pushing that truth down. When people keep doing that, God's judgment can look like letting them have exactly what they wanted: life fully without him. Jesus is the only way off that road.", "u": "ky-002-what-happens-when-god-lets-go.html"},
+  {"n": 2, "c": "nh", "t": "The Gospel: The Power of God and the Righteousness of God", "r": "Romans 1:16–17", "d": "2026-06-28", "note": "June 2026", "idea": "Don't be embarrassed by the gospel — it is God's power for salvation, and it shows God's righteousness from faith to faith.", "u": "nh-002-the-gospel-the-power-of-god-and-the-righteousness-of-god.html"},
+  {"n": 1, "c": "ky", "t": "Unashamed: The Power and Righteousness of God's Gospel", "r": "Romans 1:16-17", "d": "2026-06-28", "note": "June 2026", "idea": "Don't be embarrassed by the gospel — it is God's power for salvation, and it shows God's righteousness from faith to faith.", "u": "ky-001-unashamed-the-power-and-righteousness-of-gods-gospel.html"},
+  {"n": 1, "c": "nh", "t": "The Roman Road: The Eager Servant Proclaims God's Gospel", "r": "Romans 1:1–15", "d": "2026-06-21", "note": "June 2026", "idea": "King Jesus sends his servants, who pray for and long to see fellow saints, to announce God's gospel so the nations may obey him by faith.", "u": "nh-001-the-roman-road-the-eager-servant-proclaims-gods-gospel.html"}
+];
+/* STUDIES:END */
+
+const GROUPS = [
+  { c: "all", label: "All" },
+  { c: "ky",  label: "KOGYouth" },
+  { c: "gg",  label: "Home Groups" },
+  { c: "ya",  label: "Young Adults" },
+  { c: "nh",  label: "Nursing Home" },
+  { c: "kk",  label: "KOGKids" }
+];
+const NAMES = { ky: "KOGYouth", gg: "Home Groups", ya: "Young Adults", nh: "Nursing Home", kk: "KOGKids" };
+
+const VALID = ["all", "ky", "gg", "ya", "nh", "kk"];
+// ?c=ky preselects a collection — used by the retired study repos when they redirect here.
+const wanted = new URLSearchParams(location.search).get("c");
+let active = VALID.indexOf(wanted) !== -1 ? wanted : "kk";
+
+const chipsEl = document.getElementById("chips");
+const listEl  = document.getElementById("list");
+const countEl = document.getElementById("count");
+const qEl     = document.getElementById("q");
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"]/g, function (ch) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch];
+  });
+}
+
+GROUPS.forEach(function (g) {
+  const b = document.createElement("button");
+  b.className = "chip";
+  b.type = "button";
+  b.textContent = g.label;
+  b.setAttribute("aria-pressed", g.c === active ? "true" : "false");
+  b.addEventListener("click", function () {
+    active = g.c;
+    Array.prototype.forEach.call(chipsEl.children, function (n) {
+      n.setAttribute("aria-pressed", n === b ? "true" : "false");
+    });
+    render();
+  });
+  chipsEl.appendChild(b);
+});
+
+function render() {
+  const term = qEl.value.trim().toLowerCase();
+  const rows = STUDIES.filter(function (s) {
+    if (active !== "all" && s.c !== active) return false;
+    if (!term) return true;
+    return (s.t + " " + s.r + " " + (s.idea || "") + " " + (s.note || ""))
+      .toLowerCase().indexOf(term) !== -1;
+  });
+
+  countEl.textContent = rows.length + (rows.length === 1 ? " study" : " studies");
+
+  if (!rows.length) {
+    listEl.innerHTML = '<p class="empty">Nothing here yet — try another search or collection.</p>';
+    return;
+  }
+
+  listEl.innerHTML = rows.map(function (s) {
+    return '<a class="study" href="' + esc(s.u) + '">' +
+             '<span class="tag">' + esc(NAMES[s.c] || s.c) + '</span>' +
+             '<h2>' + esc(s.t) + '</h2>' +
+             '<p class="meta">' + esc(s.r) + ' &middot; ' + esc(s.note) + '</p>' +
+             (s.idea ? '<p class="idea">' + esc(s.idea) + '</p>' : '') +
+           '</a>';
+  }).join("");
+}
+
+qEl.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>

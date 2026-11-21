@@ -1,0 +1,31 @@
+{
+  "name": "KOGKids Worksheets — St Paul's Anglican Kogarah",
+  "short_name": "KOGKids",
+  "description": "Printable KOGKids worksheets from Sunday's sermon, for Kindergarten to Year 6.",
+  "start_url": "studies/kids/",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1a2b",
+  "theme_color": "#0e1a2b",
+  "icons": [
+    {
+      "src": "kk-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "kk-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "kk-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

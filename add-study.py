@@ -15,6 +15,8 @@ Collections and their page prefixes:
     homegroup_adults_*    -> gg-   Home Groups (adults)
     homegroup_youngadults_* -> ya- Young Adults (19-30)
     *Nursing Home*        -> nh-   Nursing Home Talks
+    kids_lower_* (+ kids_upper_*) -> kk-   KOGKids worksheets (one page per Sunday,
+                          with the two printable worksheets copied into kogkids/)
 
 Pages are flat at the repo root (ky-001-slug.html), exactly like the sermon pages.
 The browse page bible-studies.html owns the STUDIES array between the
@@ -32,7 +34,21 @@ except ImportError:
     sys.exit("python-docx is required:  pip install python-docx")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SERMON_DIR = os.path.abspath(os.path.join(HERE, os.pardir))
+def _find_sermon_dir():
+    """Where the study .docx files live. The site repo no longer sits inside the
+    Sermon folder, so look in order: $SERMON_DIR, the iCloud Sermon folder on the
+    Mac, the Cowork mount of it, and finally the repo's parent (the old layout)."""
+    cands = [os.environ.get("SERMON_DIR", ""),
+             os.path.expanduser("~/Library/Mobile Documents/com~apple~CloudDocs/Sermon"),
+             os.path.expanduser("~/mnt/Sermon"),
+             os.path.join(HERE, os.pardir)]
+    for c in cands:
+        if c and os.path.isdir(os.path.join(c, "New Testament")):
+            return os.path.abspath(c)
+    sys.exit("Can't find the Sermon folder; set SERMON_DIR to its path.")
+
+
+SERMON_DIR = _find_sermon_dir()
 INDEX_EN = os.path.join(HERE, "bible-studies.html")
 INDEX_CN = os.path.join(HERE, "bible-studies-cn.html")
 CN_DIR = os.path.join(HERE, "cn")      # one <pagebase>.json per translated study
@@ -42,7 +58,9 @@ COLLECTIONS = [
     ("homegroup_adults_",     "gg", "Home Groups",   "Home Groups (adults)",     "成人家庭小组查经"),
     ("homegroup_youngadults_","ya", "Young Adults",  "Young Adults (19–30)","青年成人查经"),
     ("nursing home",          "nh", "Nursing Home",  "Nursing Home Talks",       "安老院短讲"),
+    ("kids_lower_",           "kk", "KOGKids",       "KOGKids Worksheets",       "KOGKids 儿童作业纸"),
 ]
+KIDS_DIR = os.path.join(HERE, "kogkids")   # printable worksheets (.pdf / .docx) live here
 MONTHS = ["January","February","March","April","May","June","July","August",
           "September","October","November","December"]
 
@@ -73,6 +91,8 @@ def find_docs():
             if not f.endswith(".docx") or f.startswith("~$"):
                 continue
             if "_handout" in f.lower():          # student print copy, not a web page
+                continue
+            if f.lower().startswith("kids_upper_"):  # paired with its kids_lower_ file
                 continue
             if f.lower().endswith("_cn.docx"):   # Chinese print copy; the web page comes from cn/*.json
                 continue
@@ -160,9 +180,55 @@ def _split_headline(text):
     return text.strip(), _clean_title(text)
 
 
-def parse(path):
-    d = docx.Document(path)
+def _kids_pair(path):
+    """(lower, upper) worksheet paths for one Sunday; upper may be missing."""
+    upper = os.path.join(os.path.dirname(path),
+                         os.path.basename(path).replace("kids_lower_", "kids_upper_", 1))
+    return path, (upper if os.path.exists(upper) else None)
+
+
+def parse_kids(path):
+    """KOGKids worksheets: title, '<ref> — <band>', a Big Idea box, activities.
+    The web page is a landing page for the printables, not a copy of the activities."""
     coll = classify(path)
+    lower, upper = _kids_pair(path)
+    d = docx.Document(lower)
+    paras = [" ".join(p.text.split()) for p in d.paragraphs if p.text.strip()]
+    title = _clean_title(paras[0]) if paras else os.path.basename(path)
+    ref = paras[1].split("—")[0].strip() if len(paras) > 1 else ""
+    idea = verse = verse_ref = ""
+    src = docx.Document(upper) if upper else d
+    for tb in src.tables:
+        for row in tb.rows:
+            for cell in row.cells:
+                t = " ".join(cell.text.split())
+                m = re.match(r"Big Idea:\s*(.+?)(?:\s*Open your Bible:.*)?$", t, re.I)
+                if m and not idea:
+                    idea = m.group(1).strip()
+                m = re.match(r"“(.+?)”\s*(.+\(CSB\))$", t)
+                if m and not verse:
+                    verse, verse_ref = m.group(1), m.group(2)
+    when = doc_date(path, "")
+    files = []
+    for label, band, p in (("Kindergarten to Year 2", "Read-aloud: story, trace, circle, match, draw and pray", lower),
+                           ("Years 3 to 6", "With a Bible: fill-in story, questions, word search, secret code", upper)):
+        if not p:
+            continue
+        stem = os.path.splitext(os.path.basename(p))[0]
+        pdf = os.path.splitext(p)[0] + ".pdf"
+        files.append(dict(label=label, band=band, docx=p, stem=stem,
+                          pdf=pdf if os.path.exists(pdf) else None))
+    return dict(src=path, coll=coll, title=title, ref=ref, idea=idea, date=when,
+                note="%s %d" % (MONTHS[when.month - 1], when.year),
+                dateline="%d %s %d" % (when.day, MONTHS[when.month - 1], when.year),
+                blocks=[], kids=dict(files=files, verse=verse, verse_ref=verse_ref))
+
+
+def parse(path):
+    coll = classify(path)
+    if coll and coll["prefix"] == "kk":
+        return parse_kids(path)
+    d = docx.Document(path)
     base = _body_size(d)
     head_min = base + 2.5
     blocks = []          # (kind, value, size)
@@ -389,9 +455,57 @@ def render_body(blocks):
     return "\n".join(out)
 
 
+KIDS_CSS = """
+  .dl{display:block;text-decoration:none;color:var(--cream);background:var(--night-soft);
+      border:1px solid var(--line);border-radius:14px;padding:1rem 1.2rem;margin:0.8rem 0}
+  .dl:hover{border-color:var(--line-strong)}
+  .dl b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.15rem;color:var(--brass)}
+  .dl span{display:block;font-size:0.9rem;color:var(--cream-dim);margin-top:0.2rem}
+  .dl em{display:inline-block;font-style:normal;font-size:0.78rem;letter-spacing:0.12em;
+         text-transform:uppercase;color:var(--brass);margin-top:0.55rem;margin-right:1.1rem}
+"""
+
+
+def render_kids_body(e):
+    k = e["kids"]
+    out = []
+    if e["idea"]:
+        out.append('    <div class="box"><p><b>Big Idea:</b> %s</p></div>' % html.escape(e["idea"]))
+    out.append("    <p>Two printable worksheets from Sunday&#39;s sermon on %s &mdash; "
+               "each prints on one double-sided A4 sheet.</p>" % html.escape(e["ref"]))
+    out.append("    <h2>Print a worksheet</h2>")
+    for f in k["files"]:
+        links = []
+        if f["pdf"]:
+            links.append('<a href="kogkids/%s.pdf" style="color:inherit"><em>PDF &darr;</em></a>' % f["stem"])
+        links.append('<a href="kogkids/%s.docx" style="color:inherit"><em>Word &darr;</em></a>' % f["stem"])
+        out.append('    <div class="dl"><b>%s</b><span>%s</span>%s</div>'
+                   % (html.escape(f["label"]), html.escape(f["band"]), "".join(links)))
+    if k["verse"]:
+        out.append("    <h2>Memory verse</h2>")
+        out.append("    <p>&ldquo;%s&rdquo; <i>%s</i></p>" % (html.escape(k["verse"]), html.escape(k["verse_ref"])))
+    return "\n".join(out)
+
+
+def copy_kids_files(entries):
+    import shutil
+    os.makedirs(KIDS_DIR, exist_ok=True)
+    for e in entries:
+        for f in e.get("kids", {}).get("files", []):
+            shutil.copy2(f["docx"], os.path.join(KIDS_DIR, f["stem"] + ".docx"))
+            if f["pdf"]:
+                shutil.copy2(f["pdf"], os.path.join(KIDS_DIR, f["stem"] + ".pdf"))
+
+
 def render_page(e):
     desc = (e["idea"] or e["title"])[:180]
     cn = cn_path(e)
+    if e.get("kids"):
+        return PAGE_TMPL.format(title=html.escape(e["title"]), desc=html.escape(desc),
+                                toggle="index.html", toggle_label="Word &amp; Prayer",
+                                css=PAGE_CSS + KIDS_CSS, coll=html.escape(e["coll"]["long"]),
+                                ref=html.escape(e["ref"]), dateline=html.escape(e["dateline"]),
+                                body=render_kids_body(e))
     return PAGE_TMPL.format(title=html.escape(e["title"]), desc=html.escape(desc),
                             toggle=(cn_file(e) if cn else "index.html"),
                             toggle_label=("中文" if cn else "Word &amp; Prayer"),
@@ -495,6 +609,7 @@ COLLECTION_PAGES = [
     ("studies/youth",              "ky", "bible-studies.html",    "ky", "studies-youth.webmanifest",          "KOGYouth Studies",     "KOGYouth"),
     ("studies/young-adults",       "ya", "bible-studies.html",    "ya", "studies-young-adults.webmanifest",   "Young Adults Studies", "Young Adults"),
     ("studies/nursing-home",       "nh", "bible-studies.html",    "nh", "studies-nursing-home.webmanifest",   "Nursing Home Talks",   "Nursing Home"),
+    ("studies/kids",               "kk", "bible-studies.html",    "kk", "studies-kids.webmanifest",           "KOGKids Worksheets",   "KOGKids"),
     ("studies",                    "all","bible-studies.html",    "bs", "bible-studies.webmanifest",          "Bible Studies",        "Studies"),
     ("studies/chinese",            "all","bible-studies-cn.html", "bs", "bible-studies.webmanifest",          "查经材料",              "查经"),
     ("studies/chinese/home-groups","gg","bible-studies-cn.html",  "gg", "studies-home-groups.webmanifest",    "成人家庭小组查经",       "家庭小组"),
@@ -560,6 +675,7 @@ def cmd_rebuild():
     entries = build()
     for e in entries:
         open(os.path.join(HERE, e["file"]), "w", encoding="utf-8").write(render_page(e))
+    copy_kids_files(entries)
     cn_entries = []
     for e in entries:
         src = cn_path(e)
@@ -605,7 +721,7 @@ def cmd_check():
         if not e["idea"]:
             print("NO BIG IDEA   %s" % e["file"]); problems += 1
     for f in sorted(os.listdir(HERE)):
-        if re.match(r"^(ky|gg|ya|nh)-\d{3}-", f) and f not in listed:
+        if re.match(r"^(ky|gg|ya|nh|kk)-\d{3}-", f) and f not in listed:
             print("ORPHAN PAGE   %s  (no source .docx)" % f); problems += 1
     src = open(INDEX_EN, encoding="utf-8").read()
     for e in entries:
@@ -615,7 +731,11 @@ def cmd_check():
     for e in entries:
         if cn_path(e) and cn_file(e) not in cnsrc:
             print("NOT IN CN INDEX  %s" % cn_file(e)); problems += 1
-    todo = [e["file"] for e in entries if not cn_path(e)]
+    for e in entries:
+        for f in e.get("kids", {}).get("files", []):
+            if not os.path.exists(os.path.join(KIDS_DIR, f["stem"] + ".docx")):
+                print("MISSING WORKSHEET  kogkids/%s.docx" % f["stem"]); problems += 1
+    todo = [e["file"] for e in entries if not cn_path(e) and not e.get("kids")]
     if todo:
         print("NO CHINESE YET (%d): %s" % (len(todo), ", ".join(t[:6] for t in todo)))
     print("%d studies checked, %d problem(s)." % (len(entries), problems))
